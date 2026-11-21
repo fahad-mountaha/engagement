@@ -10,9 +10,9 @@
   <meta property="og:description" content="الجمعة، ٤ ديسمبر ٢٠٢٦ | ٤:٠٠ عصراً – ٩:٠٠ مساءً | قاعة ليلة العمر — بغداد، بالقرب من التفاح الأخضر" />
   <meta property="og:type" content="website" />
   <meta property="og:locale" content="ar_IQ" />
-  <meta name="theme-color" content="#0a162a" />
+  <meta name="theme-color" content="#0b192c" />
 
-  <!-- Arabic Typography: Aref Ruqaa (Names), Amiri (Headings), IBM Plex Sans Arabic (Body) -->
+  <!-- Arabic Typography: Aref Ruqaa (Names), Amiri (Headings & Footer), IBM Plex Sans Arabic (Body & Form) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
@@ -26,8 +26,8 @@
           colors: {
             tigris: {
               950: '#071122',
-              900: '#0a162a',
-              800: '#132a4f',
+              900: '#0b192c',
+              800: '#16325b',
             },
             sun: {
               soft: '#fde68a',
@@ -53,20 +53,20 @@
   <style>
     html {
       scroll-behavior: smooth;
-      background-color: #071122;
+      background-color: #0b192c;
     }
 
     body {
       font-family: 'IBM Plex Sans Arabic', sans-serif;
-      background-color: #071122;
+      background-color: #0b192c;
       color: #fffdf7;
       overflow-x: hidden;
       -webkit-tap-highlight-color: transparent;
     }
 
-    /* Sleek translucent dark-sapphire frosted glass cards */
+    /* Translucent frosted-glass cards floating over the living Baghdad canvas */
     .glass-card {
-      background: rgba(10, 22, 42, 0.52);
+      background: rgba(11, 25, 44, 0.50);
       -webkit-backdrop-filter: blur(14px);
       backdrop-filter: blur(14px);
       border: 1px solid rgba(253, 230, 138, 0.28);
@@ -76,13 +76,13 @@
     }
 
     .glass-pill {
-      background: rgba(10, 22, 42, 0.56);
+      background: rgba(11, 25, 44, 0.56);
       -webkit-backdrop-filter: blur(12px);
       backdrop-filter: blur(12px);
       border: 1px solid rgba(253, 230, 138, 0.32);
     }
 
-    /* Smooth hide-cards transition for viewing the full Baghdad scenery */
+    /* Smooth hide-cards transition to admire the full Baghdad scenery */
     #content-wrapper {
       transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
     }
@@ -93,7 +93,6 @@
       transform: translateY(14px) scale(0.985);
     }
 
-    /* Gentle scroll hint bounce */
     @keyframes floatHint {
       0%, 100% { transform: translateY(0); opacity: 0.75; }
       50% { transform: translateY(6px); opacity: 1; }
@@ -102,10 +101,9 @@
       animation: floatHint 2.2s ease-in-out infinite;
     }
 
-    /* Radio option active styling */
     .rsvp-radio:checked + .rsvp-option {
       background: rgba(245, 197, 66, 0.22);
-      border-color: rgba(245, 197, 66, 0.9);
+      border-color: rgba(245, 197, 66, 0.92);
       color: #fffdf7;
       box-shadow: 0 0 22px -6px rgba(245, 197, 66, 0.45);
     }
@@ -119,16 +117,14 @@
   <canvas id="baghdad-canvas" class="fixed inset-0 z-0 block h-full w-full pointer-events-none" aria-hidden="true"></canvas>
 
   <!-- ===================================================================== -->
-  <!-- TOP FLOATING BAR (RTL: Right = Live Time Pill, Left = View Scenery)   -->
+  <!-- TOP FIXED BAR (RTL: Right = Live Time Pill, Left = View Scenery)      -->
   <!-- ===================================================================== -->
   <nav class="fixed top-3.5 inset-x-3.5 z-50 flex items-center justify-between pointer-events-none" aria-label="أدوات العرض">
-    <!-- Right side (in RTL): Live scroll-synced time-of-day pill -->
     <div id="time-pill" class="glass-pill pointer-events-auto inline-flex items-center gap-2 rounded-full px-3.5 py-2 text-xs font-medium text-ivory-50 shadow-lg">
       <span id="time-icon" class="text-sm leading-none">☀️</span>
       <span id="time-label" class="tracking-wide">٤:٠٠ عصراً</span>
     </div>
 
-    <!-- Left side (in RTL): Toggle unobstructed scenery view -->
     <button
       id="toggle-scene-btn"
       type="button"
@@ -141,12 +137,12 @@
   </nav>
 
   <!-- ===================================================================== -->
-  <!-- FOREGROUND INVITATION CARDS (Generous vertical breathing room)        -->
+  <!-- FOREGROUND INVITATION CARDS                                           -->
   <!-- ===================================================================== -->
   <main id="content-wrapper" class="relative z-10 mx-auto w-full max-w-[490px] px-4 sm:px-5 pt-20">
 
-    <!-- CARD 1: HERO & LIVE BAGHDAD COUNTDOWN -->
-    <section class="glass-card rounded-3xl px-6 py-9 sm:px-8 sm:py-10 text-center mt-4 mb-[44vh]">
+    <!-- SECTION 1: HERO & LIVE BAGHDAD COUNTDOWN -->
+    <section class="glass-card rounded-3xl px-6 py-9 sm:px-8 sm:py-10 text-center mt-4 mb-[46vh]">
       <p class="text-xs sm:text-sm font-medium text-ivory-200/95 tracking-wide">
         يسرّنا دعوتكم لمشاركتنا فرحة خطوبتنا
       </p>
@@ -184,18 +180,17 @@
       </p>
 
       <a href="#details-card" class="animate-float-hint mt-7 inline-block text-xs font-medium text-sun-soft/95 hover:text-sun-gold transition">
-        اسحب للأسفل لمشاهدة التفاصيل ↓
+        اسحب للأسفل ↓
       </a>
     </section>
 
-    <!-- CARD 2: EVENT DETAILS, MAPS, CALENDAR & IMPORTANT NOTES -->
-    <section id="details-card" class="glass-card rounded-3xl px-6 py-8 sm:px-7 sm:py-9 mb-[44vh]">
+    <!-- SECTION 2: EVENT DETAILS, MAPS, CALENDAR & IMPORTANT NOTES -->
+    <section id="details-card" class="glass-card rounded-3xl px-6 py-8 sm:px-7 sm:py-9 mb-[46vh]">
       <h2 class="font-amiri text-2xl sm:text-3xl font-bold text-sun-soft text-center mb-6">
         تفاصيل الحفل
       </h2>
 
       <div class="space-y-3">
-        <!-- Date -->
         <div class="flex items-start gap-3.5 rounded-2xl border border-white/10 bg-tigris-950/40 p-3.5">
           <span class="text-xl leading-none mt-0.5">📅</span>
           <div>
@@ -204,7 +199,6 @@
           </div>
         </div>
 
-        <!-- Time -->
         <div class="flex items-start gap-3.5 rounded-2xl border border-white/10 bg-tigris-950/40 p-3.5">
           <span class="text-xl leading-none mt-0.5">🕓</span>
           <div>
@@ -213,7 +207,6 @@
           </div>
         </div>
 
-        <!-- Venue -->
         <div class="flex items-start gap-3.5 rounded-2xl border border-white/10 bg-tigris-950/40 p-3.5">
           <span class="text-xl leading-none mt-0.5">📍</span>
           <div>
@@ -225,7 +218,7 @@
         </div>
       </div>
 
-      <!-- Maps & Calendar Action Buttons -->
+      <!-- Maps & Calendar Buttons -->
       <div class="mt-5 grid grid-cols-2 gap-2.5">
         <a
           href="https://maps.app.goo.gl/oZ2uTXfKqkgFwq849"
@@ -254,33 +247,32 @@
         </button>
       </div>
 
-      <!-- Important Notes Box (3 clear, warm, refined notes) -->
+      <!-- Important Notes -->
       <div class="mt-6 pt-5 border-t border-sun-soft/20 space-y-2.5">
         <div class="flex items-start gap-2.5 rounded-xl border border-sun-gold/25 bg-sun-gold/10 px-3.5 py-3 text-[13px] sm:text-sm leading-relaxed text-ivory-100">
           <span class="shrink-0 mt-0.5">✨</span>
-          <span>نود التنويه بأن الحفل مختلط، ويسعدنا حضوركم جميعاً لمشاركتنا هذه الفرحة.</span>
+          <span>نودّ إعلامكم بأن الحفل مختلط، ويسعدنا حضوركم جميعاً.</span>
         </div>
 
         <div class="flex items-start gap-2.5 rounded-xl border border-sun-gold/25 bg-sun-gold/10 px-3.5 py-3 text-[13px] sm:text-sm leading-relaxed text-ivory-100">
           <span class="shrink-0 mt-0.5">🚗</span>
-          <span>نودّ تنبيهكم بأن مواقف السيارات محدودة عند القاعة، شاكرين تفهّمكم.</span>
+          <span>نرجو الملاحظة بأن مواقف السيارات أمام القاعة محدودة.</span>
         </div>
 
         <div class="flex items-start gap-2.5 rounded-xl border border-sun-gold/25 bg-sun-gold/10 px-3.5 py-3 text-[13px] sm:text-sm leading-relaxed text-ivory-100">
           <span class="shrink-0 mt-0.5">🌙</span>
-          <span>يُرجى العلم بأن الدعوة مخصصة للكبار فقط، ونعتذر عن اصطحاب الأطفال.</span>
+          <span>يمنع اصطحاب الاطفال.</span>
         </div>
       </div>
     </section>
 
-    <!-- CARD 3: RSVP FORM (Dual-mode Google Apps Script + External Fetch) -->
+    <!-- SECTION 3: RSVP FORM (Dual-mode Google Apps Script + External Fetch) -->
     <section id="rsvp-section" class="glass-card rounded-3xl px-6 py-8 sm:px-7 sm:py-9 mb-10">
       <h2 class="font-amiri text-2xl sm:text-3xl font-bold text-sun-soft text-center mb-6">
         تأكيد الحضور
       </h2>
 
       <form id="rsvp-form" class="space-y-5" novalidate>
-        <!-- Field 1: Full Name -->
         <div>
           <label for="guest-name" class="block text-sm font-medium text-sun-soft mb-2">
             الاسم الكامل
@@ -296,14 +288,13 @@
           />
         </div>
 
-        <!-- Field 2: Attendance -->
         <div>
           <span class="block text-sm font-medium text-sun-soft mb-2.5">هل ستتمكن من الحضور؟</span>
           <div class="grid grid-cols-2 gap-2.5">
             <label class="relative block cursor-pointer">
               <input type="radio" name="attendance" value="سأحضر" required class="rsvp-radio sr-only" />
               <span class="rsvp-option flex items-center justify-center rounded-2xl border border-sun-soft/28 bg-tigris-950/45 px-2.5 py-3.5 text-center text-xs sm:text-sm font-medium text-ivory-200 transition hover:border-sun-gold/60">
-                ✨ نعم، سأحضر
+                ✨ سأحضر
               </span>
             </label>
 
@@ -316,7 +307,6 @@
           </div>
         </div>
 
-        <!-- Field 3: Groom or Bride Side -->
         <div>
           <span class="block text-sm font-medium text-sun-soft mb-2.5">من أي طرف؟</span>
           <div class="grid grid-cols-2 gap-2.5">
@@ -336,7 +326,6 @@
           </div>
         </div>
 
-        <!-- Submit Button -->
         <button
           id="submit-btn"
           type="submit"
@@ -345,15 +334,14 @@
           إرسال الرد
         </button>
 
-        <!-- Inline Status / Validation Message -->
         <div id="status-msg" role="status" aria-live="polite" class="hidden rounded-2xl px-4 py-3.5 text-center text-sm font-medium"></div>
       </form>
     </section>
 
-    <!-- FOOTER (Generous bottom window so the night-lit Baghdad Tigris scene shines clearly below) -->
-    <footer class="pt-4 pb-[44vh] text-center">
+    <!-- FOOTER (Generous bottom window so the night-lit fox on the bench & perched owl on the left tree shine clearly) -->
+    <footer class="pt-4 pb-[52vh] text-center">
       <p class="font-amiri text-xl text-sun-soft drop-shadow-[0_2px_14px_rgba(5,12,26,0.9)]">
-        بحضوركم تكتمل فرحتنا
+        بحضوركم تكتمل فرحتنا 💛💙
       </p>
     </footer>
   </main>
@@ -369,6 +357,8 @@
   <script>
     // =========================================================================
     // CONFIGURATION & SAFE UTILITIES
+    // Replace WEB_APP_URL below with your new Google Apps Script /exec URL
+    // if you redeploy the script for GitHub Pages hosting.
     // =========================================================================
     const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwbDGCvla5dt27IkFIiLXczhsTr12HvgJUkic92-CyW70nQJ1u22mI6-yoeRQxb2Ktkow/exec';
     const MAPS_URL = 'https://maps.app.goo.gl/oZ2uTXfKqkgFwq849';
@@ -448,7 +438,7 @@
     setInterval(updateCountdown, 1000);
 
     // =========================================================================
-    // 2. GOOGLE CALENDAR LINK & .ICS FILE DOWNLOAD
+    // 2. GOOGLE CALENDAR LINK & .ICS DOWNLOAD
     // =========================================================================
     document.getElementById('gcal-link').href =
       'https://calendar.google.com/calendar/render?action=TEMPLATE' +
@@ -501,8 +491,8 @@
     });
 
     // =========================================================================
-    // 4. SCENIC BAGHDAD TIGRIS RIVERFRONT 60FPS RETINA CANVAS ENGINE
-    //    (Late Afternoon 4:00 PM -> Golden Sunset -> Starry Baghdad Night 9:00 PM)
+    // 4. ART-DIRECTED 60FPS RETINA BAGHDAD TIGRIS RIVERFRONT CANVAS ENGINE
+    //    Late Afternoon (4:00 PM) -> Golden Sunset/Dusk -> Starry Night (9:00 PM)
     // =========================================================================
     const BaghdadScene = (() => {
       const canvas = document.getElementById('baghdad-canvas');
@@ -514,17 +504,18 @@
       let H = window.innerHeight;
       let dpr = Math.min(window.devicePixelRatio || 1, 2);
 
-      // Smooth damped scroll progress (0.00 = 4:00 PM -> 1.00 = 9:00 PM)
+      // Smooth damped scroll interpolation (0.00 = 4:00 PM -> 1.00 = 9:00 PM)
       let targetP = 0;
-      let p = 0;
+      let scrollP = 0;
       let time = 0;
 
-      // Branch launch spring physics (recoils when the owl launches at p ~ 0.56)
+      // Branch recoil physics for upper-right launch AND lower-left landing
       let owlLaunched = false;
-      let branchSpringPos = 0;
-      let branchSpringVel = 0;
+      let owlLanded = false;
+      let upperSpringPos = 0, upperSpringVel = 0;
+      let leftSpringPos = 0, leftSpringVel = 0;
 
-      // Procedural world entities (initialized on resize)
+      // Procedural world entities
       const stars = [];
       const clouds = [];
       const birds = [];
@@ -547,19 +538,18 @@
         { ox: -0.35, oy: 0.16, r: 0.09, a: 0.12 }
       ];
 
-      // Wooden Baghdad boat (بلم / مشحوف) state
-      const boat = { x: 0.72, speed: 0.0095 };
+      // Traditional wooden Baghdad boat (بلم / مشحوف)
+      const boat = { x: 0.68, speed: 0.009 };
 
-      // Articulated fox physics state (6-segment trailing tail + ear twitch)
+      // Articulated Red Fox state
       const foxState = {
         distWalked: 0,
         lastX: null,
         earTwitch: 0,
-        nextTwitch: 2.4,
-        tailAngles: [0, 0, 0, 0, 0, 0]
+        nextTwitch: 2.2,
+        tailAngles: [0, 0, 0, 0, 0]
       };
 
-      // Deterministic pseudo-random helper for stable Baghdad skyline architecture
       function seededRand(seed) {
         let s = seed % 2147483647;
         if (s <= 0) s += 2147483646;
@@ -572,14 +562,14 @@
       function buildWorld() {
         const rand = seededRand(4122026);
 
-        // 1. Multi-temperature twinkling stars
+        // 1. Multi-temperature stars
         stars.length = 0;
-        const starCount = W < 600 ? 95 : 145;
+        const starCount = W < 600 ? 100 : 150;
         for (let i = 0; i < starCount; i++) {
           const temp = rand();
           stars.push({
             x: rand(),
-            y: rand() * 0.54,
+            y: rand() * 0.52,
             r: 0.55 + rand() * 1.45,
             phase: rand() * Math.PI * 2,
             speed: 0.9 + rand() * 2.1,
@@ -602,31 +592,31 @@
           }
           clouds.push({
             x: rand() * (W + 260) - 130,
-            y: H * (0.09 + i * 0.068 + rand() * 0.025),
-            speed: 3.5 + rand() * 5.5,
-            scale: 0.75 + rand() * 0.65,
+            y: H * (0.08 + i * 0.065 + rand() * 0.025),
+            speed: 3.4 + rand() * 5.2,
+            scale: 0.72 + rand() * 0.65,
             puffs
           });
         }
 
-        // 3. Distant afternoon birds over the Tigris
+        // 3. Distant afternoon birds gliding over the Tigris
         birds.length = 0;
         for (let i = 0; i < 6; i++) {
           birds.push({
             x: rand() * W,
-            y: H * (0.16 + rand() * 0.22),
-            speed: 14 + rand() * 10,
-            size: 3.5 + rand() * 3,
+            y: H * (0.15 + rand() * 0.22),
+            speed: 13 + rand() * 10,
+            size: 3.5 + rand() * 2.8,
             phase: rand() * Math.PI * 2
           });
         }
 
-        // 4. Authentic Baghdad Far-Bank Skyline (Mosque domes, slender minarets, arched riverfront buildings)
+        // 4. Far-Bank Baghdad Skyline (Islamic Domes, Slender Minarets, Riverfront Buildings)
         skylineBuildings.length = 0;
         let bx = -12;
         let idx = 0;
         while (bx < W + 40) {
-          const isMosque = (idx === 3 || idx === 9 || idx === 16 || (W > 700 && idx === 22));
+          const isMosque = (idx === 2 || idx === 8 || idx === 15 || (W > 700 && idx === 21));
           const bw = isMosque ? (48 + rand() * 24) : (22 + rand() * 34);
           const bh = isMosque ? (32 + rand() * 18) : (18 + rand() * 44);
           const windows = [];
@@ -659,7 +649,7 @@
           idx++;
         }
 
-        // 5. Groves of Iraqi Date Palms (نخيل بغداد) along far bank
+        // 5. Groves of Swaying Iraqi Date Palms (نخيل بغداد)
         farPalms.length = 0;
         const palmCount = Math.max(10, Math.floor(W / 38));
         for (let i = 0; i < palmCount; i++) {
@@ -672,36 +662,35 @@
           });
         }
 
-        // 6. Evening cars gliding slowly across the Baghdad bridge
+        // 6. Slow-moving evening cars crossing the Baghdad Tigris bridge
         bridgeCars.length = 0;
         for (let i = 0; i < 7; i++) {
           const dir = i % 2 === 0 ? 1 : -1;
           bridgeCars.push({
             x: rand() * W,
             dir,
-            speed: 18 + rand() * 18
+            speed: 17 + rand() * 17
           });
         }
 
-        // 7. Wind-rippled near-bank riverside reeds & cattails (68 blades)
+        // 7. Wind-rippled near-bank reeds & cattails (keeping lower clearing around bench)
         reeds.length = 0;
-        const reedCount = W < 520 ? 66 : 96;
+        const reedCount = W < 520 ? 64 : 96;
         for (let i = 0; i < reedCount; i++) {
           const xNorm = i / reedCount + (rand() - 0.5) * 0.02;
-          // Keep a slightly lower clearing directly in front of the bench center so bench & river view shine
-          const nearBenchCenter = Math.abs(xNorm - 0.36) < 0.14;
+          const nearBench = Math.abs(xNorm - 0.65) < 0.16;
           reeds.push({
             xNorm,
-            h: (nearBenchCenter ? 22 : 34) + rand() * (nearBenchCenter ? 24 : 44),
-            lean: (rand() - 0.5) * 16,
+            h: (nearBench ? 16 : 30) + rand() * (nearBench ? 18 : 40),
+            lean: (rand() - 0.5) * 15,
             phase: rand() * Math.PI * 2,
-            cattail: !nearBenchCenter && rand() > 0.78,
+            cattail: !nearBench && rand() > 0.78,
             thick: 1.2 + rand() * 1.4,
             layer: rand() > 0.45 ? 1 : 0
           });
         }
 
-        // 8. Rising bokeh fireflies
+        // 8. Rising golden pollen -> night bokeh fireflies
         fireflies.length = 0;
         const flyCount = W < 600 ? 28 : 42;
         for (let i = 0; i < flyCount; i++) {
@@ -715,7 +704,7 @@
           });
         }
 
-        // 9. Tiny orbiting fireflies / moths around the vintage corniche lamp
+        // 9. Tiny golden fireflies orbiting the vintage street lamp glass
         lampMoths.length = 0;
         for (let i = 0; i < 6; i++) {
           lampMoths.push({
@@ -727,12 +716,12 @@
           });
         }
 
-        // 10. Ambient falling crimson pomegranate petals
+        // 10. Ambient falling pomegranate petals
         fallingPetals.length = 0;
         for (let i = 0; i < 10; i++) {
           fallingPetals.push({
             x: rand() * W,
-            y: rand() * H * 0.72,
+            y: rand() * H * 0.70,
             vx: -6 - rand() * 10,
             vy: 14 + rand() * 14,
             rot: rand() * Math.PI * 2,
@@ -762,20 +751,28 @@
         targetP = clamp(scrollTop / maxScroll, 0, 1);
       }
 
-      // Compute responsive scene anchor geometry
+      // Responsive scene anchor geometry balanced for both narrow mobile (375px) & desktop
       function getMetrics(progress) {
-        const horizonY = H * lerp(0.555, 0.525, progress);
-        const bridgeY = horizonY + H * 0.036;
-        const cornicheY = H * lerp(0.795, 0.775, progress);
-        const benchX = clamp(W * 0.34, 92, W * 0.42);
-        const lampX = benchX - clamp(W * 0.145, 58, 86);
-        const treeX = clamp(W * 0.07, 18, 72);
-        return { horizonY, bridgeY, cornicheY, benchX, lampX, treeX };
+        const horizonY = H * lerp(0.545, 0.51, progress);
+        const bridgeY = horizonY + H * 0.04;
+        const cornicheY = H * lerp(0.79, 0.768, progress);
+
+        // Lower-left gnarled pomegranate tree (with right-facing sturdy perch branch for owl)
+        const treeX = clamp(W * 0.095, 28, 120);
+
+        // Foreground corniche park bench (mid-right / lower-right) + vintage streetlamp on its right
+        const benchW = clamp(W * 0.29, 106, 138);
+        const benchX = clamp(W * 0.64, W * 0.58, W - benchW * 0.5 - 48);
+        const benchGroundY = cornicheY + 34;
+        const benchSeatY = benchGroundY - 14;
+        const lampX = Math.min(W - 22, benchX + benchW * 0.5 + clamp(W * 0.055, 18, 34));
+
+        return { horizonY, bridgeY, cornicheY, treeX, benchX, benchW, benchGroundY, benchSeatY, lampX };
       }
 
-      // Update live top-right time pill (4:00 PM -> 9:00 PM)
+      // Live top-right time pill (4:00 PM -> 9:00 PM)
       function updateTimePill(progress) {
-        const totalMins = Math.round(progress * 300); // 5 hours = 300 mins
+        const totalMins = Math.round(progress * 300);
         const hr = 4 + Math.floor(totalMins / 60);
         const mn = totalMins % 60;
         const period = progress < 0.38 ? 'عصراً' : 'مساءً';
@@ -787,7 +784,6 @@
       // SKY, CELESTIALS, CLOUDS & BIRDS
       // =======================================================================
       function drawSky(progress, dt, horizonY) {
-        // 3-stage rich palette: Late Afternoon (0.0) -> Golden Sunset (0.42) -> Starry Night (1.0)
         const afternoonTop = [52, 108, 174];
         const afternoonMid = [156, 178, 198];
         const afternoonBot = [247, 206, 128];
@@ -798,16 +794,16 @@
 
         const nightTop = [6, 14, 30];
         const nightMid = [12, 28, 58];
-        const nightBot = [24, 48, 88];
+        const nightBot = [22, 50, 91];
 
         let topC, midC, botC;
-        if (progress < 0.44) {
-          const t = smoothstep(0, 0.44, progress);
+        if (progress < 0.45) {
+          const t = smoothstep(0, 0.45, progress);
           topC = mixRGB(afternoonTop, sunsetTop, t);
           midC = mixRGB(afternoonMid, sunsetMid, t);
           botC = mixRGB(afternoonBot, sunsetBot, t);
         } else {
-          const t = smoothstep(0.44, 0.94, progress);
+          const t = smoothstep(0.45, 0.94, progress);
           topC = mixRGB(sunsetTop, nightTop, t);
           midC = mixRGB(sunsetMid, nightMid, t);
           botC = mixRGB(sunsetBot, nightBot, t);
@@ -820,7 +816,7 @@
         ctx.fillStyle = skyGrad;
         ctx.fillRect(0, 0, W, horizonY + 14);
 
-        // Night Milky Way diagonal subtle dust glow
+        // Diagonal Milky Way glow
         const nightT = smoothstep(0.48, 0.88, progress);
         if (nightT > 0.01) {
           ctx.save();
@@ -838,7 +834,7 @@
           ctx.restore();
         }
 
-        // Twinkling multi-temperature stars
+        // Twinkling multi-temperature stars & occasional shooting star
         if (nightT > 0.01) {
           for (let i = 0; i < stars.length; i++) {
             const s = stars[i];
@@ -852,7 +848,6 @@
             ctx.fill();
           }
 
-          // Occasional graceful shooting star
           if (Math.random() < dt * 0.14 && shootingStars.length < 1) {
             shootingStars.push({
               x: W * (0.18 + Math.random() * 0.65),
@@ -882,14 +877,13 @@
           }
         }
 
-        // Afternoon-to-Sunset Descending Sun + Diagonal Crepuscular Sunbeams
+        // Afternoon-to-Sunset Descending Warm Sun + Diagonal Sunbeams
         const sunVis = 1 - smoothstep(0.36, 0.56, progress);
-        const sunX = W * lerp(0.28, 0.44, clamp(progress / 0.52, 0, 1));
-        const sunY = lerp(horizonY * 0.46, horizonY + 18, smoothstep(0, 0.52, progress));
+        const sunX = W * lerp(0.30, 0.44, clamp(progress / 0.52, 0, 1));
+        const sunY = lerp(horizonY * 0.44, horizonY + 18, smoothstep(0, 0.52, progress));
         const sunR = clamp(W * 0.085, 26, 44);
 
         if (sunVis > 0.01) {
-          // Volumetric sun glow
           const glow = ctx.createRadialGradient(sunX, sunY, sunR * 0.2, sunX, sunY, sunR * 5.2);
           const sunCoreCol = mixRGB([255, 244, 194], [255, 168, 86], smoothstep(0.15, 0.45, progress));
           glow.addColorStop(0, rgbStr(sunCoreCol, 0.75 * sunVis));
@@ -900,8 +894,7 @@
           ctx.arc(sunX, sunY, sunR * 5.2, 0, Math.PI * 2);
           ctx.fill();
 
-          // Diagonal crepuscular sunbeams radiating gently in late afternoon
-          const beamAlpha = 0.075 * sunVis * (1 - smoothstep(0.28, 0.48, progress));
+          const beamAlpha = 0.072 * sunVis * (1 - smoothstep(0.28, 0.48, progress));
           if (beamAlpha > 0.004) {
             ctx.save();
             ctx.translate(sunX, sunY);
@@ -922,7 +915,6 @@
             ctx.restore();
           }
 
-          // Sun disc
           const disc = ctx.createRadialGradient(sunX, sunY, 2, sunX, sunY, sunR);
           disc.addColorStop(0, `rgba(255, 252, 232, ${sunVis.toFixed(3)})`);
           disc.addColorStop(0.65, rgbStr(sunCoreCol, 0.92 * sunVis));
@@ -933,14 +925,13 @@
           ctx.fill();
         }
 
-        // Rising Cratered Golden Moon (Dusk -> Starry Night)
-        const moonT = smoothstep(0.42, 0.88, progress);
-        const moonX = W * lerp(0.20, 0.26, moonT);
-        const moonY = lerp(horizonY * 0.62, H * 0.165, moonT);
+        // Rising Cratered Golden Moon
+        const moonT = smoothstep(0.42, 0.86, progress);
+        const moonX = W * lerp(0.32, 0.38, moonT);
+        const moonY = lerp(horizonY * 0.60, H * 0.175, moonT);
         const moonR = clamp(W * 0.075, 24, 40);
 
         if (moonT > 0.01) {
-          // Soft lunar halo
           const mGlow = ctx.createRadialGradient(moonX, moonY, moonR * 0.4, moonX, moonY, moonR * 4.5);
           mGlow.addColorStop(0, `rgba(255, 232, 152, ${(0.30 * moonT).toFixed(3)})`);
           mGlow.addColorStop(0.4, `rgba(245, 197, 66, ${(0.11 * moonT).toFixed(3)})`);
@@ -950,7 +941,6 @@
           ctx.arc(moonX, moonY, moonR * 4.5, 0, Math.PI * 2);
           ctx.fill();
 
-          // Moon disc
           ctx.save();
           ctx.globalAlpha = moonT;
           const mDisc = ctx.createRadialGradient(moonX - moonR * 0.25, moonY - moonR * 0.25, moonR * 0.1, moonX, moonY, moonR);
@@ -962,7 +952,6 @@
           ctx.arc(moonX, moonY, moonR, 0, Math.PI * 2);
           ctx.fill();
 
-          // Subtle painterly craters
           ctx.clip();
           for (let c = 0; c < moonCraters.length; c++) {
             const cr = moonCraters[c];
@@ -974,25 +963,24 @@
           ctx.restore();
         }
 
-        // Volumetric Drifting Clouds with Dynamic Lit Rims
-        const cloudBody = progress < 0.44
-          ? mixRGB([246, 236, 224], [122, 76, 98], smoothstep(0, 0.44, progress))
-          : mixRGB([122, 76, 98], [26, 46, 82], smoothstep(0.44, 0.9, progress));
-        const cloudRim = progress < 0.44
-          ? mixRGB([255, 226, 152], [255, 146, 96], smoothstep(0, 0.44, progress))
-          : mixRGB([255, 146, 96], [168, 196, 235], smoothstep(0.44, 0.9, progress));
+        // Layered Volumetric Clouds
+        const cloudBody = progress < 0.45
+          ? mixRGB([246, 236, 224], [122, 76, 98], smoothstep(0, 0.45, progress))
+          : mixRGB([122, 76, 98], [26, 46, 82], smoothstep(0.45, 0.9, progress));
+        const cloudRim = progress < 0.45
+          ? mixRGB([255, 226, 152], [255, 146, 96], smoothstep(0, 0.45, progress))
+          : mixRGB([255, 146, 96], [168, 196, 235], smoothstep(0.45, 0.9, progress));
 
         for (let i = 0; i < clouds.length; i++) {
           const cl = clouds[i];
           cl.x += cl.speed * dt;
           if (cl.x > W + 180) cl.x = -180;
-          const cy = cl.y - progress * 24;
+          const cy = cl.y - progress * 22;
 
           ctx.save();
           ctx.translate(cl.x, cy);
           ctx.scale(cl.scale, cl.scale);
 
-          // Warm lit underside rim
           ctx.fillStyle = rgbStr(cloudRim, lerp(0.32, 0.14, nightT));
           for (let k = 0; k < cl.puffs.length; k++) {
             const pf = cl.puffs[k];
@@ -1000,7 +988,6 @@
             ctx.ellipse(pf.dx, pf.dy + 4, pf.rx, pf.ry * 0.85, 0, 0, Math.PI * 2);
             ctx.fill();
           }
-          // Soft cloud body
           ctx.fillStyle = rgbStr(cloudBody, lerp(0.42, 0.24, nightT));
           for (let k = 0; k < cl.puffs.length; k++) {
             const pf = cl.puffs[k];
@@ -1011,7 +998,7 @@
           ctx.restore();
         }
 
-        // Distant V-shaped Tigris river birds gliding across afternoon/sunset sky
+        // Distant Tigris river birds in afternoon/sunset
         const birdAlpha = 1 - smoothstep(0.35, 0.56, progress);
         if (birdAlpha > 0.02) {
           ctx.strokeStyle = `rgba(38, 32, 46, ${(0.52 * birdAlpha).toFixed(3)})`;
@@ -1035,37 +1022,31 @@
       }
 
       // =======================================================================
-      // AUTHENTIC BAGHDAD FAR-BANK SKYLINE (DOMES, MINARETS, DATE PALMS, LIGHTS)
+      // FAR-BANK BAGHDAD SKYLINE (DOMES, MINARETS, DATE PALMS, WARM LIGHTS)
       // =======================================================================
-      function drawBaghdadSkyline(progress, horizonY, nightT) {
-        // Silhouette color melts from dusty warm purple-blue to deep Baghdad midnight silhouette
-        const farCol = progress < 0.44
-          ? mixRGB([84, 96, 126], [56, 46, 78], smoothstep(0, 0.44, progress))
-          : mixRGB([56, 46, 78], [10, 21, 42], smoothstep(0.44, 0.88, progress));
+      function drawBaghdadSkyline(progress, horizonY) {
+        const farCol = progress < 0.45
+          ? mixRGB([84, 96, 126], [56, 46, 78], smoothstep(0, 0.45, progress))
+          : mixRGB([56, 46, 78], [10, 21, 42], smoothstep(0.45, 0.88, progress));
 
         const cityLightsAlpha = smoothstep(0.38, 0.72, progress);
 
-        // Soft distant haze mist along the far embankment
         const mistGrad = ctx.createLinearGradient(0, horizonY - 46, 0, horizonY + 4);
         mistGrad.addColorStop(0, 'rgba(255, 200, 130, 0)');
         mistGrad.addColorStop(1, rgbStr(
-          progress < 0.44 ? [248, 202, 132] : mixRGB([232, 136, 92], [32, 56, 94], smoothstep(0.44, 0.88, progress)),
+          progress < 0.45 ? [248, 202, 132] : mixRGB([232, 136, 92], [32, 56, 94], smoothstep(0.45, 0.88, progress)),
           0.26
         ));
         ctx.fillStyle = mistGrad;
         ctx.fillRect(0, horizonY - 46, W, 50);
 
-        // Far bank architectural skyline
-        ctx.fillStyle = rgbStr(farCol);
         for (let i = 0; i < skylineBuildings.length; i++) {
           const b = skylineBuildings[i];
           const topY = horizonY - b.h;
 
-          // Main building block
           ctx.fillStyle = rgbStr(farCol);
           ctx.fillRect(b.x, topY, b.w, b.h + 2);
 
-          // Islamic Dome for mosque landmarks
           if (b.isMosque) {
             const cx = b.x + b.w * 0.5;
             const dr = b.w * 0.34;
@@ -1076,7 +1057,6 @@
             ctx.closePath();
             ctx.fill();
 
-            // Delicate crescent spire
             ctx.strokeStyle = rgbStr(farCol);
             ctx.lineWidth = 1.2;
             ctx.beginPath();
@@ -1084,7 +1064,6 @@
             ctx.lineTo(cx, topY - dr * 1.72);
             ctx.stroke();
 
-            // Soft golden dome outline accent at night
             if (cityLightsAlpha > 0.05) {
               ctx.strokeStyle = `rgba(253, 214, 118, ${(0.34 * cityLightsAlpha).toFixed(3)})`;
               ctx.lineWidth = 1;
@@ -1095,27 +1074,22 @@
             }
           }
 
-          // Slender Baghdad Minaret with balcony
           if (b.hasMinaret) {
             const mx = b.minaretSide > 0 ? b.x + b.w * 0.85 : b.x + b.w * 0.15;
             const mTop = horizonY - b.h * 0.45 - b.minaretH;
             ctx.fillStyle = rgbStr(farCol);
             ctx.fillRect(mx - 2.6, mTop + 8, 5.2, horizonY - mTop - 6);
-            // Balcony ring
             ctx.fillRect(mx - 4.8, mTop + 18, 9.6, 2.4);
-            // Pointed minaret cap
             ctx.beginPath();
             ctx.moveTo(mx - 3, mTop + 9);
             ctx.quadraticCurveTo(mx, mTop - 2, mx + 3, mTop + 9);
             ctx.fill();
-            // Warm night lantern ring on minaret balcony
             if (cityLightsAlpha > 0.08) {
               ctx.fillStyle = `rgba(255, 224, 130, ${(0.85 * cityLightsAlpha).toFixed(3)})`;
               ctx.fillRect(mx - 4.2, mTop + 17.5, 8.4, 1.5);
             }
           }
 
-          // Warm Evening Apartment & Café Windows
           if (cityLightsAlpha > 0.02) {
             for (let k = 0; k < b.windows.length; k++) {
               const win = b.windows[k];
@@ -1131,7 +1105,7 @@
           }
         }
 
-        // Groves of Swaying Iraqi Date Palms (نخيل بغداد) along far river edge
+        // Swaying Iraqi Date Palms along far bank
         const palmCol = mixRGB([52, 64, 86], [7, 17, 34], smoothstep(0.1, 0.85, progress));
         ctx.strokeStyle = rgbStr(palmCol);
         ctx.fillStyle = rgbStr(palmCol);
@@ -1141,14 +1115,12 @@
           const topX = pm.x + pm.curve + sway;
           const topY = horizonY - pm.h;
 
-          // Curved slender trunk
           ctx.lineWidth = 2.1;
           ctx.beginPath();
           ctx.moveTo(pm.x, horizonY + 2);
           ctx.quadraticCurveTo(pm.x + pm.curve * 0.45, horizonY - pm.h * 0.55, topX, topY);
           ctx.stroke();
 
-          // Arching date palm fronds
           ctx.lineWidth = 1.25;
           for (let f = 0; f < pm.fronds; f++) {
             const ang = -Math.PI + (f / (pm.fronds - 1)) * Math.PI * 1.15 - 0.1 + sway * 0.015;
@@ -1162,7 +1134,7 @@
           }
         }
 
-        // Far-Bank Riverside Café String Lights (Abu Nuwas atmosphere at dusk/night)
+        // Far-bank riverside string lights
         if (cityLightsAlpha > 0.02) {
           for (let lx = 14; lx < W; lx += 16) {
             const twinkle = 0.72 + 0.28 * Math.sin(time * 2.2 + lx * 0.2);
@@ -1176,21 +1148,20 @@
       }
 
       // =======================================================================
-      // LIVING TIGRIS RIVER, BAGHDAD RIVER BRIDGE & GLIDING WOODEN BOAT
+      // TIGRIS RIVER, ARCHED BAGHDAD BRIDGE & GLIDING WOODEN BOAT
       // =======================================================================
       function drawTigrisAndBridge(progress, dt, horizonY, bridgeY, cornicheY, cel) {
         const riverH = Math.max(40, cornicheY - horizonY + 34);
 
-        // Sky-reflected Tigris water gradient
-        const wTop = progress < 0.44
-          ? mixRGB([92, 142, 188], [156, 94, 96], smoothstep(0, 0.44, progress))
-          : mixRGB([156, 94, 96], [14, 34, 68], smoothstep(0.44, 0.9, progress));
-        const wMid = progress < 0.44
-          ? mixRGB([42, 88, 138], [62, 54, 92], smoothstep(0, 0.44, progress))
-          : mixRGB([62, 54, 92], [10, 25, 52], smoothstep(0.44, 0.9, progress));
-        const wBot = progress < 0.44
-          ? mixRGB([22, 54, 94], [24, 28, 56], smoothstep(0, 0.44, progress))
-          : mixRGB([24, 28, 56], [6, 15, 32], smoothstep(0.44, 0.9, progress));
+        const wTop = progress < 0.45
+          ? mixRGB([92, 142, 188], [156, 94, 96], smoothstep(0, 0.45, progress))
+          : mixRGB([156, 94, 96], [14, 34, 68], smoothstep(0.45, 0.9, progress));
+        const wMid = progress < 0.45
+          ? mixRGB([42, 88, 138], [62, 54, 92], smoothstep(0, 0.45, progress))
+          : mixRGB([62, 54, 92], [10, 25, 52], smoothstep(0.45, 0.9, progress));
+        const wBot = progress < 0.45
+          ? mixRGB([22, 54, 94], [24, 28, 56], smoothstep(0, 0.45, progress))
+          : mixRGB([24, 28, 56], [6, 15, 32], smoothstep(0.45, 0.9, progress));
 
         const rGrad = ctx.createLinearGradient(0, horizonY, 0, cornicheY + 30);
         rGrad.addColorStop(0, rgbStr(wTop));
@@ -1199,7 +1170,7 @@
         ctx.fillStyle = rGrad;
         ctx.fillRect(0, horizonY, W, riverH);
 
-        // Far-bank warm city reflection shimmer pillars in the upper Tigris
+        // Far-bank warm city reflection pillars
         const cityGlow = smoothstep(0.38, 0.74, progress);
         if (cityGlow > 0.02) {
           for (let lx = 18; lx < W; lx += 22) {
@@ -1213,14 +1184,14 @@
           }
         }
 
-        // Sun-path / Moon-path dancing golden reflection bars across the Tigris
+        // Sun / Moon reflection column on Tigris water
         const drawWaterPath = (cx, strength, warmTint) => {
           if (strength <= 0.01) return;
           const strips = 26;
           for (let i = 0; i < strips; i++) {
             const t = i / (strips - 1);
             const ry = horizonY + 4 + t * (cornicheY - horizonY - 12);
-            const spread = lerp(18, 86, t);
+            const spread = lerp(18, 84, t);
             const sway = Math.sin(time * (2.0 + (i % 3) * 0.45) + i * 0.9) * (4 + t * 14);
             const bw = spread * (0.42 + 0.58 * Math.abs(Math.sin(time * 1.35 + i * 1.2)));
             const bh = 1.4 + t * 2.4;
@@ -1242,10 +1213,10 @@
           drawWaterPath(cel.moonX, cel.moonT * 0.9, [255, 232, 150]);
         }
 
-        // ICONIC BAGHDAD RIVER BRIDGE spanning across the Tigris
-        const bridgeCol = progress < 0.44
-          ? mixRGB([62, 74, 102], [40, 34, 62], smoothstep(0, 0.44, progress))
-          : mixRGB([40, 34, 62], [8, 18, 36], smoothstep(0.44, 0.88, progress));
+        // Arched Baghdad Tigris Bridge
+        const bridgeCol = progress < 0.45
+          ? mixRGB([62, 74, 102], [40, 34, 62], smoothstep(0, 0.45, progress))
+          : mixRGB([40, 34, 62], [8, 18, 36], smoothstep(0.45, 0.88, progress));
 
         const spanCount = Math.max(4, Math.round(W / 95));
         const spanW = W / spanCount;
@@ -1255,16 +1226,13 @@
         ctx.fillStyle = rgbStr(bridgeCol);
         ctx.strokeStyle = rgbStr(bridgeCol);
 
-        // Bridge arches & masonry piers standing in the Tigris
         for (let s = 0; s < spanCount; s++) {
           const x0 = s * spanW;
           const x1 = x0 + spanW;
           const xm = (x0 + x1) * 0.5;
 
-          // Pier column
           ctx.fillRect(x0 - 3.5, bridgeY, 7, pierBottom - bridgeY);
 
-          // Graceful river arch under deck
           ctx.beginPath();
           ctx.moveTo(x0 + 2, bridgeY + 15);
           ctx.quadraticCurveTo(xm, bridgeY - 2, x1 - 2, bridgeY + 15);
@@ -1273,7 +1241,6 @@
           ctx.closePath();
           ctx.fill();
 
-          // Subtle upper suspension/arch truss accent
           ctx.lineWidth = 1.2;
           ctx.beginPath();
           ctx.moveTo(x0, bridgeY);
@@ -1281,7 +1248,6 @@
           ctx.stroke();
         }
 
-        // Main horizontal bridge roadway deck & delicate railing
         ctx.fillRect(0, bridgeY - 1, W, deckH);
         ctx.lineWidth = 0.8;
         ctx.strokeStyle = rgbStr(bridgeCol, 0.8);
@@ -1290,11 +1256,10 @@
         ctx.lineTo(W, bridgeY - 4);
         ctx.stroke();
 
-        // Warm rhythmic bridge streetlamps + vertical reflections in the Tigris
+        // Warm bridge streetlamps + vertical shimmering reflections
         const bridgeLampOn = smoothstep(0.36, 0.64, progress);
         const lampStep = Math.max(38, spanW * 0.5);
         for (let lx = lampStep * 0.5; lx < W; lx += lampStep) {
-          // Lamp pole
           ctx.strokeStyle = rgbStr(bridgeCol);
           ctx.lineWidth = 1.1;
           ctx.beginPath();
@@ -1313,7 +1278,6 @@
             ctx.arc(lx, bridgeY - 11, 11, 0, Math.PI * 2);
             ctx.fill();
 
-            // Shimmering vertical reflection pillar in the river beneath each bridge lamp
             for (let k = 0; k < 7; k++) {
               const ry = pierBottom + 4 + k * 6.5;
               const rx = lx + Math.sin(time * 2.8 + k * 1.1 + lx) * (1.8 + k * 0.45);
@@ -1324,7 +1288,7 @@
           }
         }
 
-        // Tiny slow-moving evening car headlights/taillights crossing the Baghdad bridge
+        // Slow evening car headlights/taillights crossing the bridge
         if (bridgeLampOn > 0.05) {
           for (let i = 0; i < bridgeCars.length; i++) {
             const car = bridgeCars[i];
@@ -1341,7 +1305,7 @@
           }
         }
 
-        // Horizontal gentle Tigris water shimmer waves
+        // Animated water highlight waves
         for (let w = 0; w < 6; w++) {
           const wy = pierBottom + 10 + (w / 6) * (cornicheY - pierBottom - 16);
           ctx.beginPath();
@@ -1349,27 +1313,26 @@
             const y = wy + Math.sin(x * 0.015 + time * (0.8 + w * 0.18) + w) * (1.5 + w * 0.35);
             if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
           }
-          ctx.strokeStyle = progress < 0.44
+          ctx.strokeStyle = progress < 0.45
             ? 'rgba(255, 238, 195, 0.14)'
             : 'rgba(130, 178, 238, 0.11)';
           ctx.lineWidth = 1.1;
           ctx.stroke();
         }
 
-        // TRADITIONAL WOODEN BAGHDAD RIVER BOAT (بلم / مشحوف) gliding slowly across the Tigris
+        // Gliding Wooden Baghdad Boat (بلم / مشحوف) with warm bow lantern
         boat.x -= boat.speed * dt;
         if (boat.x < -0.14) boat.x = 1.14;
         const bx = boat.x * W;
         const by = lerp(pierBottom + 20, cornicheY - 26, 0.42) + Math.sin(time * 1.8) * 1.4;
-        const boatCol = progress < 0.44
-          ? mixRGB([48, 36, 38], [26, 20, 34], smoothstep(0, 0.44, progress))
+        const boatCol = progress < 0.45
+          ? mixRGB([48, 36, 38], [26, 20, 34], smoothstep(0, 0.45, progress))
           : [9, 17, 32];
 
         ctx.save();
         ctx.translate(bx, by);
         ctx.rotate(Math.sin(time * 1.5) * 0.025);
 
-        // Soft trailing water wake behind the boat
         ctx.strokeStyle = `rgba(255, 236, 185, ${lerp(0.24, 0.16, cel.nightT).toFixed(3)})`;
         ctx.lineWidth = 1.1;
         ctx.beginPath();
@@ -1379,18 +1342,16 @@
         ctx.quadraticCurveTo(44, 8 - Math.sin(time * 3) * 1.2, 66, 9);
         ctx.stroke();
 
-        // Upturned Mashoof/Balam crescent hull
         ctx.fillStyle = rgbStr(boatCol);
         ctx.beginPath();
-        ctx.moveTo(-28, -5); // upturned prow
+        ctx.moveTo(-28, -5);
         ctx.quadraticCurveTo(-18, 7, 0, 7);
-        ctx.quadraticCurveTo(18, 7, 26, -4); // upturned stern
+        ctx.quadraticCurveTo(18, 7, 26, -4);
         ctx.quadraticCurveTo(12, 2, 0, 2);
         ctx.quadraticCurveTo(-14, 2, -28, -5);
         ctx.closePath();
         ctx.fill();
 
-        // Subtle seated boatman silhouette & gentle dipping oar
         ctx.beginPath();
         ctx.arc(6, -6, 2.5, 0, Math.PI * 2);
         ctx.fill();
@@ -1400,6 +1361,7 @@
         ctx.lineTo(9, -3);
         ctx.lineTo(10, 2);
         ctx.fill();
+
         const oarAngle = Math.sin(time * 1.9) * 0.28;
         ctx.strokeStyle = rgbStr(boatCol);
         ctx.lineWidth = 1.3;
@@ -1408,7 +1370,6 @@
         ctx.lineTo(4 + Math.sin(oarAngle) * 10, 11);
         ctx.stroke();
 
-        // Warm bow lantern glowing on the boat at dusk & night
         if (bridgeLampOn > 0.04) {
           const lx = -22, ly = -4;
           const bGlow = ctx.createRadialGradient(lx, ly, 0.5, lx, ly, 16);
@@ -1420,7 +1381,6 @@
           ctx.arc(lx, ly, 16, 0, Math.PI * 2);
           ctx.fill();
 
-          // Boat lantern reflection shimmering on the river below
           for (let r = 0; r < 4; r++) {
             const ry = 10 + r * 4.5;
             const rx = lx + Math.sin(time * 3 + r) * 2.5;
@@ -1430,7 +1390,7 @@
         }
         ctx.restore();
 
-        // Interactive & Petal-Triggered Elliptical Water Ripples
+        // Elliptical water ripples
         for (let i = waterRipples.length - 1; i >= 0; i--) {
           const rp = waterRipples[i];
           rp.r += 24 * dt;
@@ -1448,23 +1408,23 @@
       }
 
       // =======================================================================
-      // NEAR-BANK BAGHDAD CORNICHE, REEDS, VINTAGE LAMP, BENCH & POMEGRANATE TREE
+      // NEAR-BANK CORNICHE, REEDS, VINTAGE LAMP, PARK BENCH & POMEGRANATE TREES
       // =======================================================================
       function drawReeds(progress, cornicheY, layerIdx) {
-        const reedBase = progress < 0.44
-          ? mixRGB([36, 56, 46], [24, 28, 42], smoothstep(0, 0.44, progress))
-          : mixRGB([24, 28, 42], [7, 16, 28], smoothstep(0.44, 0.88, progress));
+        const reedBase = progress < 0.45
+          ? mixRGB([36, 56, 46], [24, 28, 42], smoothstep(0, 0.45, progress))
+          : mixRGB([24, 28, 42], [7, 16, 28], smoothstep(0.45, 0.88, progress));
 
         for (let i = 0; i < reeds.length; i++) {
           const rd = reeds[i];
           if (rd.layer !== layerIdx) continue;
           const rx = rd.xNorm * W;
-          const ry = cornicheY + 8 + (layerIdx === 1 ? 14 : -2);
+          const ry = cornicheY + 8 + (layerIdx === 1 ? 16 : -2);
           const wind = Math.sin(time * 1.45 + rd.phase + rx * 0.012) * 8 + Math.sin(time * 2.8 + rd.phase) * 2.5;
           const tx = rx + rd.lean + wind;
           const ty = ry - rd.h;
 
-          ctx.strokeStyle = rgbStr(reedBase, layerIdx === 0 ? 0.78 : 0.94);
+          ctx.strokeStyle = rgbStr(reedBase, layerIdx === 0 ? 0.78 : 0.92);
           ctx.lineWidth = rd.thick;
           ctx.lineCap = 'round';
           ctx.beginPath();
@@ -1483,34 +1443,30 @@
         }
       }
 
-      function drawCornichePromenade(progress, cornicheY, lampX, lampOn) {
-        // Sandstone promenade color shifts smoothly from warm sunlit Baghdad stone to moonlit slate
-        const stoneTop = progress < 0.44
-          ? mixRGB([166, 134, 98], [94, 68, 74], smoothstep(0, 0.44, progress))
-          : mixRGB([94, 68, 74], [22, 34, 56], smoothstep(0.44, 0.88, progress));
-        const stoneWall = progress < 0.44
-          ? mixRGB([112, 88, 68], [58, 44, 58], smoothstep(0, 0.44, progress))
-          : mixRGB([58, 44, 58], [11, 20, 36], smoothstep(0.44, 0.88, progress));
-        const parapetCol = progress < 0.44
-          ? mixRGB([142, 112, 82], [74, 54, 66], smoothstep(0, 0.44, progress))
-          : mixRGB([74, 54, 66], [16, 28, 48], smoothstep(0.44, 0.88, progress));
+      function drawCornichePromenade(progress, cornicheY, benchX, lampOn) {
+        const stoneTop = progress < 0.45
+          ? mixRGB([166, 134, 98], [94, 68, 74], smoothstep(0, 0.45, progress))
+          : mixRGB([94, 68, 74], [22, 34, 56], smoothstep(0.45, 0.88, progress));
+        const stoneWall = progress < 0.45
+          ? mixRGB([112, 88, 68], [58, 44, 58], smoothstep(0, 0.45, progress))
+          : mixRGB([58, 44, 58], [11, 20, 36], smoothstep(0.45, 0.88, progress));
+        const parapetCol = progress < 0.45
+          ? mixRGB([142, 112, 82], [74, 54, 66], smoothstep(0, 0.45, progress))
+          : mixRGB([74, 54, 66], [16, 28, 48], smoothstep(0.45, 0.88, progress));
 
-        // 1. Low stone corniche parapet / balustrade overlooking the Tigris
+        // Stone parapet overlooking the Tigris
         const railY = cornicheY - 16;
         ctx.fillStyle = rgbStr(parapetCol);
-        ctx.fillRect(0, railY, W, 6); // top coping stone
-        // Warm sun/moon rim on top of parapet
+        ctx.fillRect(0, railY, W, 6);
         ctx.fillStyle = progress < 0.45
           ? 'rgba(255, 224, 146, 0.45)'
           : 'rgba(253, 230, 138, 0.16)';
         ctx.fillRect(0, railY, W, 1.5);
 
-        // Decorative stone pillars & wrought-iron balustrade rails along river edge
         const pillarStep = 72;
         for (let px = 18; px < W + 20; px += pillarStep) {
           ctx.fillStyle = rgbStr(parapetCol);
           ctx.fillRect(px - 5, railY - 2, 10, 22);
-          // Delicate iron bars between pillars
           ctx.strokeStyle = rgbStr(stoneWall, 0.85);
           ctx.lineWidth = 1.2;
           for (let b = 12; b < pillarStep - 8; b += 12) {
@@ -1521,7 +1477,7 @@
           }
         }
 
-        // 2. Curved Baghdad Corniche Walkway Paving
+        // Sandstone corniche walkway
         const walkGrad = ctx.createLinearGradient(0, cornicheY, 0, H);
         walkGrad.addColorStop(0, rgbStr(stoneTop));
         walkGrad.addColorStop(0.28, rgbStr(stoneWall));
@@ -1535,7 +1491,6 @@
         ctx.closePath();
         ctx.fill();
 
-        // Subtle sandstone paving joints for scenic texture
         ctx.strokeStyle = 'rgba(255, 232, 185, 0.08)';
         ctx.lineWidth = 1;
         for (let row = 1; row <= 4; row++) {
@@ -1547,59 +1502,59 @@
           ctx.stroke();
         }
 
-        // 3. Soft warm golden pool of light cast onto the corniche stones when street lamp is lit
+        // Warm golden pool of light cast onto the promenade around the bench at dusk/night
         if (lampOn > 0.02) {
-          const pool = ctx.createRadialGradient(lampX + 26, cornicheY + 28, 6, lampX + 26, cornicheY + 28, 125);
+          const pool = ctx.createRadialGradient(benchX + 10, cornicheY + 34, 8, benchX + 10, cornicheY + 34, 140);
           pool.addColorStop(0, `rgba(255, 206, 98, ${(0.34 * lampOn).toFixed(3)})`);
           pool.addColorStop(0.5, `rgba(245, 178, 58, ${(0.14 * lampOn).toFixed(3)})`);
           pool.addColorStop(1, 'rgba(245, 178, 58, 0)');
           ctx.fillStyle = pool;
           ctx.beginPath();
-          ctx.ellipse(lampX + 26, cornicheY + 30, 130, 44, 0, 0, Math.PI * 2);
+          ctx.ellipse(benchX + 10, cornicheY + 34, 145, 46, 0, 0, Math.PI * 2);
           ctx.fill();
         }
       }
 
-      // Detailed Wooden & Wrought-Iron Baghdad Riverside Park Bench
-      function drawBaghdadBench(progress, benchX, cornicheY, lampOn) {
-        const y = cornicheY + 24;
-        const bw = clamp(W * 0.25, 92, 122);
-        const halfW = bw * 0.5;
+      // Detailed Wooden-Slat & Wrought-Iron Baghdad Riverside Park Bench
+      function drawBaghdadBench(progress, benchX, benchW, benchGroundY, lampOn) {
+        const halfW = benchW * 0.5;
 
-        const woodBase = progress < 0.44
-          ? mixRGB([128, 76, 44], [76, 44, 38], smoothstep(0, 0.44, progress))
-          : mixRGB([76, 44, 38], [46, 32, 34], smoothstep(0.44, 0.88, progress));
-        const woodLit = mixRGB(woodBase, [224, 162, 78], Math.max(1 - smoothstep(0.15, 0.46, progress), lampOn * 0.65) * 0.55);
-        const ironCol = progress < 0.44
-          ? mixRGB([34, 38, 48], [22, 24, 36], smoothstep(0, 0.44, progress))
+        const woodBase = progress < 0.45
+          ? mixRGB([134, 80, 46], [82, 48, 40], smoothstep(0, 0.45, progress))
+          : mixRGB([82, 48, 40], [56, 38, 36], smoothstep(0.45, 0.88, progress));
+        const woodLit = mixRGB(woodBase, [238, 178, 86], Math.max(1 - smoothstep(0.15, 0.46, progress), lampOn * 0.72) * 0.62);
+        const ironCol = progress < 0.45
+          ? mixRGB([34, 38, 48], [22, 24, 36], smoothstep(0, 0.45, progress))
           : [10, 17, 30];
 
         ctx.save();
-        ctx.translate(benchX, y);
+        ctx.translate(benchX, benchGroundY);
 
-        // Soft perspective shadow under bench
-        ctx.fillStyle = 'rgba(4, 10, 22, 0.42)';
+        // Ground shadow under bench
+        ctx.fillStyle = 'rgba(4, 10, 22, 0.46)';
         ctx.beginPath();
-        ctx.ellipse(2, 5, halfW + 10, 8, 0, 0, Math.PI * 2);
+        ctx.ellipse(0, 4, halfW + 10, 8.5, 0, 0, Math.PI * 2);
         ctx.fill();
 
         // Backrest wooden slats (3 warm cedar planks)
-        const slats = [-35, -27, -19];
+        const slats = [-39, -30.5, -22];
         for (let i = 0; i < slats.length; i++) {
           ctx.fillStyle = rgbStr(woodBase);
-          ctx.fillRect(-halfW, slats[i], bw, 5.5);
-          // Golden sunlight or streetlamp rim on top edge of each plank
+          ctx.fillRect(-halfW, slats[i], benchW, 6);
           ctx.fillStyle = rgbStr(woodLit, 0.85);
-          ctx.fillRect(-halfW, slats[i], bw, 1.5);
+          ctx.fillRect(-halfW, slats[i], benchW, 1.6);
         }
 
-        // Seat wooden planks (2 wider planks with slight perspective overhang)
+        // Seat wooden planks (surface sits cleanly at y = -14)
         ctx.fillStyle = rgbStr(woodLit);
-        ctx.fillRect(-halfW - 3, -11, bw + 6, 4.2);
+        ctx.fillRect(-halfW - 3, -14.5, benchW + 6, 4.6);
         ctx.fillStyle = rgbStr(woodBase);
-        ctx.fillRect(-halfW - 4, -6.8, bw + 8, 4.5);
+        ctx.fillRect(-halfW - 4, -9.9, benchW + 8, 4.8);
+        // Subtle front plank lip shadow
+        ctx.fillStyle = 'rgba(8, 12, 22, 0.35)';
+        ctx.fillRect(-halfW - 4, -5.8, benchW + 8, 1.2);
 
-        // Ornate Wrought-Iron Frame, Curved Armrests & Scrolled Legs (Left, Center support, Right)
+        // Ornate Wrought-Iron Frame, Curved Armrests & Scrolled Legs
         const framePositions = [-halfW + 7, halfW - 7];
         ctx.strokeStyle = rgbStr(ironCol);
         ctx.lineCap = 'round';
@@ -1607,62 +1562,60 @@
 
         for (let i = 0; i < framePositions.length; i++) {
           const fx = framePositions[i];
-          // Backrest upright + front/back legs
           ctx.lineWidth = 3.2;
           ctx.beginPath();
-          ctx.moveTo(fx - 3, -38);
-          ctx.quadraticCurveTo(fx - 1, -22, fx, -8);
-          ctx.lineTo(fx - 4, 5); // back leg
-          ctx.moveTo(fx + 5, -8);
-          ctx.lineTo(fx + 8, 6); // front leg
+          ctx.moveTo(fx - 2, -42);
+          ctx.quadraticCurveTo(fx - 1, -25, fx, -11);
+          ctx.lineTo(fx - 4, 4); // back leg
+          ctx.moveTo(fx + 4, -10);
+          ctx.lineTo(fx + 7, 5); // front leg
           ctx.stroke();
 
-          // Graceful scrolled wrought-iron armrest
+          // Scrolled armrest
           ctx.lineWidth = 2.6;
           ctx.beginPath();
-          ctx.moveTo(fx - 2, -24);
-          ctx.quadraticCurveTo(fx + 10, -24, fx + 9, -14);
-          ctx.quadraticCurveTo(fx + 8, -9, fx + 4, -8);
+          ctx.moveTo(fx - 1, -26);
+          ctx.quadraticCurveTo(fx + 10, -26, fx + 9, -16);
+          ctx.quadraticCurveTo(fx + 8, -11, fx + 4, -10);
           ctx.stroke();
 
-          // Decorative iron curl beneath armrest
           ctx.lineWidth = 1.6;
           ctx.beginPath();
-          ctx.arc(fx + 3, -14, 3.2, 0, Math.PI * 1.6);
+          ctx.arc(fx + 3, -16, 3.2, 0, Math.PI * 1.6);
           ctx.stroke();
         }
 
-        // Center iron under-brace
+        // Center wrought-iron brace
         ctx.lineWidth = 2.2;
         ctx.beginPath();
-        ctx.moveTo(0, -35);
-        ctx.lineTo(0, -8);
-        ctx.lineTo(0, 3);
+        ctx.moveTo(0, -39);
+        ctx.lineTo(0, -10);
+        ctx.lineTo(0, 2);
         ctx.stroke();
 
-        // Warm subtle golden highlight catch on wrought-iron armrests when lamp glows
+        // Warm golden highlight catch from lamp on armrests
         if (lampOn > 0.08) {
-          ctx.strokeStyle = `rgba(255, 224, 138, ${(0.36 * lampOn).toFixed(3)})`;
-          ctx.lineWidth = 1;
+          ctx.strokeStyle = `rgba(255, 224, 138, ${(0.38 * lampOn).toFixed(3)})`;
+          ctx.lineWidth = 1.1;
           ctx.beginPath();
-          ctx.moveTo(-halfW + 5, -24);
-          ctx.quadraticCurveTo(-halfW + 17, -24, -halfW + 16, -15);
+          ctx.moveTo(halfW - 8, -26);
+          ctx.quadraticCurveTo(halfW + 3, -26, halfW + 2, -17);
           ctx.stroke();
         }
 
         ctx.restore();
       }
 
-      // Ornate Vintage Baghdad Corniche Street Lamp (Ignites smoothly at Dusk)
-      function drawVintageLamp(progress, lampX, cornicheY, lampOn) {
-        const baseY = cornicheY + 26;
-        const lampH = clamp(H * 0.24, 138, 195);
+      // Ornate Vintage Baghdad Corniche Lamp Post (Stands beside right side of bench, arches warmly over it)
+      function drawVintageLamp(progress, lampX, benchGroundY, lampOn) {
+        const baseY = benchGroundY + 2;
+        const lampH = clamp(H * 0.23, 138, 194);
         const topY = baseY - lampH;
-        const lanternX = lampX + 18;
+        const lanternX = lampX - 20; // arches gracefully leftward toward the bench
         const lanternY = topY + 12;
 
-        const ironCol = progress < 0.44
-          ? mixRGB([34, 40, 52], [20, 24, 38], smoothstep(0, 0.44, progress))
+        const ironCol = progress < 0.45
+          ? mixRGB([34, 40, 52], [20, 24, 38], smoothstep(0, 0.45, progress))
           : [9, 16, 28];
 
         ctx.save();
@@ -1671,56 +1624,52 @@
 
         // Fluted pedestal base
         ctx.beginPath();
-        ctx.moveTo(lampX - 10, baseY + 2);
-        ctx.lineTo(lampX - 6, baseY - 26);
-        ctx.lineTo(lampX + 6, baseY - 26);
-        ctx.lineTo(lampX + 10, baseY + 2);
+        ctx.moveTo(lampX - 9, baseY + 2);
+        ctx.lineTo(lampX - 5.5, baseY - 26);
+        ctx.lineTo(lampX + 5.5, baseY - 26);
+        ctx.lineTo(lampX + 9, baseY + 2);
         ctx.closePath();
         ctx.fill();
 
-        // Tapered wrought-iron column
-        ctx.lineWidth = 4.2;
+        // Tapered wrought-iron pole
+        ctx.lineWidth = 4;
         ctx.beginPath();
         ctx.moveTo(lampX, baseY - 24);
         ctx.lineTo(lampX, topY + 12);
         ctx.stroke();
 
-        // Ornamental collar rings
         ctx.fillRect(lampX - 5, baseY - 28, 10, 3);
         ctx.fillRect(lampX - 4, topY + 26, 8, 2.5);
 
-        // Curved swan-neck bracket holding the lantern over the bench
+        // Swan-neck bracket curving left over the bench
         ctx.lineWidth = 3;
         ctx.beginPath();
         ctx.moveTo(lampX, topY + 16);
         ctx.bezierCurveTo(lampX, topY - 8, lanternX, topY - 10, lanternX, topY + 3);
         ctx.stroke();
 
-        // Scrollwork support curl
         ctx.lineWidth = 1.6;
         ctx.beginPath();
-        ctx.moveTo(lampX + 1, topY + 28);
-        ctx.quadraticCurveTo(lampX + 12, topY + 18, lanternX - 5, topY + 10);
+        ctx.moveTo(lampX - 1, topY + 28);
+        ctx.quadraticCurveTo(lampX - 12, topY + 18, lanternX + 5, topY + 10);
         ctx.stroke();
 
-        // Volumetric Warm Amber Light Cone & Radial Halo when Lamp Ignites
+        // Warm Volumetric Amber Light Cone & Halo at Dusk/Night
         if (lampOn > 0.01) {
           const pulse = 0.94 + 0.06 * Math.sin(time * 3.1);
 
-          // Soft downward warm illumination cone toward the bench
-          const coneGrad = ctx.createLinearGradient(lanternX, lanternY, lanternX + 18, baseY + 10);
-          coneGrad.addColorStop(0, `rgba(255, 218, 122, ${(0.24 * lampOn * pulse).toFixed(3)})`);
+          const coneGrad = ctx.createLinearGradient(lanternX, lanternY, lanternX - 24, baseY + 10);
+          coneGrad.addColorStop(0, `rgba(255, 218, 122, ${(0.25 * lampOn * pulse).toFixed(3)})`);
           coneGrad.addColorStop(1, 'rgba(255, 200, 90, 0)');
           ctx.fillStyle = coneGrad;
           ctx.beginPath();
           ctx.moveTo(lanternX - 8, lanternY + 6);
           ctx.lineTo(lanternX + 8, lanternY + 6);
-          ctx.lineTo(lanternX + 110, baseY + 12);
-          ctx.lineTo(lanternX - 70, baseY + 12);
+          ctx.lineTo(lanternX + 52, baseY + 12);
+          ctx.lineTo(lanternX - 132, baseY + 12);
           ctx.closePath();
           ctx.fill();
 
-          // Volumetric radial lantern halo
           const halo = ctx.createRadialGradient(lanternX, lanternY + 4, 2, lanternX, lanternY + 4, 72);
           halo.addColorStop(0, `rgba(255, 245, 198, ${(0.88 * lampOn * pulse).toFixed(3)})`);
           halo.addColorStop(0.28, `rgba(255, 204, 88, ${(0.42 * lampOn * pulse).toFixed(3)})`);
@@ -1732,7 +1681,7 @@
           ctx.fill();
         }
 
-        // Hexagonal Vintage Lantern Glass Housing
+        // Hexagonal Vintage Lantern Glass
         ctx.fillStyle = lampOn > 0.02
           ? `rgba(255, 236, 168, ${(0.35 + 0.65 * lampOn).toFixed(3)})`
           : 'rgba(210, 224, 238, 0.35)';
@@ -1744,7 +1693,6 @@
         ctx.closePath();
         ctx.fill();
 
-        // Lantern metal cap, finial & ribs
         ctx.fillStyle = rgbStr(ironCol);
         ctx.strokeStyle = rgbStr(ironCol);
         ctx.lineWidth = 1.4;
@@ -1760,14 +1708,14 @@
         ctx.lineTo(lanternX, lanternY + 11);
         ctx.stroke();
 
-        // Tiny glowing fireflies / moths orbiting the warm lantern at night
+        // Tiny glowing fireflies orbiting the warm bulb at night
         if (lampOn > 0.15) {
           for (let i = 0; i < lampMoths.length; i++) {
             const m = lampMoths[i];
             const ang = m.angle + time * m.speed;
             const mx = lanternX + Math.cos(ang) * m.radius;
             const my = lanternY + 4 + Math.sin(ang * m.yFreq + m.phase) * (m.radius * 0.55);
-            ctx.fillStyle = `rgba(255, 242, 186, ${(0.82 * lampOn).toFixed(3)})`;
+            ctx.fillStyle = `rgba(255, 242, 186, ${(0.84 * lampOn).toFixed(3)})`;
             ctx.beginPath();
             ctx.arc(mx, my, 1.35, 0, Math.PI * 2);
             ctx.fill();
@@ -1777,11 +1725,11 @@
         ctx.restore();
       }
 
-      // Helper to draw a glossy crowned ruby pomegranate fruit
-      function drawPomegranateFruit(x, y, r, progress, lampGlow) {
-        const baseCol = progress < 0.44
-          ? [164, 34, 52]
-          : mixRGB([164, 34, 52], [116, 26, 44], smoothstep(0.44, 0.9, progress));
+      // Glossy Crowned Ruby Pomegranate Fruit Helper
+      function drawPomegranateFruit(x, y, r, progress, glow) {
+        const baseCol = progress < 0.45
+          ? [168, 34, 52]
+          : mixRGB([168, 34, 52], [120, 28, 46], smoothstep(0.45, 0.9, progress));
         ctx.save();
         ctx.translate(x, y);
         ctx.fillStyle = rgbStr(baseCol);
@@ -1789,15 +1737,13 @@
         ctx.arc(0, 0, r, 0, Math.PI * 2);
         ctx.fill();
 
-        // Warm golden highlight catch
-        ctx.strokeStyle = `rgba(255, 224, 146, ${(0.58 + lampGlow * 0.25).toFixed(2)})`;
+        ctx.strokeStyle = `rgba(255, 224, 146, ${(0.56 + glow * 0.25).toFixed(2)})`;
         ctx.lineWidth = Math.max(1, r * 0.16);
         ctx.lineCap = 'round';
         ctx.beginPath();
         ctx.arc(0, 0, r * 0.72, -Math.PI * 0.85, -Math.PI * 0.35);
         ctx.stroke();
 
-        // Pomegranate crown
         ctx.fillStyle = rgbStr(baseCol);
         ctx.beginPath();
         ctx.moveTo(-r * 0.35, r * 0.85);
@@ -1810,88 +1756,151 @@
         ctx.restore();
       }
 
-      // Procedural Gnarled Pomegranate Tree Arching Beside the Corniche Bench
-      function drawBankPomegranateTree(progress, treeX, cornicheY, lampOn) {
-        const baseY = cornicheY + 34;
-        const sway = Math.sin(time * 0.95) * 4;
-        const barkCol = progress < 0.44
-          ? mixRGB([46, 36, 36], [28, 22, 34], smoothstep(0, 0.44, progress))
-          : [9, 16, 28];
-        const leafCol = progress < 0.44
-          ? mixRGB([34, 64, 48], [22, 34, 44], smoothstep(0, 0.44, progress))
-          : [10, 26, 38];
+      // LOWER-LEFT GNARLED POMEGRANATE TREE WITH DEDICATED CLEAR OWL PERCH BRANCH
+      function drawLeftPomegranateTree(progress, dt, treeX, cornicheY, lampOn) {
+        // Spring recoil physics when the owl lands on the lower-left tree branch
+        const k = 48, damp = 6.2;
+        const accel = -k * leftSpringPos - damp * leftSpringVel;
+        leftSpringVel += accel * dt;
+        leftSpringPos += leftSpringVel * dt;
+
+        const baseY = cornicheY + 38;
+        const sway = Math.sin(time * 0.92) * 3.4;
+        const perchBounceY = leftSpringPos * 7;
+
+        const barkCol = progress < 0.45
+          ? mixRGB([48, 36, 36], [28, 22, 34], smoothstep(0, 0.45, progress))
+          : [10, 18, 32];
+        const leafCol = progress < 0.45
+          ? mixRGB([34, 64, 48], [22, 34, 44], smoothstep(0, 0.45, progress))
+          : [10, 27, 42];
+
+        const perchReach = clamp(W * 0.145, 54, 88);
+        const perchStartX = treeX + 10;
+        const perchStartY = baseY - 104;
+        const perchEndX = treeX + 14 + perchReach + sway * 0.55;
+        const perchEndY = baseY - 110 + perchBounceY;
 
         ctx.save();
-        // Gnarled curved trunk
+
+        // Gnarled curved main trunk
         ctx.strokeStyle = rgbStr(barkCol);
         ctx.lineCap = 'round';
         ctx.lineWidth = 12;
         ctx.beginPath();
-        ctx.moveTo(treeX - 10, baseY + 12);
-        ctx.bezierCurveTo(treeX + 8, baseY - 45, treeX - 6, baseY - 98, treeX + 24 + sway * 0.4, baseY - 148);
+        ctx.moveTo(treeX - 10, baseY + 14);
+        ctx.bezierCurveTo(treeX + 6, baseY - 46, treeX - 4, baseY - 102, treeX + 18 + sway * 0.4, baseY - 156);
         ctx.stroke();
 
-        // Arching boughs extending gracefully toward the bench
+        // Secondary upper canopy boughs
         ctx.lineWidth = 6.5;
         ctx.beginPath();
-        ctx.moveTo(treeX + 8, baseY - 98);
-        ctx.quadraticCurveTo(treeX + 46, baseY - 134, treeX + 94 + sway, baseY - 122 + sway * 0.3);
+        ctx.moveTo(treeX + 6, baseY - 118);
+        ctx.quadraticCurveTo(treeX + 38, baseY - 154, treeX + 76 + sway * 0.85, baseY - 152);
         ctx.stroke();
 
-        ctx.lineWidth = 5;
+        ctx.lineWidth = 5.5;
         ctx.beginPath();
-        ctx.moveTo(treeX + 12, baseY - 122);
-        ctx.quadraticCurveTo(treeX - 14, baseY - 156, treeX - 28 + sway * 0.7, baseY - 166);
+        ctx.moveTo(treeX + 8, baseY - 126);
+        ctx.quadraticCurveTo(treeX - 16, baseY - 158, treeX - 30 + sway * 0.6, baseY - 168);
         ctx.stroke();
 
-        // Layered botanical foliage clusters
+        // STURDY, CLEAR RIGHT-FACING HORIZONTAL PERCH BRANCH FOR THE OWL
+        ctx.strokeStyle = rgbStr(barkCol);
+        ctx.lineWidth = 6.2;
+        ctx.beginPath();
+        ctx.moveTo(perchStartX, perchStartY);
+        ctx.quadraticCurveTo(
+          (perchStartX + perchEndX) * 0.5,
+          perchStartY - 8 + perchBounceY * 0.6,
+          perchEndX,
+          perchEndY
+        );
+        ctx.stroke();
+
+        // Subtle moonlight rim along the top of the perch branch so it reads clearly at night
+        ctx.strokeStyle = `rgba(253, 232, 165, ${(0.28 + lampOn * 0.14).toFixed(2)})`;
+        ctx.lineWidth = 1.3;
+        ctx.beginPath();
+        ctx.moveTo(perchStartX + 4, perchStartY - 2.5);
+        ctx.quadraticCurveTo(
+          (perchStartX + perchEndX) * 0.5,
+          perchStartY - 10.5 + perchBounceY * 0.6,
+          perchEndX - 3,
+          perchEndY - 2.2
+        );
+        ctx.stroke();
+
+        // Tiny ornamental twig & pair of leaves past the owl's standing spot
+        ctx.strokeStyle = rgbStr(barkCol);
+        ctx.lineWidth = 2.6;
+        ctx.beginPath();
+        ctx.moveTo(perchEndX - 4, perchEndY);
+        ctx.quadraticCurveTo(perchEndX + 10, perchEndY + 4, perchEndX + 18, perchEndY + 12);
+        ctx.stroke();
+
+        ctx.fillStyle = rgbStr(leafCol);
+        ctx.beginPath();
+        ctx.ellipse(perchEndX + 14, perchEndY + 6, 8, 3.2, 0.35, 0, Math.PI * 2);
+        ctx.ellipse(perchEndX + 10, perchEndY + 13, 7, 3, -0.3, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Layered botanical foliage canopy (positioned cleanly ABOVE the owl's perch branch)
         const clusters = [
-          { x: treeX + 22 + sway * 0.6, y: baseY - 158, rx: 46, ry: 28 },
-          { x: treeX + 68 + sway * 0.9, y: baseY - 138, rx: 38, ry: 22 },
-          { x: treeX - 12 + sway * 0.5, y: baseY - 144, rx: 34, ry: 24 },
-          { x: treeX + 96 + sway, y: baseY - 122, rx: 28, ry: 17 }
+          { x: treeX + 12 + sway * 0.5, y: baseY - 170, rx: 46, ry: 27 },
+          { x: treeX + 58 + sway * 0.85, y: baseY - 156, rx: 36, ry: 21 },
+          { x: treeX - 18 + sway * 0.45, y: baseY - 152, rx: 34, ry: 24 },
+          { x: treeX + 26 + sway * 0.65, y: baseY - 144, rx: 28, ry: 17 }
         ];
         ctx.fillStyle = rgbStr(leafCol);
         for (let i = 0; i < clusters.length; i++) {
           const cl = clusters[i];
           ctx.beginPath();
-          ctx.ellipse(cl.x, cl.y, cl.rx, cl.ry, -0.1, 0, Math.PI * 2);
+          ctx.ellipse(cl.x, cl.y, cl.rx, cl.ry, -0.08, 0, Math.PI * 2);
           ctx.fill();
-          // Soft top rim light
           ctx.strokeStyle = `rgba(255, 224, 146, ${(0.22 + lampOn * 0.14).toFixed(2)})`;
           ctx.lineWidth = 1.2;
           ctx.beginPath();
-          ctx.ellipse(cl.x, cl.y - 2, cl.rx * 0.85, cl.ry * 0.8, -0.1, Math.PI * 1.1, Math.PI * 1.88);
+          ctx.ellipse(cl.x, cl.y - 2, cl.rx * 0.84, cl.ry * 0.8, -0.08, Math.PI * 1.1, Math.PI * 1.88);
           ctx.stroke();
         }
 
-        // Glowing ruby pomegranates nestled in the branches
-        drawPomegranateFruit(treeX + 42 + sway * 0.75, baseY - 144, 5.5, progress, lampOn);
-        drawPomegranateFruit(treeX + 84 + sway * 0.95, baseY - 124, 5.0, progress, lampOn);
-        drawPomegranateFruit(treeX + 8 + sway * 0.55, baseY - 152, 4.8, progress, lampOn);
-        drawPomegranateFruit(treeX + 104 + sway, baseY - 115, 4.2, progress, lampOn);
+        // Glowing ruby pomegranates nestled in the canopy & hanging beneath the perch tip
+        drawPomegranateFruit(treeX + 34 + sway * 0.65, baseY - 158, 5.6, progress, lampOn);
+        drawPomegranateFruit(treeX + 74 + sway * 0.85, baseY - 146, 5.0, progress, lampOn);
+        drawPomegranateFruit(treeX - 4 + sway * 0.45, baseY - 160, 4.8, progress, lampOn);
+        drawPomegranateFruit(perchEndX + 12, perchEndY + 16, 4.6, progress, lampOn);
 
         ctx.restore();
+
+        // Exact world-space standing point on the lower-left tree perch branch
+        const standT = 0.68;
+        const cpX = (perchStartX + perchEndX) * 0.5;
+        const cpY = perchStartY - 8 + perchBounceY * 0.6;
+        const u = 1 - standT;
+        const standX = u * u * perchStartX + 2 * u * standT * cpX + standT * standT * perchEndX;
+        const standY = u * u * perchStartY + 2 * u * standT * cpY + standT * standT * perchEndY - 3;
+
+        return { x: standX, y: standY, rot: leftSpringPos * 0.04 };
       }
 
-      // Overhanging Upper-Right Pomegranate Branch (Where the Night Owl Perches & Launches)
+      // UPPER-RIGHT OVERHANGING POMEGRANATE BRANCH (Owl Starting Perch at Dusk)
       function drawUpperPomegranateBranch(progress, dt) {
-        // Spring recoil physics when owl takes off
         const k = 42, damp = 5.2;
-        const accel = -k * branchSpringPos - damp * branchSpringVel;
-        branchSpringVel += accel * dt;
-        branchSpringPos += branchSpringVel * dt;
+        const accel = -k * upperSpringPos - damp * upperSpringVel;
+        upperSpringVel += accel * dt;
+        upperSpringPos += upperSpringVel * dt;
 
-        const windRot = Math.sin(time * 1.15) * 0.022 + branchSpringPos * 0.04;
-        const barkCol = progress < 0.44
-          ? mixRGB([36, 28, 32], [20, 18, 30], smoothstep(0, 0.44, progress))
+        const windRot = Math.sin(time * 1.15) * 0.02 + upperSpringPos * 0.04;
+        const barkCol = progress < 0.45
+          ? mixRGB([36, 28, 32], [20, 18, 30], smoothstep(0, 0.45, progress))
           : [8, 15, 28];
-        const leafCol = progress < 0.44
-          ? mixRGB([26, 52, 42], [18, 30, 42], smoothstep(0, 0.44, progress))
+        const leafCol = progress < 0.45
+          ? mixRGB([26, 52, 42], [18, 30, 42], smoothstep(0, 0.45, progress))
           : [10, 26, 40];
 
         const anchorX = W + 8;
-        const anchorY = 18;
+        const anchorY = 22;
         const scale = clamp(W / 420, 0.85, 1.3);
 
         ctx.save();
@@ -1899,7 +1908,6 @@
         ctx.rotate(windRot);
         ctx.scale(scale, scale);
 
-        // Main woody branch curving inward from upper right
         ctx.strokeStyle = rgbStr(barkCol);
         ctx.lineCap = 'round';
         ctx.lineWidth = 7;
@@ -1908,7 +1916,6 @@
         ctx.bezierCurveTo(-56, 22, -108, 48, -172, 62);
         ctx.stroke();
 
-        // Secondary twigs
         ctx.lineWidth = 4;
         ctx.beginPath();
         ctx.moveTo(-64, 28);
@@ -1917,7 +1924,6 @@
         ctx.quadraticCurveTo(-136, 30, -158, 22);
         ctx.stroke();
 
-        // Delicate moonlight/sunlight rim along branch top
         ctx.strokeStyle = 'rgba(255, 232, 165, 0.22)';
         ctx.lineWidth = 1.2;
         ctx.beginPath();
@@ -1925,7 +1931,6 @@
         ctx.bezierCurveTo(-56, 20, -108, 46, -168, 60);
         ctx.stroke();
 
-        // Botanical silhouette leaves
         const leaves = [
           [-38, 18, -0.4], [-72, 26, 0.25], [-92, 54, 0.6], [-128, 42, -0.35],
           [-152, 56, 0.2], [-146, 28, -0.5], [-108, 72, 0.4], [-60, 40, 0.5]
@@ -1942,14 +1947,12 @@
           ctx.restore();
         }
 
-        // Hanging crowned ruby pomegranates
         drawPomegranateFruit(-92, 74, 8.2, progress, 0.4);
         drawPomegranateFruit(-146, 70, 6.8, progress, 0.4);
         drawPomegranateFruit(-48, 38, 6.0, progress, 0.3);
 
         ctx.restore();
 
-        // Compute exact world-space owl perch position on the branch
         const localPerchX = -104 * scale;
         const localPerchY = 39 * scale;
         const cosR = Math.cos(windRot), sinR = Math.sin(windRot);
@@ -1961,82 +1964,282 @@
       }
 
       // =======================================================================
-      // ARTICULATED RED FOX (Afternoon -> Dusk, Scroll 0.00 -> 0.54)
-      // 3-Phase Choreography: Trot along corniche -> Sit near bench -> Trot off
+      // ARTICULATED RED FOX (NEVER FADES OUT!)
+      // Phase A (0.00-0.28): Trot along sunlit corniche toward bench
+      // Phase B (0.28-0.40): Smooth parabolic hop onto wooden bench seat
+      // Phase C (0.40-1.00): Laying comfortably on the bench seat through night
       // =======================================================================
-      function drawArticulatedFox(progress, dt, benchX, cornicheY) {
-        const foxAlpha = 1 - smoothstep(0.47, 0.56, progress);
-        if (foxAlpha <= 0.01) return;
+      function drawArticulatedFox(progress, dt, benchX, benchW, benchGroundY, benchSeatY, lampOn) {
+        const startX = W + 48;
+        const takeoffX = benchX + benchW * 0.44;
+        const restX = benchX - 2;
+        const walkY = benchGroundY + 4;
 
-        const startX = W + 45;
-        const seatX = benchX + clamp(W * 0.20, 74, 108);
-        const endX = -60;
-        const groundY = cornicheY + 26;
+        // Warm coat shifts softly from bright sunlit russet to cozy lamp-lit amber-russet at night
+        const duskMix = smoothstep(0.24, 0.62, progress);
+        const lampWarm = lampOn * 0.45;
+        const furMain = mixRGB(mixRGB([214, 102, 42], [142, 66, 38], duskMix), [196, 106, 48], lampWarm);
+        const furDark = mixRGB(mixRGB([164, 68, 26], [96, 42, 30], duskMix), [140, 66, 32], lampWarm);
+        const cream = mixRGB(mixRGB([252, 238, 212], [204, 180, 158], duskMix), [244, 218, 178], lampWarm);
+        const sock = mixRGB([44, 28, 24], [22, 18, 26], duskMix);
 
-        let fx, phaseMode, sitBlend = 0;
-        if (progress < 0.24) {
-          // Phase 1: Trot from right along sunlit corniche toward bench
-          const t = smoothstep(0.0, 0.24, progress);
-          fx = lerp(startX, seatX, t);
-          phaseMode = 'walk';
-          sitBlend = smoothstep(0.20, 0.24, progress);
-        } else if (progress < 0.40) {
-          // Phase 2: Seated poised beside bench beneath pomegranate tree gazing at sunset
-          fx = seatX;
-          phaseMode = 'sit';
-          sitBlend = 1;
-        } else {
-          // Phase 3: Stand and trot quietly left into twilight reeds
-          const t = smoothstep(0.40, 0.55, progress);
-          fx = lerp(seatX, endX, t);
-          phaseMode = 'walk';
-          sitBlend = 1 - smoothstep(0.40, 0.44, progress);
-        }
-
-        // Track actual distance traveled for zero-sliding skeletal trot kinematics
-        if (foxState.lastX === null) foxState.lastX = fx;
-        const moved = Math.abs(fx - foxState.lastX);
-        foxState.distWalked += moved;
-        foxState.lastX = fx;
-
-        // Occasional natural ear twitch while seated
+        // Occasional relaxed ear flick
         foxState.nextTwitch -= dt;
         if (foxState.nextTwitch <= 0) {
           foxState.earTwitch = 1;
-          foxState.nextTwitch = 2.6 + Math.random() * 2.8;
+          foxState.nextTwitch = 2.5 + Math.random() * 3.0;
         }
-        foxState.earTwitch = Math.max(0, foxState.earTwitch - dt * 4.5);
+        foxState.earTwitch = Math.max(0, foxState.earTwitch - dt * 4.2);
 
-        const stride = foxState.distWalked * 0.14;
-        const isMoving = moved > 0.15 && sitBlend < 0.6;
-        const bounce = isMoving ? Math.abs(Math.sin(stride)) * -3.0 : Math.sin(time * 2.2) * 0.7;
+        // Determine current phase position & blend
+        let fx, fy, bodyPitch = 0, crouch = 0, hopTuck = 0, layT = 0;
 
-        // Multi-segment physics tail wave
-        for (let s = 0; s < 6; s++) {
-          const targetAng = sitBlend > 0.5
-            ? Math.sin(time * 1.9 - s * 0.45) * 0.08 - 0.12
-            : Math.sin(time * 3.1 - s * 0.55) * 0.14 + (isMoving ? -0.05 : 0);
+        if (progress < 0.28) {
+          // Phase A: Graceful 4-leg trot from right to beside bench
+          const walkT = smoothstep(0.0, 0.27, progress);
+          fx = lerp(startX, takeoffX, walkT);
+          fy = walkY;
+          crouch = smoothstep(0.24, 0.28, progress);
+        } else if (progress < 0.40) {
+          // Phase B: Natural parabolic hop up onto the wooden bench seat
+          const hopT = clamp((progress - 0.28) / 0.12, 0, 1);
+          const easeHop = smoothstep(0, 1, hopT);
+          fx = lerp(takeoffX, restX, easeHop);
+          const linearY = lerp(walkY, benchSeatY, easeHop);
+          const arcLift = Math.sin(hopT * Math.PI) * 32;
+          fy = linearY - arcLift;
+          hopTuck = Math.sin(hopT * Math.PI);
+          bodyPitch = lerp(-0.26, 0.14, hopT) * hopTuck;
+        } else {
+          // Phase C: Transition & stay laying comfortably on the bench seat through 9:00 PM!
+          fx = restX;
+          fy = benchSeatY;
+          layT = smoothstep(0.40, 0.49, progress);
+        }
+
+        // Track horizontal distance for zero-slip trot kinematics
+        if (foxState.lastX === null) foxState.lastX = fx;
+        const moved = Math.abs(fx - foxState.lastX);
+        if (progress < 0.28) {
+          foxState.distWalked += moved;
+        }
+        foxState.lastX = fx;
+
+        // 5-segment bushy tail fluid wave
+        for (let s = 0; s < 5; s++) {
+          const targetAng = layT > 0.5
+            ? Math.sin(time * 1.4 - s * 0.5) * 0.04
+            : Math.sin(time * 3.2 - s * 0.55) * (hopTuck > 0.1 ? 0.08 : 0.13);
           foxState.tailAngles[s] = lerp(foxState.tailAngles[s], targetAng, clamp(dt * 8, 0, 1));
         }
 
-        // Coat palette deepens smoothly into warm dusk russet
-        const duskMix = smoothstep(0.25, 0.52, progress);
-        const furMain = mixRGB([212, 102, 42], [116, 54, 42], duskMix);
-        const furDark = mixRGB([164, 68, 26], [78, 34, 32], duskMix);
-        const cream = mixRGB([250, 236, 208], [186, 162, 146], duskMix);
-        const sock = mixRGB([44, 28, 24], [18, 16, 26], duskMix);
-
         ctx.save();
-        ctx.globalAlpha = foxAlpha;
-        ctx.translate(fx, groundY + bounce);
 
-        // Soft ground shadow
-        ctx.fillStyle = 'rgba(8, 12, 24, 0.35)';
-        ctx.beginPath();
-        ctx.ellipse(2, 2 - bounce, 22, 4.5, 0, 0, Math.PI * 2);
-        ctx.fill();
+        // ---------------------------------------------------------------------
+        // PHASE C (FULLY LAYING ON THE BENCH SEAT, layT > 0.55)
+        // Rendered as a dedicated cozy reclined silhouette resting flat on slats
+        // ---------------------------------------------------------------------
+        if (layT > 0.55) {
+          const cozyAlpha = smoothstep(0.55, 0.85, layT);
+          const breath = Math.sin(time * 1.9) * 0.85;
+          const rimAlpha = 0.22 + lampOn * 0.52;
 
-        // Helper for 2-joint articulated fox leg (thigh/upper + lower + dark paw)
+          ctx.translate(fx, fy);
+
+          // Soft contact shadow directly on the wooden bench planks
+          ctx.fillStyle = 'rgba(6, 10, 20, 0.45)';
+          ctx.beginPath();
+          ctx.ellipse(2, 1.5, 29, 4.2, 0, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Cozy reclined hind haunch & sleek loaf body resting flat on the bench seat
+          ctx.fillStyle = rgbStr(furDark);
+          ctx.beginPath();
+          ctx.ellipse(14, -5.5 - breath * 0.3, 13.5, 8.2, -0.1, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.fillStyle = rgbStr(furMain);
+          ctx.beginPath();
+          ctx.moveTo(-16, -2);
+          ctx.quadraticCurveTo(-17, -14 - breath, -4, -15.5 - breath);
+          ctx.quadraticCurveTo(10, -16 - breath * 0.8, 21, -10.5 - breath * 0.4);
+          ctx.quadraticCurveTo(26, -6, 23, -1);
+          ctx.quadraticCurveTo(8, 2, -16, 1);
+          ctx.closePath();
+          ctx.fill();
+
+          // Warm golden-amber moonlight/streetlamp highlight along the fox's resting back
+          ctx.strokeStyle = `rgba(255, 224, 146, ${rimAlpha.toFixed(2)})`;
+          ctx.lineWidth = 1.4;
+          ctx.lineCap = 'round';
+          ctx.beginPath();
+          ctx.moveTo(-11, -13.5 - breath);
+          ctx.quadraticCurveTo(4, -16.2 - breath, 19, -11 - breath * 0.4);
+          ctx.stroke();
+
+          // Soft cream chest puff resting over front paws
+          ctx.fillStyle = rgbStr(cream);
+          ctx.beginPath();
+          ctx.ellipse(-13.5, -5.5 - breath * 0.3, 6, 5.2, 0.2, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Front paws tucked neatly forward & gently draped over the front plank edge of the bench!
+          // Far front paw
+          ctx.strokeStyle = rgbStr(furDark);
+          ctx.lineWidth = 4.2;
+          ctx.lineCap = 'round';
+          ctx.beginPath();
+          ctx.moveTo(-13, -3);
+          ctx.quadraticCurveTo(-21, -2, -25, 1.5);
+          ctx.stroke();
+          ctx.strokeStyle = rgbStr(sock);
+          ctx.lineWidth = 3.6;
+          ctx.beginPath();
+          ctx.moveTo(-21, -0.5);
+          ctx.lineTo(-26, 2.5);
+          ctx.stroke();
+
+          // Near front paw draped softly over bench edge
+          ctx.strokeStyle = rgbStr(furMain);
+          ctx.lineWidth = 4.4;
+          ctx.beginPath();
+          ctx.moveTo(-10, -2);
+          ctx.quadraticCurveTo(-18, -0.5, -21, 3.8);
+          ctx.stroke();
+          ctx.strokeStyle = rgbStr(sock);
+          ctx.lineWidth = 3.8;
+          ctx.beginPath();
+          ctx.moveTo(-17.5, 0.8);
+          ctx.lineTo(-21.5, 4.8);
+          ctx.stroke();
+
+          // Plush 5-segment white-tipped bushy tail curled softly around flank along the bench seat
+          const tailSway = Math.sin(time * 1.5) * 1.4;
+          ctx.lineCap = 'round';
+          ctx.strokeStyle = rgbStr(furMain);
+          ctx.lineWidth = 8.2;
+          ctx.beginPath();
+          ctx.moveTo(22, -4);
+          ctx.bezierCurveTo(30, -2, 31, 4.5, 19, 4.2 + tailSway * 0.3);
+          ctx.quadraticCurveTo(9, 4, 2, 3.5 + tailSway * 0.6);
+          ctx.stroke();
+
+          // Soft white tail tip resting gracefully near the front of the bench
+          ctx.strokeStyle = rgbStr(cream);
+          ctx.lineWidth = 6.2;
+          ctx.beginPath();
+          ctx.moveTo(7, 3.8 + tailSway * 0.5);
+          ctx.quadraticCurveTo(2, 3.6 + tailSway * 0.7, -3, 2.8 + tailSway);
+          ctx.stroke();
+
+          // Peaceful Upright-Relaxed Head (gazing calmly across the Tigris & toward the owl on the left tree!)
+          const lookAtOwl = smoothstep(0.84, 0.94, progress);
+          const headTilt = lerp(0.06, 0.16, lookAtOwl) + Math.sin(time * 0.9) * 0.03;
+
+          ctx.save();
+          ctx.translate(-14, -14.5 - breath * 0.6);
+          ctx.rotate(headTilt);
+
+          // Far pointed ear
+          ctx.fillStyle = rgbStr(furDark);
+          ctx.beginPath();
+          ctx.moveTo(-2, -6);
+          ctx.lineTo(-5, -17.5);
+          ctx.lineTo(3, -8);
+          ctx.closePath();
+          ctx.fill();
+
+          // Head cranium & tapered snout
+          ctx.fillStyle = rgbStr(furMain);
+          ctx.beginPath();
+          ctx.moveTo(4.5, -6.5);
+          ctx.quadraticCurveTo(-4, -9.8, -10.5, -4.5);
+          ctx.lineTo(-18.5, -1.2);
+          ctx.lineTo(-9.5, 3.6);
+          ctx.quadraticCurveTo(0, 4.8, 6.2, 0.5);
+          ctx.closePath();
+          ctx.fill();
+
+          // Cream cheek & jaw
+          ctx.fillStyle = rgbStr(cream);
+          ctx.beginPath();
+          ctx.moveTo(-15.5, -0.4);
+          ctx.lineTo(-9.5, 3.6);
+          ctx.lineTo(-1.5, 2.6);
+          ctx.closePath();
+          ctx.fill();
+
+          // Near pointed black-tipped ear with occasional gentle flick
+          ctx.save();
+          ctx.translate(1.2, -6.8);
+          ctx.rotate(foxState.earTwitch * 0.24);
+          ctx.fillStyle = rgbStr(furMain);
+          ctx.beginPath();
+          ctx.moveTo(-3, 1);
+          ctx.lineTo(0, -12.5);
+          ctx.lineTo(4, 1);
+          ctx.closePath();
+          ctx.fill();
+          ctx.fillStyle = rgbStr(sock);
+          ctx.beginPath();
+          ctx.moveTo(-1.2, -6.5);
+          ctx.lineTo(0, -12.5);
+          ctx.lineTo(1.8, -6.5);
+          ctx.closePath();
+          ctx.fill();
+          ctx.restore();
+
+          // Nose & peaceful slow-blinking amber eye
+          ctx.fillStyle = '#0a0d16';
+          ctx.beginPath();
+          ctx.arc(-18.5, -1.2, 1.45, 0, Math.PI * 2);
+          ctx.fill();
+
+          const blinkPhase = (time + 1.3) % 5.2;
+          const foxBlinking = blinkPhase > 4.95 && blinkPhase < 5.14;
+          if (foxBlinking) {
+            ctx.strokeStyle = '#1b1414';
+            ctx.lineWidth = 1.25;
+            ctx.beginPath();
+            ctx.moveTo(-9.5, -3.2);
+            ctx.quadraticCurveTo(-7.5, -2.1, -5.5, -3.2);
+            ctx.stroke();
+          } else {
+            ctx.fillStyle = '#f5c542';
+            ctx.beginPath();
+            ctx.arc(-7.6, -3.3, 1.5, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = '#0b101b';
+            ctx.beginPath();
+            ctx.arc(-7.9, -3.3, 0.75, 0, Math.PI * 2);
+            ctx.fill();
+          }
+
+          ctx.restore();
+          ctx.globalAlpha = cozyAlpha;
+          ctx.restore();
+          return;
+        }
+
+        // ---------------------------------------------------------------------
+        // PHASE A & B (TROTTING ON CORNICHE -> CROUCH -> PARABOLIC HOP -> SETTLING)
+        // ---------------------------------------------------------------------
+        const stride = foxState.distWalked * 0.145;
+        const isWalking = progress < 0.27 && moved > 0.12;
+        const bounce = isWalking ? Math.abs(Math.sin(stride)) * -3.0 : 0;
+        const crouchDrop = crouch * 4.5 + layT * 9.0;
+
+        ctx.translate(fx, fy + bounce + crouchDrop);
+        ctx.rotate(bodyPitch);
+
+        // Ground shadow (fades slightly while airborne during hop)
+        if (hopTuck < 0.75) {
+          ctx.fillStyle = `rgba(8, 12, 24, ${(0.34 * (1 - hopTuck)).toFixed(2)})`;
+          ctx.beginPath();
+          ctx.ellipse(2, 2 - bounce - crouchDrop, 21, 4.2, 0, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
         const drawLeg = (hx, hy, ang1, ang2, len1, len2, color) => {
           const kx = hx + Math.sin(ang1) * len1;
           const ky = hy + Math.cos(ang1) * len1;
@@ -2044,50 +2247,57 @@
           const py = ky + Math.cos(ang1 + ang2) * len2;
           ctx.lineCap = 'round';
           ctx.strokeStyle = rgbStr(color);
-          ctx.lineWidth = 3.6;
+          ctx.lineWidth = 3.7;
           ctx.beginPath();
           ctx.moveTo(hx, hy);
           ctx.lineTo(kx, ky);
           ctx.stroke();
 
           ctx.strokeStyle = rgbStr(sock);
-          ctx.lineWidth = 2.7;
+          ctx.lineWidth = 2.8;
           ctx.beginPath();
           ctx.moveTo(kx, ky);
           ctx.lineTo(px, py);
           ctx.stroke();
         };
 
-        const gaitA = Math.sin(stride) * 0.45 * (1 - sitBlend);
-        const gaitB = Math.sin(stride + Math.PI) * 0.45 * (1 - sitBlend);
-        const kneeA = Math.max(0, -Math.cos(stride)) * 0.5 * (1 - sitBlend);
-        const kneeB = Math.max(0, Math.cos(stride)) * 0.5 * (1 - sitBlend);
+        const activeWalk = isWalking ? 1 : 0;
+        const gaitA = Math.sin(stride) * 0.46 * activeWalk;
+        const gaitB = Math.sin(stride + Math.PI) * 0.46 * activeWalk;
+        const kneeA = Math.max(0, -Math.cos(stride)) * 0.52 * activeWalk;
+        const kneeB = Math.max(0, Math.cos(stride)) * 0.52 * activeWalk;
 
-        // Body posture interpolates smoothly between trotting horizontal and poised seated slant
-        const hipY = lerp(-17, -9, sitBlend);
-        const shoulderY = lerp(-19, -22, sitBlend);
+        // Tuck legs smoothly during parabolic hop onto bench
+        const frontAngA = lerp(gaitA, -0.68, hopTuck);
+        const frontKneeA = lerp(kneeA, 0.95, hopTuck);
+        const frontAngB = lerp(gaitB, -0.45, hopTuck);
+        const frontKneeB = lerp(kneeB, 0.85, hopTuck);
+        const hindAngA = lerp(gaitA, 0.65, hopTuck);
+        const hindKneeA = lerp(kneeA, -0.55, hopTuck);
+        const hindAngB = lerp(gaitB, 0.48, hopTuck);
+        const hindKneeB = lerp(kneeB, -0.45, hopTuck);
 
-        // Far-side legs (behind body)
-        if (sitBlend < 0.85) {
-          drawLeg(11, hipY, gaitB, kneeB, 9, 9, furDark);
-          drawLeg(-11, shoulderY + 2, gaitA, kneeA, 9, 10, furDark);
-        }
+        const hipY = -17 + crouch * 2.5 + layT * 4;
+        const shoulderY = -19 + crouch * 3.5 + layT * 4;
 
-        // 6-Segment Physics-Driven Bushy White-Tipped Tail
+        // Far legs
+        drawLeg(11, hipY, hindAngB, hindKneeB, 9, 9, furDark);
+        drawLeg(-11, shoulderY + 2, frontAngA, frontKneeA, 9, 10, furDark);
+
+        // 5-Segment Physics Bushy White-Tipped Tail
         ctx.save();
         ctx.translate(15, hipY + 1);
-        let tx = 0, ty = 0, cumAng = lerp(-0.22, 0.35, sitBlend);
+        let tx = 0, ty = 0, cumAng = lerp(-0.18, 0.25, hopTuck);
         const pts = [{ x: 0, y: 0 }];
-        for (let s = 0; s < 6; s++) {
+        for (let s = 0; s < 5; s++) {
           cumAng += foxState.tailAngles[s];
-          tx += Math.cos(cumAng) * 5.2;
-          ty += Math.sin(cumAng) * 5.2;
+          tx += Math.cos(cumAng) * 5.8;
+          ty += Math.sin(cumAng) * 5.8;
           pts.push({ x: tx, y: ty });
         }
-        // Tapered bushy tail ribbon
-        for (let s = 0; s < 6; s++) {
-          const widthSeg = [5, 7.5, 9, 8.5, 6.5, 3.8][s];
-          ctx.strokeStyle = s >= 4 ? rgbStr(cream) : rgbStr(furMain);
+        for (let s = 0; s < 5; s++) {
+          const widthSeg = [5.5, 8.2, 9.2, 7.6, 4.6][s];
+          ctx.strokeStyle = s >= 3 ? rgbStr(cream) : rgbStr(furMain);
           ctx.lineWidth = widthSeg;
           ctx.lineCap = 'round';
           ctx.beginPath();
@@ -2097,43 +2307,31 @@
         }
         ctx.restore();
 
-        // Sleek Fox Torso (connects shoulder to hip smoothly)
+        // Sleek Fox Torso
         ctx.fillStyle = rgbStr(furMain);
         ctx.beginPath();
         ctx.moveTo(-14, shoulderY - 3);
-        ctx.quadraticCurveTo(2, lerp(-25, -20, sitBlend), 16, hipY - 2);
+        ctx.quadraticCurveTo(2, -25 + crouch * 2, 16, hipY - 2);
         ctx.quadraticCurveTo(19, hipY + 6, 10, hipY + 8);
-        ctx.quadraticCurveTo(-2, lerp(-11, -7, sitBlend), -14, shoulderY + 6);
+        ctx.quadraticCurveTo(-2, -11 + crouch * 2, -14, shoulderY + 6);
         ctx.closePath();
         ctx.fill();
 
-        // Warm cream chest ruff
+        // Cream chest ruff
         ctx.fillStyle = rgbStr(cream);
         ctx.beginPath();
         ctx.ellipse(-13, shoulderY + 2, 5.5, 6.5, 0.3, 0, Math.PI * 2);
         ctx.fill();
 
-        // Near-side legs
-        if (sitBlend > 0.7) {
-          // Seated tucked hind haunch + planted straight foreleg
-          ctx.fillStyle = rgbStr(furMain);
-          ctx.beginPath();
-          ctx.ellipse(9, -6, 9, 7, 0.2, 0, Math.PI * 2);
-          ctx.fill();
-          drawLeg(-11, shoulderY + 3, -0.05, 0.05, 11, 12, furMain);
-          drawLeg(-8, shoulderY + 4, 0.04, 0.02, 11, 11, furDark);
-        } else {
-          drawLeg(12, hipY, gaitA, kneeA, 9, 9, furMain);
-          drawLeg(-10, shoulderY + 2, gaitB, kneeB, 9, 10, furMain);
-        }
+        // Near legs
+        drawLeg(12, hipY, hindAngA, hindKneeA, 9, 9, furMain);
+        drawLeg(-10, shoulderY + 2, frontAngB, frontKneeB, 9, 10, furMain);
 
-        // Articulated Head (Facing left toward bench/river; gently tilts up to gaze at sunset while seated)
-        const headPitch = sitBlend * (0.24 + Math.sin(time * 1.1) * 0.04);
+        // Fox Head
         ctx.save();
         ctx.translate(-15, shoulderY - 5);
-        ctx.rotate(headPitch);
+        ctx.rotate(-bodyPitch * 0.5 + crouch * 0.14);
 
-        // Far pointed ear
         ctx.fillStyle = rgbStr(furDark);
         ctx.beginPath();
         ctx.moveTo(-2, -6);
@@ -2142,18 +2340,16 @@
         ctx.closePath();
         ctx.fill();
 
-        // Head cranium & sleek tapered snout
         ctx.fillStyle = rgbStr(furMain);
         ctx.beginPath();
         ctx.moveTo(4, -7);
         ctx.quadraticCurveTo(-4, -10, -10, -5);
-        ctx.lineTo(-18, -1.5); // snout tip
+        ctx.lineTo(-18, -1.5);
         ctx.lineTo(-9, 3.5);
         ctx.quadraticCurveTo(0, 4.5, 6, 0);
         ctx.closePath();
         ctx.fill();
 
-        // Cream cheek & lower jaw
         ctx.fillStyle = rgbStr(cream);
         ctx.beginPath();
         ctx.moveTo(-15, -0.5);
@@ -2162,7 +2358,6 @@
         ctx.closePath();
         ctx.fill();
 
-        // Near pointed ear with dark tip & occasional twitch
         ctx.save();
         ctx.translate(1, -7);
         ctx.rotate(foxState.earTwitch * 0.25);
@@ -2182,7 +2377,6 @@
         ctx.fill();
         ctx.restore();
 
-        // Nose & warm golden-amber eye
         ctx.fillStyle = '#0a0d16';
         ctx.beginPath();
         ctx.arc(-18, -1.5, 1.4, 0, Math.PI * 2);
@@ -2197,26 +2391,28 @@
       }
 
       // =======================================================================
-      // ARTICULATED NIGHT OWL (Dusk -> Starry Night, Scroll 0.44 -> 1.00)
-      // Perched on branch with eye blinks -> S-Curve Moonlit Glide across Tigris
+      // REFINED ARTICULATED NIGHT OWL (CRISP AERODYNAMIC WINGS — ZERO MOP LOOK!)
+      // Phase A (0.44-0.56): Perched neatly on upper-right pomegranate branch
+      // Phase B (0.56-0.84): Sweeping S-curve moonlit flight toward lower-left tree
+      // Phase C (0.84-0.90): Graceful braking & talons-forward landing
+      // Phase D (0.90-1.00): Standing firmly perched on lower-left pomegranate tree
       // =======================================================================
-      function drawArticulatedOwl(progress, dt, perch, moonX, moonY) {
-        const appear = smoothstep(0.44, 0.53, progress);
+      function drawArticulatedOwl(progress, dt, upperPerch, leftPerch, moonX, moonY) {
+        const appear = smoothstep(0.44, 0.52, progress);
         if (appear <= 0.01) {
           owlLaunched = false;
+          owlLanded = false;
           return;
         }
 
-        const flightT = smoothstep(0.56, 0.99, progress);
-
-        // Trigger branch physical recoil & petal scatter the moment the owl launches
-        if (flightT > 0.02 && !owlLaunched) {
+        // Launch & Landing branch recoil physics
+        if (progress > 0.565 && !owlLaunched) {
           owlLaunched = true;
-          branchSpringVel = 3.2;
+          upperSpringVel = 3.2;
           for (let i = 0; i < 5; i++) {
             fallingPetals.push({
-              x: perch.x + (Math.random() - 0.5) * 28,
-              y: perch.y + (Math.random() - 0.5) * 14,
+              x: upperPerch.x + (Math.random() - 0.5) * 26,
+              y: upperPerch.y + (Math.random() - 0.5) * 12,
               vx: -14 - Math.random() * 18,
               vy: 18 + Math.random() * 14,
               rot: Math.random() * Math.PI * 2,
@@ -2225,37 +2421,84 @@
               wobble: Math.random() * Math.PI * 2
             });
           }
-        } else if (flightT <= 0.01) {
+        } else if (progress <= 0.55) {
           owlLaunched = false;
         }
 
-        // S-curve flight path soaring past the glowing moon across the Baghdad skyline
-        const p0 = { x: perch.x, y: perch.y - 16 };
-        const p1 = { x: W * 0.64, y: H * 0.28 };
-        const p2 = { x: moonX + 34, y: moonY + 28 };
-        const p3 = { x: W * 0.14, y: H * 0.24 };
+        if (progress >= 0.895 && !owlLanded) {
+          owlLanded = true;
+          leftSpringVel = 2.8;
+          for (let i = 0; i < 3; i++) {
+            fallingPetals.push({
+              x: leftPerch.x + (Math.random() - 0.5) * 24,
+              y: leftPerch.y + 4,
+              vx: 6 + Math.random() * 14,
+              vy: 14 + Math.random() * 12,
+              rot: Math.random() * Math.PI * 2,
+              vRot: (Math.random() - 0.5) * 3.0,
+              size: 2.8 + Math.random() * 1.8,
+              wobble: Math.random() * Math.PI * 2
+            });
+          }
+        } else if (progress < 0.87) {
+          owlLanded = false;
+        }
 
-        const pos = cubicPoint(p0, p1, p2, p3, flightT);
-        const isFlying = flightT > 0.015;
+        // Smooth flight parameter across 0.56 -> 0.90
+        const flightT = smoothstep(0.56, 0.90, progress);
+        const isPerchedStart = progress < 0.565;
+        const isPerchedEnd = progress >= 0.898;
+        const isAirborne = !isPerchedStart && !isPerchedEnd;
 
-        // Alternating rhythmic wingbeats & silent glides
-        const beatCycle = (time * 1.1) % 3.2;
-        const isGliding = beatCycle > 2.15;
-        const rawBeat = isGliding ? Math.sin(time * 1.4) * 0.14 : Math.sin(time * 6.4);
-        const flap = isFlying ? rawBeat : 0;
+        // Braking blend (0.84 -> 0.90)
+        const brakeT = smoothstep(0.83, 0.895, progress) * (1 - smoothstep(0.895, 0.915, progress));
 
-        const bobY = isFlying ? -flap * 4.5 : Math.sin(time * 1.8) * 1.2;
-        const bank = isFlying ? lerp(-0.18, 0.12, flightT) + Math.sin(time * 2.5) * 0.06 : perch.rot;
-        const scale = lerp(0.95, 1.08, smoothstep(0.56, 0.85, progress));
+        // Wing open factor: 0 when perched on upper-right or standing on lower-left tree; 1 in mid-flight
+        const wingOpen = smoothstep(0.56, 0.61, progress) * (1 - smoothstep(0.885, 0.915, progress));
 
-        // Spawn delicate golden stardust trail behind soaring owl
-        if (isFlying && Math.random() < dt * 18) {
+        // Sweeping S-curve from upper-right pomegranate branch -> past glowing moon -> lower-left pomegranate tree
+        const p0 = { x: upperPerch.x, y: upperPerch.y - 16 };
+        const p1 = { x: W * 0.62, y: H * 0.24 };
+        const p2 = { x: Math.max(leftPerch.x + 60, moonX - 10), y: Math.min(leftPerch.y - 110, H * 0.44) };
+        const p3 = { x: leftPerch.x, y: leftPerch.y - 17 };
+
+        const pos = isPerchedStart
+          ? p0
+          : (isPerchedEnd ? p3 : cubicPoint(p0, p1, p2, p3, flightT));
+
+        // Unhurried, realistic wingbeat cycle alternating with outstretched silent glides
+        const beatCycle = (time * 0.95) % 3.6;
+        const isGliding = beatCycle > 2.35 && brakeT < 0.2;
+        const beatFreq = brakeT > 0.15 ? 7.8 : 5.6;
+        const flapInner = isAirborne
+          ? (isGliding ? Math.sin(time * 1.3) * 0.10 : Math.sin(time * beatFreq))
+          : 0;
+        // Phase-lagged outer wing flexion creates fluid, lifelike avian flight
+        const flapOuter = isAirborne
+          ? (isGliding ? Math.sin(time * 1.3 - 0.5) * 0.12 : Math.sin(time * beatFreq - 0.58))
+          : 0;
+
+        const bobY = isAirborne
+          ? -flapInner * 4.2
+          : Math.sin(time * 1.8) * 0.8;
+
+        // Natural flight bank -> upright braking pitch -> level standing on branch
+        const bank = isAirborne
+          ? lerp(-0.18, 0.08, flightT) * (1 - brakeT) + Math.sin(time * 2.2) * 0.04 * (1 - brakeT)
+          : (isPerchedStart ? upperPerch.rot : leftPerch.rot);
+
+        const scale = isPerchedEnd
+          ? 1.02
+          : lerp(0.92, 1.06, Math.sin(flightT * Math.PI));
+
+        // Subtle golden stardust trail behind soaring wingtips
+        if (isAirborne && wingOpen > 0.4 && Math.random() < dt * 16) {
           stardust.push({
-            x: pos.x + 10 + (Math.random() - 0.5) * 18,
-            y: pos.y + bobY + (Math.random() - 0.5) * 12,
-            vx: 8 + Math.random() * 14,
-            vy: 3 + Math.random() * 8,
-            r: 1.0 + Math.random() * 1.6,
+            x: pos.x + (Math.random() - 0.5) * 34,
+            y: pos.y + bobY + (Math.random() - 0.5) * 14,
+            vx: 6 + Math.random() * 14,
+            vy: 2 + Math.random() * 8,
+            r: 1.0 + Math.random() * 1.5,
             life: 1
           });
         }
@@ -2266,142 +2509,255 @@
         ctx.rotate(bank);
         ctx.scale(scale, scale);
 
-        const bodyCol = '#11213d';
-        const wingCol = '#172b4d';
-        const rimCol = 'rgba(253, 230, 138, 0.55)';
+        // Rich nocturnal owl palette (deep slate-indigo + warm umber + soft buff + moonlight silver-gold rim)
+        const plumageDark = '#101f3a';
+        const plumageMid = '#1a2f52';
+        const plumageWarm = '#2a3c58';
+        const covertBuff = 'rgba(232, 212, 174, 0.24)';
+        const moonRim = 'rgba(253, 234, 170, 0.66)';
 
-        // Helper for multi-segment articulated owl wing (inner + outer + 6 splayed primary feathers)
-        const drawWing = (side) => {
-          const spread = smoothstep(0.01, 0.12, flightT);
-          if (spread <= 0.02) return;
+        // ---------------------------------------------------------------------
+        // SLEEK TWO-JOINT AERODYNAMIC OWL WINGS (CLOSED COHESIVE BEZIER AIRFOIL)
+        // Zero dangling sticks / zero mop look!
+        // ---------------------------------------------------------------------
+        const drawSleekWing = (side) => {
+          if (wingOpen <= 0.02) return;
           ctx.save();
           ctx.scale(side, 1);
-          const innerAng = lerp(1.15, -0.22 + flap * 0.42, spread);
-          const outerAng = lerp(0.4, -0.1 + flap * 0.35, spread);
 
-          ctx.translate(7, -2);
-          ctx.rotate(innerAng);
+          // Smooth shoulder + phase-lagged wrist articulation
+          const shoulderAng = lerp(1.05, -0.18 + flapInner * 0.44 - brakeT * 0.32, wingOpen);
+          const wristAng = lerp(0.25, -0.06 + flapOuter * 0.38 - brakeT * 0.14, wingOpen);
 
-          // Inner wing (secondary coverts)
-          ctx.fillStyle = wingCol;
-          ctx.strokeStyle = rimCol;
-          ctx.lineWidth = 1;
+          // Inner Wing (Shoulder -> Wrist)
+          ctx.translate(7.5, -2.5);
+          ctx.rotate(shoulderAng);
+
+          // Closed inner wing airfoil
+          const innerGrad = ctx.createLinearGradient(0, -10, 0, 12);
+          innerGrad.addColorStop(0, plumageMid);
+          innerGrad.addColorStop(1, plumageDark);
+          ctx.fillStyle = innerGrad;
           ctx.beginPath();
-          ctx.moveTo(0, -4);
-          ctx.quadraticCurveTo(16, -12, 28, -4);
-          ctx.quadraticCurveTo(16, 10, 0, 8);
+          ctx.moveTo(0, -4.5);
+          ctx.bezierCurveTo(9, -11.5, 20, -10.5, 29, -4.5); // clean arched leading edge
+          ctx.lineTo(29, 7.5);
+          ctx.bezierCurveTo(20, 11.5, 10, 10.5, 0, 7.2);    // sleek scalloped secondary edge
+          ctx.closePath();
+          ctx.fill();
+
+          // Soft buff inner wing covert band
+          ctx.fillStyle = covertBuff;
+          ctx.beginPath();
+          ctx.moveTo(2, -1);
+          ctx.quadraticCurveTo(15, -5.5, 27, -1.5);
+          ctx.quadraticCurveTo(15, 3.5, 2, 3);
+          ctx.closePath();
+          ctx.fill();
+
+          // Crisp moonlight rim-light strictly along leading edge
+          ctx.strokeStyle = moonRim;
+          ctx.lineWidth = 1.3;
+          ctx.lineCap = 'round';
+          ctx.beginPath();
+          ctx.moveTo(0.5, -4.2);
+          ctx.bezierCurveTo(9, -11.2, 20, -10.2, 28.5, -4.5);
+          ctx.stroke();
+
+          // Outer Wing (Wrist -> Sleek Tapered Wingtip with 4 tight, integrated scalloped primary tips)
+          ctx.translate(27.5, -4.2);
+          ctx.rotate(wristAng);
+
+          const outerGrad = ctx.createLinearGradient(0, -6, 30, 10);
+          outerGrad.addColorStop(0, plumageMid);
+          outerGrad.addColorStop(0.65, plumageWarm);
+          outerGrad.addColorStop(1, plumageDark);
+          ctx.fillStyle = outerGrad;
+
+          ctx.beginPath();
+          // Sweeping arched leading edge to rounded aerodynamic tip
+          ctx.moveTo(0, 0);
+          ctx.bezierCurveTo(11, -5.5, 23, -3.5, 33, 2.2);
+          // 4 subtle, tightly integrated primary feather scallops forming ONE clean wing silhouette
+          ctx.quadraticCurveTo(31, 5.2, 26.8, 4.6);
+          ctx.quadraticCurveTo(25.2, 7.8, 20.5, 7.0);
+          ctx.quadraticCurveTo(18.6, 10.2, 13.6, 9.2);
+          ctx.quadraticCurveTo(11.4, 12.2, 6.2, 11.2);
+          ctx.quadraticCurveTo(2.5, 12.2, 0, 11.4);
+          ctx.closePath();
+          ctx.fill();
+
+          // Delicate interior covert highlight curve (strictly inside the wing)
+          ctx.strokeStyle = 'rgba(236, 218, 182, 0.22)';
+          ctx.lineWidth = 1.0;
+          ctx.beginPath();
+          ctx.moveTo(2, 3.2);
+          ctx.quadraticCurveTo(13, 0.5, 24, 3.2);
+          ctx.moveTo(2, 6.8);
+          ctx.quadraticCurveTo(11, 5.2, 18, 6.5);
+          ctx.stroke();
+
+          // Crisp silver-gold moonlight rim along outer leading edge
+          ctx.strokeStyle = moonRim;
+          ctx.lineWidth = 1.25;
+          ctx.beginPath();
+          ctx.moveTo(0, 0);
+          ctx.bezierCurveTo(11, -5.4, 23, -3.4, 32.5, 2.0);
+          ctx.stroke();
+
+          ctx.restore();
+        };
+
+        // Draw open aerodynamic wings while soaring/braking
+        drawSleekWing(-1);
+        drawSleekWing(1);
+
+        // Neat Tapered Tail Feathers
+        ctx.fillStyle = plumageDark;
+        ctx.beginPath();
+        ctx.moveTo(-5.5, 12);
+        ctx.quadraticCurveTo(0, 15, 5.5, 12);
+        ctx.lineTo(3.5, 23.5);
+        ctx.quadraticCurveTo(0, 25.5, -3.5, 23.5);
+        ctx.closePath();
+        ctx.fill();
+
+        // Sleek Teardrop Owl Body
+        const bodyGrad = ctx.createRadialGradient(-2, -2, 2, 0, 3, 18);
+        bodyGrad.addColorStop(0, plumageWarm);
+        bodyGrad.addColorStop(0.7, plumageMid);
+        bodyGrad.addColorStop(1, plumageDark);
+        ctx.fillStyle = bodyGrad;
+        ctx.strokeStyle = 'rgba(253, 232, 165, 0.42)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.ellipse(0, 2.5, 11.2, 15.5, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        // When Perched / Standing: Folded Wings Hugging Body in Tight Sleek Teardrop Contour
+        const foldAlpha = 1 - wingOpen;
+        if (foldAlpha > 0.05) {
+          ctx.save();
+          ctx.globalAlpha = appear * foldAlpha;
+          ctx.fillStyle = plumageDark;
+          ctx.strokeStyle = 'rgba(253, 232, 165, 0.38)';
+          ctx.lineWidth = 0.9;
+
+          // Left folded wing contour
+          ctx.beginPath();
+          ctx.moveTo(-7.5, -5.5);
+          ctx.bezierCurveTo(-13.5, 0, -12.8, 12, -5.2, 17.5);
+          ctx.quadraticCurveTo(-8.5, 8, -7.5, -5.5);
           ctx.closePath();
           ctx.fill();
           ctx.stroke();
 
-          // Outer wing + 6 splayed primary flight feathers
-          ctx.translate(25, -4);
-          ctx.rotate(outerAng);
-          ctx.fillStyle = bodyCol;
+          // Right folded wing contour
           ctx.beginPath();
-          ctx.moveTo(0, 0);
-          ctx.quadraticCurveTo(14, -7, 26, 2);
-          ctx.quadraticCurveTo(14, 11, 0, 9);
+          ctx.moveTo(7.5, -5.5);
+          ctx.bezierCurveTo(13.5, 0, 12.8, 12, 5.2, 17.5);
+          ctx.quadraticCurveTo(8.5, 8, 7.5, -5.5);
           ctx.closePath();
           ctx.fill();
-
-          ctx.strokeStyle = 'rgba(253, 230, 138, 0.42)';
-          ctx.lineWidth = 1.6;
-          ctx.lineCap = 'round';
-          for (let f = 0; f < 6; f++) {
-            const fang = -0.35 + f * 0.16;
-            const flen = 12 + (5 - f) * 1.8;
-            ctx.beginPath();
-            ctx.moveTo(16, 2 + f * 0.9);
-            ctx.lineTo(16 + Math.cos(fang) * flen, 2 + f * 0.9 + Math.sin(fang) * flen);
-            ctx.stroke();
-          }
+          ctx.stroke();
           ctx.restore();
-        };
+        }
 
-        // Articulated wings when soaring
-        drawWing(-1);
-        drawWing(1);
-
-        // Fan tail feathers
-        ctx.fillStyle = bodyCol;
+        // Soft warm chest plumage speckles
+        ctx.fillStyle = 'rgba(242, 224, 184, 0.16)';
         ctx.beginPath();
-        ctx.moveTo(-6, 14);
-        ctx.lineTo(0, 26);
-        ctx.lineTo(6, 14);
-        ctx.closePath();
+        ctx.ellipse(0, 4.5, 6.2, 9.2, 0, 0, Math.PI * 2);
         ctx.fill();
-
-        // Rounded Owl Body
-        ctx.fillStyle = bodyCol;
-        ctx.strokeStyle = rimCol;
-        ctx.lineWidth = 1.1;
+        ctx.strokeStyle = 'rgba(253, 230, 138, 0.24)';
+        ctx.lineWidth = 0.95;
         ctx.beginPath();
-        ctx.ellipse(0, 2, 11.5, 16, 0, 0, Math.PI * 2);
-        ctx.fill();
+        ctx.moveTo(-4, 2); ctx.quadraticCurveTo(0, 4.5, 4, 2);
+        ctx.moveTo(-3.5, 6.5); ctx.quadraticCurveTo(0, 9, 3.5, 6.5);
+        ctx.moveTo(-2.5, 11); ctx.quadraticCurveTo(0, 13, 2.5, 11);
         ctx.stroke();
 
-        // Subtle feather chevrons on chest
-        ctx.strokeStyle = 'rgba(253, 230, 138, 0.25)';
-        ctx.lineWidth = 1;
-        ctx.beginPath();
-        ctx.moveTo(-5, 3); ctx.quadraticCurveTo(0, 6, 5, 3);
-        ctx.moveTo(-4, 8); ctx.quadraticCurveTo(0, 11, 4, 8);
-        ctx.stroke();
+        // Small Golden Talons (Visible gripping the branch when perched/standing OR extending during landing!)
+        const talonVis = Math.max(foldAlpha, brakeT);
+        if (talonVis > 0.08) {
+          ctx.save();
+          ctx.globalAlpha = appear * talonVis;
+          ctx.strokeStyle = '#e5b449';
+          ctx.lineWidth = 1.65;
+          ctx.lineCap = 'round';
+          const reachY = 16.5 + brakeT * 2.5;
+          // Left foot gripping toes
+          ctx.beginPath();
+          ctx.moveTo(-4.2, 14.5); ctx.lineTo(-5.8, reachY + 2);
+          ctx.moveTo(-4.2, 14.5); ctx.lineTo(-4.0, reachY + 2.6);
+          ctx.moveTo(-4.2, 14.5); ctx.lineTo(-2.4, reachY + 1.8);
+          // Right foot gripping toes
+          ctx.moveTo(4.2, 14.5); ctx.lineTo(2.4, reachY + 1.8);
+          ctx.moveTo(4.2, 14.5); ctx.lineTo(4.0, reachY + 2.6);
+          ctx.moveTo(4.2, 14.5); ctx.lineTo(5.8, reachY + 2);
+          ctx.stroke();
+          ctx.restore();
+        }
 
-        // Cute Owl Head with subtle curious tilt when perched
-        const headTilt = isFlying ? 0 : Math.sin(time * 0.9) * 0.14;
+        // Cute Expressive Owl Head (gently tilts & looks right toward the fox on the bench when standing on left tree)
+        const headTilt = isAirborne
+          ? 0
+          : (isPerchedEnd ? 0.06 + Math.sin(time * 0.85) * 0.10 : Math.sin(time * 0.9) * 0.12);
+        const eyeLookX = isPerchedEnd ? 0.65 : 0; // subtly glances right toward the bench & fox
+
         ctx.save();
-        ctx.translate(0, -11);
+        ctx.translate(0, -11.5);
         ctx.rotate(headTilt);
 
-        // Ear tufts
-        ctx.fillStyle = wingCol;
+        // Delicate ear tufts
+        ctx.fillStyle = plumageMid;
         ctx.beginPath();
-        ctx.moveTo(-8, -5); ctx.lineTo(-11, -14); ctx.lineTo(-3, -8);
-        ctx.moveTo(8, -5); ctx.lineTo(11, -14); ctx.lineTo(3, -8);
+        ctx.moveTo(-7.5, -4.5); ctx.lineTo(-10.5, -13.5); ctx.lineTo(-3, -7.8);
+        ctx.moveTo(7.5, -4.5); ctx.lineTo(10.5, -13.5); ctx.lineTo(3, -7.8);
         ctx.fill();
 
-        // Head sphere & pale heart facial disc
-        ctx.fillStyle = wingCol;
+        // Rounded head & pale heart facial disc
+        ctx.fillStyle = plumageMid;
         ctx.beginPath();
-        ctx.arc(0, 0, 10, 0, Math.PI * 2);
+        ctx.arc(0, 0, 9.8, 0, Math.PI * 2);
         ctx.fill();
-        ctx.strokeStyle = rimCol;
+        ctx.strokeStyle = 'rgba(253, 232, 165, 0.48)';
         ctx.lineWidth = 0.9;
         ctx.stroke();
 
-        ctx.fillStyle = 'rgba(253, 230, 138, 0.14)';
+        ctx.fillStyle = 'rgba(253, 232, 170, 0.15)';
         ctx.beginPath();
-        ctx.arc(-3.8, 0, 4.4, 0, Math.PI * 2);
-        ctx.arc(3.8, 0, 4.4, 0, Math.PI * 2);
+        ctx.arc(-3.7, 0.2, 4.4, 0, Math.PI * 2);
+        ctx.arc(3.7, 0.2, 4.4, 0, Math.PI * 2);
         ctx.fill();
 
-        // Warm Golden Eyes with natural slow blink
+        // Warm glowing golden eyes with natural slow blink
         const blinkPhase = time % 4.6;
         const blinking = blinkPhase > 4.42 && blinkPhase < 4.55;
         if (blinking) {
           ctx.strokeStyle = '#fde68a';
           ctx.lineWidth = 1.4;
           ctx.beginPath();
-          ctx.moveTo(-6.2, 0); ctx.lineTo(-1.8, 0);
-          ctx.moveTo(1.8, 0); ctx.lineTo(6.2, 0);
+          ctx.moveTo(-6.1, 0); ctx.lineTo(-1.7, 0);
+          ctx.moveTo(1.7, 0); ctx.lineTo(6.1, 0);
           ctx.stroke();
         } else {
           ctx.fillStyle = '#fde68a';
           ctx.beginPath();
-          ctx.arc(-4, -0.5, 3.1, 0, Math.PI * 2);
-          ctx.arc(4, -0.5, 3.1, 0, Math.PI * 2);
+          ctx.arc(-3.9, -0.4, 3.1, 0, Math.PI * 2);
+          ctx.arc(3.9, -0.4, 3.1, 0, Math.PI * 2);
           ctx.fill();
+
           ctx.fillStyle = '#071122';
           ctx.beginPath();
-          ctx.arc(-4, -0.5, 1.45, 0, Math.PI * 2);
-          ctx.arc(4, -0.5, 1.45, 0, Math.PI * 2);
+          ctx.arc(-3.9 + eyeLookX, -0.4, 1.45, 0, Math.PI * 2);
+          ctx.arc(3.9 + eyeLookX, -0.4, 1.45, 0, Math.PI * 2);
           ctx.fill();
+
           ctx.fillStyle = '#ffffff';
           ctx.beginPath();
-          ctx.arc(-3.3, -1.2, 0.6, 0, Math.PI * 2);
-          ctx.arc(4.7, -1.2, 0.6, 0, Math.PI * 2);
+          ctx.arc(-3.2 + eyeLookX * 0.5, -1.1, 0.62, 0, Math.PI * 2);
+          ctx.arc(4.6 + eyeLookX * 0.5, -1.1, 0.62, 0, Math.PI * 2);
           ctx.fill();
         }
 
@@ -2422,14 +2778,12 @@
       // FLOATING PETALS, BOKEH FIREFLIES, STARDUST & INTERACTIVE BURSTS
       // =======================================================================
       function drawAtmosphereParticles(progress, dt, horizonY, cornicheY) {
-        // 1. Tumbling Crimson Pomegranate Petals -> Create Water Ripples on Contact!
         for (let i = fallingPetals.length - 1; i >= 0; i--) {
           const pt = fallingPetals[i];
           pt.x += (pt.vx + Math.sin(time * 2 + pt.wobble) * 10) * dt;
           pt.y += pt.vy * dt;
           pt.rot += pt.vRot * dt;
 
-          // If petal lands on the Tigris River surface, spawn an elliptical ripple & recycle
           if (pt.y > horizonY + 24 && pt.y < cornicheY - 4 && Math.random() < dt * 1.2) {
             waterRipples.push({ x: pt.x, y: pt.y, r: 2, maxR: 26 + Math.random() * 14, alpha: 0.48 });
             if (fallingPetals.length > 10) {
@@ -2438,7 +2792,7 @@
             }
             pt.y = -12;
             pt.x = W * (0.2 + Math.random() * 0.85);
-          } else if (pt.y > H + 15 || pt.x < -25) {
+          } else if (pt.y > H + 15 || pt.x < -25 || pt.x > W + 25) {
             if (fallingPetals.length > 10) {
               fallingPetals.splice(i, 1);
               continue;
@@ -2457,7 +2811,7 @@
           ctx.restore();
         }
 
-        // 2. Golden Afternoon Pollen -> Bokeh Night Fireflies
+        // Golden afternoon pollen -> night bokeh fireflies
         const flyGlow = 0.28 + smoothstep(0.4, 0.85, progress) * 0.72;
         for (let i = 0; i < fireflies.length; i++) {
           const f = fireflies[i];
@@ -2480,7 +2834,7 @@
           ctx.fill();
         }
 
-        // 3. Owl golden stardust wake
+        // Owl golden stardust wake
         for (let i = stardust.length - 1; i >= 0; i--) {
           const sd = stardust[i];
           sd.x += sd.vx * dt;
@@ -2493,7 +2847,7 @@
           ctx.fill();
         }
 
-        // 4. Interactive Tap / RSVP Celebration Golden Fireflies
+        // Interactive tap & RSVP celebration golden fireflies
         for (let i = sparkleBursts.length - 1; i >= 0; i--) {
           const sp = sparkleBursts[i];
           sp.x += sp.vx * dt;
@@ -2509,13 +2863,11 @@
         }
       }
 
-      // Interactive Touch / Click Response (River -> Ripples, Sky -> Swirling Fireflies & Petals)
       function handleTap(x, y) {
-        const { horizonY, cornicheY } = getMetrics(p);
+        const { horizonY, cornicheY } = getMetrics(scrollP);
         if (y >= horizonY && y <= cornicheY) {
-          // Concentric elliptical water ripples on the Tigris
-          waterRipples.push({ x, y, r: 3, maxR: 48, alpha: 0.7 });
-          waterRipples.push({ x, y, r: 1, maxR: 32, alpha: 0.55 });
+          waterRipples.push({ x, y, r: 3, maxR: 48, alpha: 0.72 });
+          waterRipples.push({ x, y, r: 1, maxR: 32, alpha: 0.56 });
         }
         for (let i = 0; i < 10; i++) {
           const ang = (Math.PI * 2 * i) / 10 + (Math.random() - 0.5) * 0.4;
@@ -2532,9 +2884,8 @@
         }
       }
 
-      // Celebratory Golden Firefly Shower upon RSVP Submission
       function triggerCelebration() {
-        for (let i = 0; i < 65; i++) {
+        for (let i = 0; i < 68; i++) {
           const ang = Math.random() * Math.PI * 2;
           const spd = 35 + Math.random() * 140;
           sparkleBursts.push({
@@ -2558,27 +2909,35 @@
         time += dt;
 
         // Smooth damped scroll interpolation
-        p += (targetP - p) * 0.095;
-        updateTimePill(p);
+        scrollP += (targetP - scrollP) * 0.1;
+        updateTimePill(scrollP);
 
-        const { horizonY, bridgeY, cornicheY, benchX, lampX, treeX } = getMetrics(p);
-        const lampOn = smoothstep(0.42, 0.64, p);
+        const m = getMetrics(scrollP);
+        const lampOn = smoothstep(0.42, 0.64, scrollP);
 
         // Render Back-to-Front Painterly Layers
-        const cel = drawSky(p, dt, horizonY);
-        drawBaghdadSkyline(p, horizonY, cel.nightT);
-        drawTigrisAndBridge(p, dt, horizonY, bridgeY, cornicheY, cel);
-        drawReeds(p, cornicheY, 0);
-        drawCornichePromenade(p, cornicheY, lampX, lampOn);
-        drawBankPomegranateTree(p, treeX, cornicheY, lampOn);
-        drawVintageLamp(p, lampX, cornicheY, lampOn);
-        drawBaghdadBench(p, benchX, cornicheY, lampOn);
-        drawArticulatedFox(p, dt, benchX, cornicheY);
-        drawReeds(p, cornicheY, 1);
+        const cel = drawSky(scrollP, dt, m.horizonY);
+        drawBaghdadSkyline(scrollP, m.horizonY);
+        drawTigrisAndBridge(scrollP, dt, m.horizonY, m.bridgeY, m.cornicheY, cel);
+        drawReeds(scrollP, m.cornicheY, 0);
+        drawCornichePromenade(scrollP, m.cornicheY, m.benchX, lampOn);
 
-        const perch = drawUpperPomegranateBranch(p, dt);
-        drawArticulatedOwl(p, dt, perch, cel.moonX, cel.moonY);
-        drawAtmosphereParticles(p, dt, horizonY, cornicheY);
+        // Left pomegranate tree (returns exact standing perch coordinates for owl)
+        const leftPerch = drawLeftPomegranateTree(scrollP, dt, m.treeX, m.cornicheY, lampOn);
+
+        // Vintage street lamp + riverside bench + fox (fox renders right on top of the bench seat!)
+        drawVintageLamp(scrollP, m.lampX, m.benchGroundY, lampOn);
+        drawBaghdadBench(scrollP, m.benchX, m.benchW, m.benchGroundY, lampOn);
+        drawArticulatedFox(scrollP, dt, m.benchX, m.benchW, m.benchGroundY, m.benchSeatY, lampOn);
+
+        // Foreground riverside reeds
+        drawReeds(scrollP, m.cornicheY, 1);
+
+        // Upper-right pomegranate branch + articulated owl gliding down to stand on leftPerch
+        const upperPerch = drawUpperPomegranateBranch(scrollP, dt);
+        drawArticulatedOwl(scrollP, dt, upperPerch, leftPerch, cel.moonX, cel.moonY);
+
+        drawAtmosphereParticles(scrollP, dt, m.horizonY, m.cornicheY);
 
         requestAnimationFrame(frame);
       }
@@ -2598,7 +2957,7 @@
     })();
 
     // =========================================================================
-    // 5. DUAL-MODE RSVP SUBMISSION (Google Apps Script + External Fetch Fallback)
+    // 5. DUAL-MODE RSVP SUBMISSION (Google Apps Script + External Fetch)
     // =========================================================================
     function initRSVP() {
       const form = document.getElementById('rsvp-form');
@@ -2607,7 +2966,12 @@
       const statusMsg = document.getElementById('status-msg');
 
       function setStatus(type, text) {
-        statusMsg.classList.remove('hidden', 'bg-emerald-500/20', 'border-emerald-300/45', 'text-emerald-100', 'bg-rose-500/20', 'border-rose-300/45', 'text-rose-100', 'border');
+        statusMsg.classList.remove(
+          'hidden',
+          'bg-emerald-500/20', 'border-emerald-300/45', 'text-emerald-100',
+          'bg-rose-500/20', 'border-rose-300/45', 'text-rose-100',
+          'border'
+        );
         statusMsg.classList.add('border');
         if (type === 'success') {
           statusMsg.classList.add('bg-emerald-500/20', 'border-emerald-300/45', 'text-emerald-100');
@@ -2657,7 +3021,7 @@
         submitBtn.textContent = 'جاري الإرسال...';
         statusMsg.classList.add('hidden');
 
-        // Mode A: Running directly inside Google Apps Script Web App
+        // Mode A: Hosted inside Google Apps Script Web App
         if (typeof google !== 'undefined' && google.script && google.script.run) {
           google.script.run
             .withSuccessHandler((res) => (res && res.status === 'success') ? handleSuccess() : handleError())
@@ -2678,7 +3042,6 @@
       });
     }
 
-    // Boot application on load
     window.addEventListener('DOMContentLoaded', () => {
       BaghdadScene.init();
       initRSVP();
