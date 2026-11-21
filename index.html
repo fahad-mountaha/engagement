@@ -1,0 +1,2688 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>دعوة خطوبة فهد و منتهى</title>
+
+  <!-- Open Graph Metadata for WhatsApp & Instagram -->
+  <meta property="og:title" content="دعوة خطوبة فهد و منتهى" />
+  <meta property="og:description" content="الجمعة، ٤ ديسمبر ٢٠٢٦ | ٤:٠٠ عصراً – ٩:٠٠ مساءً | قاعة ليلة العمر — بغداد، بالقرب من التفاح الأخضر" />
+  <meta property="og:type" content="website" />
+  <meta property="og:locale" content="ar_IQ" />
+  <meta name="theme-color" content="#0a162a" />
+
+  <!-- Arabic Typography: Aref Ruqaa (Names), Amiri (Headings), IBM Plex Sans Arabic (Body) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Aref+Ruqaa:wght@400;700&family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            tigris: {
+              950: '#071122',
+              900: '#0a162a',
+              800: '#132a4f',
+            },
+            sun: {
+              soft: '#fde68a',
+              gold: '#f5c542',
+              rich: '#d99b26',
+            },
+            ivory: {
+              50: '#fffdf7',
+              100: '#f8f3e7',
+              200: '#e5dcc9',
+            }
+          },
+          fontFamily: {
+            ruqaa: ['"Aref Ruqaa"', 'serif'],
+            amiri: ['"Amiri"', 'serif'],
+            sans: ['"IBM Plex Sans Arabic"', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    html {
+      scroll-behavior: smooth;
+      background-color: #071122;
+    }
+
+    body {
+      font-family: 'IBM Plex Sans Arabic', sans-serif;
+      background-color: #071122;
+      color: #fffdf7;
+      overflow-x: hidden;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Sleek translucent dark-sapphire frosted glass cards */
+    .glass-card {
+      background: rgba(10, 22, 42, 0.52);
+      -webkit-backdrop-filter: blur(14px);
+      backdrop-filter: blur(14px);
+      border: 1px solid rgba(253, 230, 138, 0.28);
+      box-shadow:
+        0 20px 48px -18px rgba(4, 10, 22, 0.72),
+        inset 0 1px 0 rgba(255, 245, 210, 0.14);
+    }
+
+    .glass-pill {
+      background: rgba(10, 22, 42, 0.56);
+      -webkit-backdrop-filter: blur(12px);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(253, 230, 138, 0.32);
+    }
+
+    /* Smooth hide-cards transition for viewing the full Baghdad scenery */
+    #content-wrapper {
+      transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1), transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    body.scene-only #content-wrapper {
+      opacity: 0;
+      pointer-events: none;
+      transform: translateY(14px) scale(0.985);
+    }
+
+    /* Gentle scroll hint bounce */
+    @keyframes floatHint {
+      0%, 100% { transform: translateY(0); opacity: 0.75; }
+      50% { transform: translateY(6px); opacity: 1; }
+    }
+    .animate-float-hint {
+      animation: floatHint 2.2s ease-in-out infinite;
+    }
+
+    /* Radio option active styling */
+    .rsvp-radio:checked + .rsvp-option {
+      background: rgba(245, 197, 66, 0.22);
+      border-color: rgba(245, 197, 66, 0.9);
+      color: #fffdf7;
+      box-shadow: 0 0 22px -6px rgba(245, 197, 66, 0.45);
+    }
+  </style>
+</head>
+<body class="min-h-screen antialiased selection:bg-sun-gold selection:text-tigris-950">
+
+  <!-- ===================================================================== -->
+  <!-- FULL-BLEED 60FPS RETINA BAGHDAD TIGRIS RIVERFRONT ANIMATED CANVAS     -->
+  <!-- ===================================================================== -->
+  <canvas id="baghdad-canvas" class="fixed inset-0 z-0 block h-full w-full pointer-events-none" aria-hidden="true"></canvas>
+
+  <!-- ===================================================================== -->
+  <!-- TOP FLOATING BAR (RTL: Right = Live Time Pill, Left = View Scenery)   -->
+  <!-- ===================================================================== -->
+  <nav class="fixed top-3.5 inset-x-3.5 z-50 flex items-center justify-between pointer-events-none" aria-label="أدوات العرض">
+    <!-- Right side (in RTL): Live scroll-synced time-of-day pill -->
+    <div id="time-pill" class="glass-pill pointer-events-auto inline-flex items-center gap-2 rounded-full px-3.5 py-2 text-xs font-medium text-ivory-50 shadow-lg">
+      <span id="time-icon" class="text-sm leading-none">☀️</span>
+      <span id="time-label" class="tracking-wide">٤:٠٠ عصراً</span>
+    </div>
+
+    <!-- Left side (in RTL): Toggle unobstructed scenery view -->
+    <button
+      id="toggle-scene-btn"
+      type="button"
+      aria-pressed="false"
+      class="glass-pill pointer-events-auto inline-flex items-center gap-1.5 rounded-full px-3.5 py-2 text-xs font-medium text-ivory-50 shadow-lg transition hover:border-sun-gold/70 hover:text-sun-soft active:scale-95"
+    >
+      <span>✨</span>
+      <span id="toggle-scene-text">مشاهدة الخلفية</span>
+    </button>
+  </nav>
+
+  <!-- ===================================================================== -->
+  <!-- FOREGROUND INVITATION CARDS (Generous vertical breathing room)        -->
+  <!-- ===================================================================== -->
+  <main id="content-wrapper" class="relative z-10 mx-auto w-full max-w-[490px] px-4 sm:px-5 pt-20">
+
+    <!-- CARD 1: HERO & LIVE BAGHDAD COUNTDOWN -->
+    <section class="glass-card rounded-3xl px-6 py-9 sm:px-8 sm:py-10 text-center mt-4 mb-[44vh]">
+      <p class="text-xs sm:text-sm font-medium text-ivory-200/95 tracking-wide">
+        يسرّنا دعوتكم لمشاركتنا فرحة خطوبتنا
+      </p>
+
+      <h1 class="font-ruqaa mt-4 mb-5 text-5xl sm:text-6xl leading-[1.3] text-ivory-50 drop-shadow-[0_4px_20px_rgba(0,0,0,0.45)]">
+        فهد <span class="text-sun-gold mx-1.5 text-[0.88em]">و</span> منتهى
+      </h1>
+
+      <div class="inline-flex items-center gap-2 rounded-full border border-sun-gold/45 bg-sun-gold/15 px-5 py-1.5 text-sm font-medium text-sun-soft mb-7">
+        <span>الجمعة، ٤ ديسمبر ٢٠٢٦</span>
+      </div>
+
+      <!-- Live Countdown (Baghdad Time UTC+3) -->
+      <div id="countdown-grid" class="grid grid-cols-4 gap-2 sm:gap-2.5" aria-label="العد التنازلي للحفل">
+        <div class="rounded-2xl border border-sun-soft/20 bg-tigris-950/50 py-3 px-1">
+          <span id="cd-days" class="block text-xl sm:text-2xl font-bold text-sun-soft leading-tight">٠٠</span>
+          <span class="mt-1 block text-[11px] text-ivory-200/85">يوم</span>
+        </div>
+        <div class="rounded-2xl border border-sun-soft/20 bg-tigris-950/50 py-3 px-1">
+          <span id="cd-hours" class="block text-xl sm:text-2xl font-bold text-sun-soft leading-tight">٠٠</span>
+          <span class="mt-1 block text-[11px] text-ivory-200/85">ساعة</span>
+        </div>
+        <div class="rounded-2xl border border-sun-soft/20 bg-tigris-950/50 py-3 px-1">
+          <span id="cd-mins" class="block text-xl sm:text-2xl font-bold text-sun-soft leading-tight">٠٠</span>
+          <span class="mt-1 block text-[11px] text-ivory-200/85">دقيقة</span>
+        </div>
+        <div class="rounded-2xl border border-sun-soft/20 bg-tigris-950/50 py-3 px-1">
+          <span id="cd-secs" class="block text-xl sm:text-2xl font-bold text-sun-soft leading-tight">٠٠</span>
+          <span class="mt-1 block text-[11px] text-ivory-200/85">ثانية</span>
+        </div>
+      </div>
+
+      <p id="countdown-arrived" class="hidden mt-4 rounded-2xl border border-sun-gold/40 bg-sun-gold/15 py-3 px-4 text-sm font-medium text-sun-soft">
+        حان موعد الفرح! ننتظركم بكل حب في قاعة ليلة العمر
+      </p>
+
+      <a href="#details-card" class="animate-float-hint mt-7 inline-block text-xs font-medium text-sun-soft/95 hover:text-sun-gold transition">
+        اسحب للأسفل لمشاهدة التفاصيل ↓
+      </a>
+    </section>
+
+    <!-- CARD 2: EVENT DETAILS, MAPS, CALENDAR & IMPORTANT NOTES -->
+    <section id="details-card" class="glass-card rounded-3xl px-6 py-8 sm:px-7 sm:py-9 mb-[44vh]">
+      <h2 class="font-amiri text-2xl sm:text-3xl font-bold text-sun-soft text-center mb-6">
+        تفاصيل الحفل
+      </h2>
+
+      <div class="space-y-3">
+        <!-- Date -->
+        <div class="flex items-start gap-3.5 rounded-2xl border border-white/10 bg-tigris-950/40 p-3.5">
+          <span class="text-xl leading-none mt-0.5">📅</span>
+          <div>
+            <span class="block text-xs text-sun-soft/90">التاريخ</span>
+            <p class="mt-0.5 text-[15px] font-semibold text-ivory-50">الجمعة، ٤ ديسمبر ٢٠٢٦</p>
+          </div>
+        </div>
+
+        <!-- Time -->
+        <div class="flex items-start gap-3.5 rounded-2xl border border-white/10 bg-tigris-950/40 p-3.5">
+          <span class="text-xl leading-none mt-0.5">🕓</span>
+          <div>
+            <span class="block text-xs text-sun-soft/90">الوقت</span>
+            <p class="mt-0.5 text-[15px] font-semibold text-ivory-50">من ٤:٠٠ عصراً حتى ٩:٠٠ مساءً</p>
+          </div>
+        </div>
+
+        <!-- Venue -->
+        <div class="flex items-start gap-3.5 rounded-2xl border border-white/10 bg-tigris-950/40 p-3.5">
+          <span class="text-xl leading-none mt-0.5">📍</span>
+          <div>
+            <span class="block text-xs text-sun-soft/90">المكان</span>
+            <p class="mt-0.5 text-[15px] font-semibold text-ivory-50 leading-relaxed">
+              قاعة ليلة العمر — بغداد، بالقرب من التفاح الأخضر
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Maps & Calendar Action Buttons -->
+      <div class="mt-5 grid grid-cols-2 gap-2.5">
+        <a
+          href="https://maps.app.goo.gl/oZ2uTXfKqkgFwq849"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="col-span-2 flex items-center justify-center gap-2 rounded-2xl bg-gradient-to-l from-sun-rich via-sun-gold to-sun-soft px-4 py-3.5 text-sm font-bold text-tigris-950 shadow-[0_10px_24px_-8px_rgba(245,197,66,0.55)] transition hover:brightness-105 active:scale-[0.98]"
+        >
+          <span>📍 فتح الموقع على خرائط Google</span>
+        </a>
+
+        <a
+          id="gcal-link"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="flex items-center justify-center gap-1.5 rounded-2xl border border-sun-gold/40 bg-sun-gold/15 px-3 py-3 text-xs sm:text-sm font-semibold text-ivory-50 transition hover:bg-sun-gold/25 active:scale-[0.98]"
+        >
+          <span>🗓️ تقويم Google</span>
+        </a>
+
+        <button
+          id="ics-btn"
+          type="button"
+          class="flex items-center justify-center gap-1.5 rounded-2xl border border-sun-gold/40 bg-sun-gold/15 px-3 py-3 text-xs sm:text-sm font-semibold text-ivory-50 transition hover:bg-sun-gold/25 active:scale-[0.98]"
+        >
+          <span>📥 حفظ في التقويم</span>
+        </button>
+      </div>
+
+      <!-- Important Notes Box (3 clear, warm, refined notes) -->
+      <div class="mt-6 pt-5 border-t border-sun-soft/20 space-y-2.5">
+        <div class="flex items-start gap-2.5 rounded-xl border border-sun-gold/25 bg-sun-gold/10 px-3.5 py-3 text-[13px] sm:text-sm leading-relaxed text-ivory-100">
+          <span class="shrink-0 mt-0.5">✨</span>
+          <span>نود التنويه بأن الحفل مختلط، ويسعدنا حضوركم جميعاً لمشاركتنا هذه الفرحة.</span>
+        </div>
+
+        <div class="flex items-start gap-2.5 rounded-xl border border-sun-gold/25 bg-sun-gold/10 px-3.5 py-3 text-[13px] sm:text-sm leading-relaxed text-ivory-100">
+          <span class="shrink-0 mt-0.5">🚗</span>
+          <span>نودّ تنبيهكم بأن مواقف السيارات محدودة عند القاعة، شاكرين تفهّمكم.</span>
+        </div>
+
+        <div class="flex items-start gap-2.5 rounded-xl border border-sun-gold/25 bg-sun-gold/10 px-3.5 py-3 text-[13px] sm:text-sm leading-relaxed text-ivory-100">
+          <span class="shrink-0 mt-0.5">🌙</span>
+          <span>يُرجى العلم بأن الدعوة مخصصة للكبار فقط، ونعتذر عن اصطحاب الأطفال.</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- CARD 3: RSVP FORM (Dual-mode Google Apps Script + External Fetch) -->
+    <section id="rsvp-section" class="glass-card rounded-3xl px-6 py-8 sm:px-7 sm:py-9 mb-10">
+      <h2 class="font-amiri text-2xl sm:text-3xl font-bold text-sun-soft text-center mb-6">
+        تأكيد الحضور
+      </h2>
+
+      <form id="rsvp-form" class="space-y-5" novalidate>
+        <!-- Field 1: Full Name -->
+        <div>
+          <label for="guest-name" class="block text-sm font-medium text-sun-soft mb-2">
+            الاسم الكامل
+          </label>
+          <input
+            id="guest-name"
+            name="name"
+            type="text"
+            required
+            autocomplete="name"
+            placeholder="اكتب اسمك الكامل هنا"
+            class="w-full rounded-2xl border border-sun-soft/30 bg-tigris-950/60 px-4 py-3.5 text-[15px] text-ivory-50 placeholder:text-ivory-200/45 outline-none transition focus:border-sun-gold focus:ring-2 focus:ring-sun-gold/25"
+          />
+        </div>
+
+        <!-- Field 2: Attendance -->
+        <div>
+          <span class="block text-sm font-medium text-sun-soft mb-2.5">هل ستتمكن من الحضور؟</span>
+          <div class="grid grid-cols-2 gap-2.5">
+            <label class="relative block cursor-pointer">
+              <input type="radio" name="attendance" value="سأحضر" required class="rsvp-radio sr-only" />
+              <span class="rsvp-option flex items-center justify-center rounded-2xl border border-sun-soft/28 bg-tigris-950/45 px-2.5 py-3.5 text-center text-xs sm:text-sm font-medium text-ivory-200 transition hover:border-sun-gold/60">
+                ✨ نعم، سأحضر
+              </span>
+            </label>
+
+            <label class="relative block cursor-pointer">
+              <input type="radio" name="attendance" value="أعتذر عن الحضور" required class="rsvp-radio sr-only" />
+              <span class="rsvp-option flex items-center justify-center rounded-2xl border border-sun-soft/28 bg-tigris-950/45 px-2.5 py-3.5 text-center text-xs sm:text-sm font-medium text-ivory-200 transition hover:border-sun-gold/60">
+                🤍 أعتذر عن الحضور
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Field 3: Groom or Bride Side -->
+        <div>
+          <span class="block text-sm font-medium text-sun-soft mb-2.5">من أي طرف؟</span>
+          <div class="grid grid-cols-2 gap-2.5">
+            <label class="relative block cursor-pointer">
+              <input type="radio" name="side" value="من طرف العريس (فهد)" required class="rsvp-radio sr-only" />
+              <span class="rsvp-option flex items-center justify-center rounded-2xl border border-sun-soft/28 bg-tigris-950/45 px-2.5 py-3.5 text-center text-xs sm:text-sm font-medium text-ivory-200 transition hover:border-sun-gold/60">
+                من طرف العريس (فهد)
+              </span>
+            </label>
+
+            <label class="relative block cursor-pointer">
+              <input type="radio" name="side" value="من طرف العروس (منتهى)" required class="rsvp-radio sr-only" />
+              <span class="rsvp-option flex items-center justify-center rounded-2xl border border-sun-soft/28 bg-tigris-950/45 px-2.5 py-3.5 text-center text-xs sm:text-sm font-medium text-ivory-200 transition hover:border-sun-gold/60">
+                من طرف العروس (منتهى)
+              </span>
+            </label>
+          </div>
+        </div>
+
+        <!-- Submit Button -->
+        <button
+          id="submit-btn"
+          type="submit"
+          class="w-full rounded-2xl bg-gradient-to-l from-sun-rich via-sun-gold to-sun-soft py-3.5 px-5 text-[15px] font-bold text-tigris-950 shadow-[0_10px_26px_-8px_rgba(245,197,66,0.55)] transition hover:brightness-105 active:scale-[0.98] disabled:opacity-60"
+        >
+          إرسال الرد
+        </button>
+
+        <!-- Inline Status / Validation Message -->
+        <div id="status-msg" role="status" aria-live="polite" class="hidden rounded-2xl px-4 py-3.5 text-center text-sm font-medium"></div>
+      </form>
+    </section>
+
+    <!-- FOOTER (Generous bottom window so the night-lit Baghdad Tigris scene shines clearly below) -->
+    <footer class="pt-4 pb-[44vh] text-center">
+      <p class="font-amiri text-xl text-sun-soft drop-shadow-[0_2px_14px_rgba(5,12,26,0.9)]">
+        بحضوركم تكتمل فرحتنا
+      </p>
+    </footer>
+  </main>
+
+  <!-- Subtle Floating Toast Notification -->
+  <div
+    id="toast-box"
+    role="status"
+    aria-live="polite"
+    class="glass-pill pointer-events-none fixed bottom-5 left-1/2 z-50 w-[88%] max-w-xs -translate-x-1/2 translate-y-4 opacity-0 rounded-2xl px-4 py-3 text-center text-xs font-medium text-sun-soft shadow-2xl transition-all duration-300"
+  ></div>
+
+  <script>
+    // =========================================================================
+    // CONFIGURATION & SAFE UTILITIES
+    // =========================================================================
+    const WEB_APP_URL = 'https://script.google.com/macros/s/AKfycbwbDGCvla5dt27IkFIiLXczhsTr12HvgJUkic92-CyW70nQJ1u22mI6-yoeRQxb2Ktkow/exec';
+    const MAPS_URL = 'https://maps.app.goo.gl/oZ2uTXfKqkgFwq849';
+    const EVENT_TIMESTAMP = new Date('2026-12-04T16:00:00+03:00').getTime();
+
+    function safeGetStorage(key) {
+      try { return localStorage.getItem(key); } catch (e) { return null; }
+    }
+    function safeSetStorage(key, val) {
+      try { localStorage.setItem(key, val); } catch (e) {}
+    }
+
+    const AR_DIGITS = ['٠', '١', '٢', '٣', '٤', '٥', '٦', '٧', '٨', '٩'];
+    function toAr(val) {
+      return String(val).replace(/\d/g, (d) => AR_DIGITS[Number(d)]);
+    }
+    function padAr(n) {
+      return toAr(String(Math.max(0, Math.floor(n))).padStart(2, '0'));
+    }
+
+    function clamp(v, lo, hi) { return Math.max(lo, Math.min(hi, v)); }
+    function lerp(a, b, t) { return a + (b - a) * t; }
+    function smoothstep(e0, e1, x) {
+      const t = clamp((x - e0) / (e1 - e0), 0, 1);
+      return t * t * (3 - 2 * t);
+    }
+    function mixRGB(c1, c2, t) {
+      return [
+        Math.round(lerp(c1[0], c2[0], t)),
+        Math.round(lerp(c1[1], c2[1], t)),
+        Math.round(lerp(c1[2], c2[2], t))
+      ];
+    }
+    function rgbStr(c, a) {
+      return a === undefined ? `rgb(${c[0]},${c[1]},${c[2]})` : `rgba(${c[0]},${c[1]},${c[2]},${a})`;
+    }
+    function cubicPoint(p0, p1, p2, p3, t) {
+      const u = 1 - t;
+      return {
+        x: u*u*u*p0.x + 3*u*u*t*p1.x + 3*u*t*t*p2.x + t*t*t*p3.x,
+        y: u*u*u*p0.y + 3*u*u*t*p1.y + 3*u*t*t*p2.y + t*t*t*p3.y
+      };
+    }
+
+    let toastTimer = null;
+    function showToast(msg) {
+      const box = document.getElementById('toast-box');
+      if (!box) return;
+      box.textContent = msg;
+      box.classList.remove('opacity-0', 'translate-y-4');
+      box.classList.add('opacity-100', 'translate-y-0');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        box.classList.remove('opacity-100', 'translate-y-0');
+        box.classList.add('opacity-0', 'translate-y-4');
+      }, 3000);
+    }
+
+    // =========================================================================
+    // 1. LIVE BAGHDAD COUNTDOWN (Dec 4, 2026 — 4:00 PM UTC+3)
+    // =========================================================================
+    function updateCountdown() {
+      const diff = EVENT_TIMESTAMP - Date.now();
+      const grid = document.getElementById('countdown-grid');
+      const arrived = document.getElementById('countdown-arrived');
+      if (diff <= 0) {
+        grid.classList.add('hidden');
+        arrived.classList.remove('hidden');
+        return;
+      }
+      document.getElementById('cd-days').textContent = padAr(diff / 86400000);
+      document.getElementById('cd-hours').textContent = padAr((diff % 86400000) / 3600000);
+      document.getElementById('cd-mins').textContent = padAr((diff % 3600000) / 60000);
+      document.getElementById('cd-secs').textContent = padAr((diff % 60000) / 1000);
+    }
+    updateCountdown();
+    setInterval(updateCountdown, 1000);
+
+    // =========================================================================
+    // 2. GOOGLE CALENDAR LINK & .ICS FILE DOWNLOAD
+    // =========================================================================
+    document.getElementById('gcal-link').href =
+      'https://calendar.google.com/calendar/render?action=TEMPLATE' +
+      '&text=' + encodeURIComponent('حفل خطوبة فهد و منتهى') +
+      '&dates=20261204T130000Z/20261204T180000Z' +
+      '&location=' + encodeURIComponent('قاعة ليلة العمر — بغداد، بالقرب من التفاح الأخضر') +
+      '&details=' + encodeURIComponent('الموقع: ' + MAPS_URL + ' — الحفل مختلط، مواقف السيارات محدودة، ونعتذر عن استقبال الأطفال.');
+
+    document.getElementById('ics-btn').addEventListener('click', () => {
+      try {
+        const ics = [
+          'BEGIN:VCALENDAR',
+          'VERSION:2.0',
+          'PRODID:-//FahadMountaha//BaghdadEngagement//AR',
+          'CALSCALE:GREGORIAN',
+          'BEGIN:VEVENT',
+          'UID:fahad-mountaha-20261204@baghdad',
+          'DTSTART:20261204T130000Z',
+          'DTEND:20261204T180000Z',
+          'SUMMARY:حفل خطوبة فهد و منتهى',
+          'LOCATION:قاعة ليلة العمر — بغداد، بالقرب من التفاح الأخضر',
+          'DESCRIPTION:الموقع: ' + MAPS_URL + '\\nالحفل مختلط، مواقف السيارات محدودة، ونعتذر عن استقبال الأطفال.',
+          'END:VEVENT',
+          'END:VCALENDAR'
+        ].join('\r\n');
+        const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'fahad-mountaha-engagement.ics';
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        showToast('تم حفظ ملف التقويم بنجاح');
+      } catch (err) {
+        showToast('الموعد: الجمعة، ٤ ديسمبر ٢٠٢٦ — ٤:٠٠ عصراً');
+      }
+    });
+
+    // =========================================================================
+    // 3. VIEW SCENERY TOGGLE BUTTON
+    // =========================================================================
+    const toggleSceneBtn = document.getElementById('toggle-scene-btn');
+    const toggleSceneText = document.getElementById('toggle-scene-text');
+    toggleSceneBtn.addEventListener('click', () => {
+      const hidden = document.body.classList.toggle('scene-only');
+      toggleSceneBtn.setAttribute('aria-pressed', String(hidden));
+      toggleSceneText.textContent = hidden ? 'إظهار الدعوة' : 'مشاهدة الخلفية';
+    });
+
+    // =========================================================================
+    // 4. SCENIC BAGHDAD TIGRIS RIVERFRONT 60FPS RETINA CANVAS ENGINE
+    //    (Late Afternoon 4:00 PM -> Golden Sunset -> Starry Baghdad Night 9:00 PM)
+    // =========================================================================
+    const BaghdadScene = (() => {
+      const canvas = document.getElementById('baghdad-canvas');
+      const ctx = canvas.getContext('2d', { alpha: false });
+      const timeIconEl = document.getElementById('time-icon');
+      const timeLabelEl = document.getElementById('time-label');
+
+      let W = window.innerWidth;
+      let H = window.innerHeight;
+      let dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      // Smooth damped scroll progress (0.00 = 4:00 PM -> 1.00 = 9:00 PM)
+      let targetP = 0;
+      let p = 0;
+      let time = 0;
+
+      // Branch launch spring physics (recoils when the owl launches at p ~ 0.56)
+      let owlLaunched = false;
+      let branchSpringPos = 0;
+      let branchSpringVel = 0;
+
+      // Procedural world entities (initialized on resize)
+      const stars = [];
+      const clouds = [];
+      const birds = [];
+      const skylineBuildings = [];
+      const farPalms = [];
+      const bridgeCars = [];
+      const reeds = [];
+      const fireflies = [];
+      const lampMoths = [];
+      const fallingPetals = [];
+      const waterRipples = [];
+      const stardust = [];
+      const sparkleBursts = [];
+      const shootingStars = [];
+      const moonCraters = [
+        { ox: -0.26, oy: -0.18, r: 0.16, a: 0.14 },
+        { ox: 0.22, oy: 0.12, r: 0.21, a: 0.11 },
+        { ox: -0.05, oy: 0.28, r: 0.12, a: 0.13 },
+        { ox: 0.30, oy: -0.25, r: 0.10, a: 0.10 },
+        { ox: -0.35, oy: 0.16, r: 0.09, a: 0.12 }
+      ];
+
+      // Wooden Baghdad boat (بلم / مشحوف) state
+      const boat = { x: 0.72, speed: 0.0095 };
+
+      // Articulated fox physics state (6-segment trailing tail + ear twitch)
+      const foxState = {
+        distWalked: 0,
+        lastX: null,
+        earTwitch: 0,
+        nextTwitch: 2.4,
+        tailAngles: [0, 0, 0, 0, 0, 0]
+      };
+
+      // Deterministic pseudo-random helper for stable Baghdad skyline architecture
+      function seededRand(seed) {
+        let s = seed % 2147483647;
+        if (s <= 0) s += 2147483646;
+        return () => {
+          s = (s * 16807) % 2147483647;
+          return (s - 1) / 2147483646;
+        };
+      }
+
+      function buildWorld() {
+        const rand = seededRand(4122026);
+
+        // 1. Multi-temperature twinkling stars
+        stars.length = 0;
+        const starCount = W < 600 ? 95 : 145;
+        for (let i = 0; i < starCount; i++) {
+          const temp = rand();
+          stars.push({
+            x: rand(),
+            y: rand() * 0.54,
+            r: 0.55 + rand() * 1.45,
+            phase: rand() * Math.PI * 2,
+            speed: 0.9 + rand() * 2.1,
+            color: temp < 0.35 ? [255, 232, 175] : (temp < 0.7 ? [255, 250, 240] : [195, 224, 255])
+          });
+        }
+
+        // 2. Volumetric layered clouds
+        clouds.length = 0;
+        for (let i = 0; i < 6; i++) {
+          const puffs = [];
+          const puffCount = 4 + Math.floor(rand() * 3);
+          for (let k = 0; k < puffCount; k++) {
+            puffs.push({
+              dx: (k - (puffCount - 1) / 2) * (24 + rand() * 18),
+              dy: (rand() - 0.5) * 14 - (k === Math.floor(puffCount / 2) ? 8 : 0),
+              rx: 26 + rand() * 28,
+              ry: 14 + rand() * 13
+            });
+          }
+          clouds.push({
+            x: rand() * (W + 260) - 130,
+            y: H * (0.09 + i * 0.068 + rand() * 0.025),
+            speed: 3.5 + rand() * 5.5,
+            scale: 0.75 + rand() * 0.65,
+            puffs
+          });
+        }
+
+        // 3. Distant afternoon birds over the Tigris
+        birds.length = 0;
+        for (let i = 0; i < 6; i++) {
+          birds.push({
+            x: rand() * W,
+            y: H * (0.16 + rand() * 0.22),
+            speed: 14 + rand() * 10,
+            size: 3.5 + rand() * 3,
+            phase: rand() * Math.PI * 2
+          });
+        }
+
+        // 4. Authentic Baghdad Far-Bank Skyline (Mosque domes, slender minarets, arched riverfront buildings)
+        skylineBuildings.length = 0;
+        let bx = -12;
+        let idx = 0;
+        while (bx < W + 40) {
+          const isMosque = (idx === 3 || idx === 9 || idx === 16 || (W > 700 && idx === 22));
+          const bw = isMosque ? (48 + rand() * 24) : (22 + rand() * 34);
+          const bh = isMosque ? (32 + rand() * 18) : (18 + rand() * 44);
+          const windows = [];
+          const cols = Math.max(2, Math.floor(bw / 9));
+          const rows = Math.max(1, Math.floor(bh / 10));
+          for (let r = 0; r < rows; r++) {
+            for (let c = 0; c < cols; c++) {
+              if (rand() > 0.38) {
+                windows.push({
+                  rx: (c + 0.5) / cols,
+                  ry: (r + 0.6) / (rows + 0.5),
+                  warmth: rand(),
+                  threshold: 0.42 + rand() * 0.25
+                });
+              }
+            }
+          }
+          skylineBuildings.push({
+            x: bx,
+            w: bw,
+            h: bh,
+            isMosque,
+            hasMinaret: isMosque || rand() > 0.86,
+            minaretSide: rand() > 0.5 ? 1 : -1,
+            minaretH: 48 + rand() * 26,
+            hasArches: !isMosque && rand() > 0.5,
+            windows
+          });
+          bx += bw - (2 + rand() * 6);
+          idx++;
+        }
+
+        // 5. Groves of Iraqi Date Palms (نخيل بغداد) along far bank
+        farPalms.length = 0;
+        const palmCount = Math.max(10, Math.floor(W / 38));
+        for (let i = 0; i < palmCount; i++) {
+          farPalms.push({
+            x: (i / palmCount) * W + (rand() - 0.5) * 28,
+            h: 28 + rand() * 32,
+            curve: (rand() - 0.5) * 18,
+            phase: rand() * Math.PI * 2,
+            fronds: 6 + Math.floor(rand() * 3)
+          });
+        }
+
+        // 6. Evening cars gliding slowly across the Baghdad bridge
+        bridgeCars.length = 0;
+        for (let i = 0; i < 7; i++) {
+          const dir = i % 2 === 0 ? 1 : -1;
+          bridgeCars.push({
+            x: rand() * W,
+            dir,
+            speed: 18 + rand() * 18
+          });
+        }
+
+        // 7. Wind-rippled near-bank riverside reeds & cattails (68 blades)
+        reeds.length = 0;
+        const reedCount = W < 520 ? 66 : 96;
+        for (let i = 0; i < reedCount; i++) {
+          const xNorm = i / reedCount + (rand() - 0.5) * 0.02;
+          // Keep a slightly lower clearing directly in front of the bench center so bench & river view shine
+          const nearBenchCenter = Math.abs(xNorm - 0.36) < 0.14;
+          reeds.push({
+            xNorm,
+            h: (nearBenchCenter ? 22 : 34) + rand() * (nearBenchCenter ? 24 : 44),
+            lean: (rand() - 0.5) * 16,
+            phase: rand() * Math.PI * 2,
+            cattail: !nearBenchCenter && rand() > 0.78,
+            thick: 1.2 + rand() * 1.4,
+            layer: rand() > 0.45 ? 1 : 0
+          });
+        }
+
+        // 8. Rising bokeh fireflies
+        fireflies.length = 0;
+        const flyCount = W < 600 ? 28 : 42;
+        for (let i = 0; i < flyCount; i++) {
+          fireflies.push({
+            x: rand() * W,
+            y: H * (0.28 + rand() * 0.68),
+            r: 1.2 + rand() * 2.2,
+            vy: 5 + rand() * 9,
+            phase: rand() * Math.PI * 2,
+            freq: 0.6 + rand() * 1.1
+          });
+        }
+
+        // 9. Tiny orbiting fireflies / moths around the vintage corniche lamp
+        lampMoths.length = 0;
+        for (let i = 0; i < 6; i++) {
+          lampMoths.push({
+            angle: rand() * Math.PI * 2,
+            radius: 11 + rand() * 17,
+            speed: (1.1 + rand() * 1.4) * (i % 2 === 0 ? 1 : -1),
+            yFreq: 1.3 + rand() * 1.2,
+            phase: rand() * Math.PI * 2
+          });
+        }
+
+        // 10. Ambient falling crimson pomegranate petals
+        fallingPetals.length = 0;
+        for (let i = 0; i < 10; i++) {
+          fallingPetals.push({
+            x: rand() * W,
+            y: rand() * H * 0.72,
+            vx: -6 - rand() * 10,
+            vy: 14 + rand() * 14,
+            rot: rand() * Math.PI * 2,
+            vRot: (rand() - 0.5) * 2.4,
+            size: 2.6 + rand() * 2.2,
+            wobble: rand() * Math.PI * 2
+          });
+        }
+      }
+
+      function resize() {
+        W = window.innerWidth;
+        H = window.innerHeight;
+        dpr = Math.min(window.devicePixelRatio || 1, 2);
+        canvas.width = Math.floor(W * dpr);
+        canvas.height = Math.floor(H * dpr);
+        canvas.style.width = W + 'px';
+        canvas.style.height = H + 'px';
+        ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+        buildWorld();
+        updateScrollTarget();
+      }
+
+      function updateScrollTarget() {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop || 0;
+        const maxScroll = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
+        targetP = clamp(scrollTop / maxScroll, 0, 1);
+      }
+
+      // Compute responsive scene anchor geometry
+      function getMetrics(progress) {
+        const horizonY = H * lerp(0.555, 0.525, progress);
+        const bridgeY = horizonY + H * 0.036;
+        const cornicheY = H * lerp(0.795, 0.775, progress);
+        const benchX = clamp(W * 0.34, 92, W * 0.42);
+        const lampX = benchX - clamp(W * 0.145, 58, 86);
+        const treeX = clamp(W * 0.07, 18, 72);
+        return { horizonY, bridgeY, cornicheY, benchX, lampX, treeX };
+      }
+
+      // Update live top-right time pill (4:00 PM -> 9:00 PM)
+      function updateTimePill(progress) {
+        const totalMins = Math.round(progress * 300); // 5 hours = 300 mins
+        const hr = 4 + Math.floor(totalMins / 60);
+        const mn = totalMins % 60;
+        const period = progress < 0.38 ? 'عصراً' : 'مساءً';
+        timeLabelEl.textContent = `${toAr(hr)}:${padAr(mn)} ${period}`;
+        timeIconEl.textContent = progress < 0.30 ? '☀️' : (progress < 0.58 ? '🌅' : '🌙');
+      }
+
+      // =======================================================================
+      // SKY, CELESTIALS, CLOUDS & BIRDS
+      // =======================================================================
+      function drawSky(progress, dt, horizonY) {
+        // 3-stage rich palette: Late Afternoon (0.0) -> Golden Sunset (0.42) -> Starry Night (1.0)
+        const afternoonTop = [52, 108, 174];
+        const afternoonMid = [156, 178, 198];
+        const afternoonBot = [247, 206, 128];
+
+        const sunsetTop = [36, 44, 92];
+        const sunsetMid = [184, 86, 82];
+        const sunsetBot = [248, 162, 78];
+
+        const nightTop = [6, 14, 30];
+        const nightMid = [12, 28, 58];
+        const nightBot = [24, 48, 88];
+
+        let topC, midC, botC;
+        if (progress < 0.44) {
+          const t = smoothstep(0, 0.44, progress);
+          topC = mixRGB(afternoonTop, sunsetTop, t);
+          midC = mixRGB(afternoonMid, sunsetMid, t);
+          botC = mixRGB(afternoonBot, sunsetBot, t);
+        } else {
+          const t = smoothstep(0.44, 0.94, progress);
+          topC = mixRGB(sunsetTop, nightTop, t);
+          midC = mixRGB(sunsetMid, nightMid, t);
+          botC = mixRGB(sunsetBot, nightBot, t);
+        }
+
+        const skyGrad = ctx.createLinearGradient(0, 0, 0, horizonY + 12);
+        skyGrad.addColorStop(0, rgbStr(topC));
+        skyGrad.addColorStop(0.54, rgbStr(midC));
+        skyGrad.addColorStop(1, rgbStr(botC));
+        ctx.fillStyle = skyGrad;
+        ctx.fillRect(0, 0, W, horizonY + 14);
+
+        // Night Milky Way diagonal subtle dust glow
+        const nightT = smoothstep(0.48, 0.88, progress);
+        if (nightT > 0.01) {
+          ctx.save();
+          ctx.translate(W * 0.52, horizonY * 0.36);
+          ctx.rotate(-0.46);
+          const mwGrad = ctx.createRadialGradient(0, 0, 8, 0, 0, Math.max(W, H) * 0.48);
+          mwGrad.addColorStop(0, `rgba(148, 188, 255, ${(0.11 * nightT).toFixed(3)})`);
+          mwGrad.addColorStop(0.45, `rgba(110, 145, 220, ${(0.05 * nightT).toFixed(3)})`);
+          mwGrad.addColorStop(1, 'rgba(10, 22, 42, 0)');
+          ctx.fillStyle = mwGrad;
+          ctx.scale(2.1, 0.42);
+          ctx.beginPath();
+          ctx.arc(0, 0, Math.max(W, H) * 0.42, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+
+        // Twinkling multi-temperature stars
+        if (nightT > 0.01) {
+          for (let i = 0; i < stars.length; i++) {
+            const s = stars[i];
+            const sy = s.y * H;
+            if (sy > horizonY - 8) continue;
+            const twinkle = 0.3 + 0.7 * (0.5 + 0.5 * Math.sin(time * s.speed + s.phase));
+            const alpha = nightT * twinkle * 0.88;
+            ctx.beginPath();
+            ctx.arc(s.x * W, sy, s.r, 0, Math.PI * 2);
+            ctx.fillStyle = rgbStr(s.color, alpha);
+            ctx.fill();
+          }
+
+          // Occasional graceful shooting star
+          if (Math.random() < dt * 0.14 && shootingStars.length < 1) {
+            shootingStars.push({
+              x: W * (0.18 + Math.random() * 0.65),
+              y: H * (0.06 + Math.random() * 0.22),
+              vx: -230 - Math.random() * 140,
+              vy: 85 + Math.random() * 65,
+              life: 1
+            });
+          }
+          for (let i = shootingStars.length - 1; i >= 0; i--) {
+            const ss = shootingStars[i];
+            ss.x += ss.vx * dt;
+            ss.y += ss.vy * dt;
+            ss.life -= dt * 1.35;
+            if (ss.life <= 0) { shootingStars.splice(i, 1); continue; }
+            const tailX = ss.x - ss.vx * 0.16;
+            const tailY = ss.y - ss.vy * 0.16;
+            const sg = ctx.createLinearGradient(ss.x, ss.y, tailX, tailY);
+            sg.addColorStop(0, `rgba(255, 245, 200, ${(ss.life * nightT).toFixed(3)})`);
+            sg.addColorStop(1, 'rgba(255, 245, 200, 0)');
+            ctx.strokeStyle = sg;
+            ctx.lineWidth = 1.6;
+            ctx.beginPath();
+            ctx.moveTo(ss.x, ss.y);
+            ctx.lineTo(tailX, tailY);
+            ctx.stroke();
+          }
+        }
+
+        // Afternoon-to-Sunset Descending Sun + Diagonal Crepuscular Sunbeams
+        const sunVis = 1 - smoothstep(0.36, 0.56, progress);
+        const sunX = W * lerp(0.28, 0.44, clamp(progress / 0.52, 0, 1));
+        const sunY = lerp(horizonY * 0.46, horizonY + 18, smoothstep(0, 0.52, progress));
+        const sunR = clamp(W * 0.085, 26, 44);
+
+        if (sunVis > 0.01) {
+          // Volumetric sun glow
+          const glow = ctx.createRadialGradient(sunX, sunY, sunR * 0.2, sunX, sunY, sunR * 5.2);
+          const sunCoreCol = mixRGB([255, 244, 194], [255, 168, 86], smoothstep(0.15, 0.45, progress));
+          glow.addColorStop(0, rgbStr(sunCoreCol, 0.75 * sunVis));
+          glow.addColorStop(0.35, `rgba(255, 198, 92, ${(0.28 * sunVis).toFixed(3)})`);
+          glow.addColorStop(1, 'rgba(255, 175, 70, 0)');
+          ctx.fillStyle = glow;
+          ctx.beginPath();
+          ctx.arc(sunX, sunY, sunR * 5.2, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Diagonal crepuscular sunbeams radiating gently in late afternoon
+          const beamAlpha = 0.075 * sunVis * (1 - smoothstep(0.28, 0.48, progress));
+          if (beamAlpha > 0.004) {
+            ctx.save();
+            ctx.translate(sunX, sunY);
+            for (let b = 0; b < 5; b++) {
+              const ang = 0.22 + b * 0.24 + Math.sin(time * 0.25 + b) * 0.02;
+              const beamLen = Math.max(W, H) * 0.72;
+              const bg = ctx.createLinearGradient(0, 0, Math.cos(ang) * beamLen, Math.sin(ang) * beamLen);
+              bg.addColorStop(0, `rgba(255, 236, 170, ${beamAlpha.toFixed(3)})`);
+              bg.addColorStop(1, 'rgba(255, 226, 138, 0)');
+              ctx.fillStyle = bg;
+              ctx.beginPath();
+              ctx.moveTo(0, 0);
+              ctx.lineTo(Math.cos(ang - 0.055) * beamLen, Math.sin(ang - 0.055) * beamLen);
+              ctx.lineTo(Math.cos(ang + 0.055) * beamLen, Math.sin(ang + 0.055) * beamLen);
+              ctx.closePath();
+              ctx.fill();
+            }
+            ctx.restore();
+          }
+
+          // Sun disc
+          const disc = ctx.createRadialGradient(sunX, sunY, 2, sunX, sunY, sunR);
+          disc.addColorStop(0, `rgba(255, 252, 232, ${sunVis.toFixed(3)})`);
+          disc.addColorStop(0.65, rgbStr(sunCoreCol, 0.92 * sunVis));
+          disc.addColorStop(1, rgbStr(sunCoreCol, 0));
+          ctx.fillStyle = disc;
+          ctx.beginPath();
+          ctx.arc(sunX, sunY, sunR, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        // Rising Cratered Golden Moon (Dusk -> Starry Night)
+        const moonT = smoothstep(0.42, 0.88, progress);
+        const moonX = W * lerp(0.20, 0.26, moonT);
+        const moonY = lerp(horizonY * 0.62, H * 0.165, moonT);
+        const moonR = clamp(W * 0.075, 24, 40);
+
+        if (moonT > 0.01) {
+          // Soft lunar halo
+          const mGlow = ctx.createRadialGradient(moonX, moonY, moonR * 0.4, moonX, moonY, moonR * 4.5);
+          mGlow.addColorStop(0, `rgba(255, 232, 152, ${(0.30 * moonT).toFixed(3)})`);
+          mGlow.addColorStop(0.4, `rgba(245, 197, 66, ${(0.11 * moonT).toFixed(3)})`);
+          mGlow.addColorStop(1, 'rgba(245, 197, 66, 0)');
+          ctx.fillStyle = mGlow;
+          ctx.beginPath();
+          ctx.arc(moonX, moonY, moonR * 4.5, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Moon disc
+          ctx.save();
+          ctx.globalAlpha = moonT;
+          const mDisc = ctx.createRadialGradient(moonX - moonR * 0.25, moonY - moonR * 0.25, moonR * 0.1, moonX, moonY, moonR);
+          mDisc.addColorStop(0, '#fffbef');
+          mDisc.addColorStop(0.6, '#fde68a');
+          mDisc.addColorStop(1, '#dfb043');
+          ctx.fillStyle = mDisc;
+          ctx.beginPath();
+          ctx.arc(moonX, moonY, moonR, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Subtle painterly craters
+          ctx.clip();
+          for (let c = 0; c < moonCraters.length; c++) {
+            const cr = moonCraters[c];
+            ctx.fillStyle = `rgba(165, 122, 46, ${cr.a})`;
+            ctx.beginPath();
+            ctx.arc(moonX + cr.ox * moonR, moonY + cr.oy * moonR, cr.r * moonR, 0, Math.PI * 2);
+            ctx.fill();
+          }
+          ctx.restore();
+        }
+
+        // Volumetric Drifting Clouds with Dynamic Lit Rims
+        const cloudBody = progress < 0.44
+          ? mixRGB([246, 236, 224], [122, 76, 98], smoothstep(0, 0.44, progress))
+          : mixRGB([122, 76, 98], [26, 46, 82], smoothstep(0.44, 0.9, progress));
+        const cloudRim = progress < 0.44
+          ? mixRGB([255, 226, 152], [255, 146, 96], smoothstep(0, 0.44, progress))
+          : mixRGB([255, 146, 96], [168, 196, 235], smoothstep(0.44, 0.9, progress));
+
+        for (let i = 0; i < clouds.length; i++) {
+          const cl = clouds[i];
+          cl.x += cl.speed * dt;
+          if (cl.x > W + 180) cl.x = -180;
+          const cy = cl.y - progress * 24;
+
+          ctx.save();
+          ctx.translate(cl.x, cy);
+          ctx.scale(cl.scale, cl.scale);
+
+          // Warm lit underside rim
+          ctx.fillStyle = rgbStr(cloudRim, lerp(0.32, 0.14, nightT));
+          for (let k = 0; k < cl.puffs.length; k++) {
+            const pf = cl.puffs[k];
+            ctx.beginPath();
+            ctx.ellipse(pf.dx, pf.dy + 4, pf.rx, pf.ry * 0.85, 0, 0, Math.PI * 2);
+            ctx.fill();
+          }
+          // Soft cloud body
+          ctx.fillStyle = rgbStr(cloudBody, lerp(0.42, 0.24, nightT));
+          for (let k = 0; k < cl.puffs.length; k++) {
+            const pf = cl.puffs[k];
+            ctx.beginPath();
+            ctx.ellipse(pf.dx, pf.dy, pf.rx, pf.ry, 0, 0, Math.PI * 2);
+            ctx.fill();
+          }
+          ctx.restore();
+        }
+
+        // Distant V-shaped Tigris river birds gliding across afternoon/sunset sky
+        const birdAlpha = 1 - smoothstep(0.35, 0.56, progress);
+        if (birdAlpha > 0.02) {
+          ctx.strokeStyle = `rgba(38, 32, 46, ${(0.52 * birdAlpha).toFixed(3)})`;
+          ctx.lineWidth = 1.25;
+          ctx.lineCap = 'round';
+          for (let i = 0; i < birds.length; i++) {
+            const b = birds[i];
+            b.x -= b.speed * dt;
+            if (b.x < -30) b.x = W + 30;
+            const wing = Math.sin(time * 5.2 + b.phase) * b.size * 0.65;
+            const by = b.y + Math.sin(time * 1.4 + b.phase) * 4;
+            ctx.beginPath();
+            ctx.moveTo(b.x - b.size, by + wing);
+            ctx.quadraticCurveTo(b.x - b.size * 0.4, by - b.size * 0.4, b.x, by);
+            ctx.quadraticCurveTo(b.x + b.size * 0.4, by - b.size * 0.4, b.x + b.size, by + wing);
+            ctx.stroke();
+          }
+        }
+
+        return { sunX, sunY, sunVis, moonX, moonY, moonT, nightT };
+      }
+
+      // =======================================================================
+      // AUTHENTIC BAGHDAD FAR-BANK SKYLINE (DOMES, MINARETS, DATE PALMS, LIGHTS)
+      // =======================================================================
+      function drawBaghdadSkyline(progress, horizonY, nightT) {
+        // Silhouette color melts from dusty warm purple-blue to deep Baghdad midnight silhouette
+        const farCol = progress < 0.44
+          ? mixRGB([84, 96, 126], [56, 46, 78], smoothstep(0, 0.44, progress))
+          : mixRGB([56, 46, 78], [10, 21, 42], smoothstep(0.44, 0.88, progress));
+
+        const cityLightsAlpha = smoothstep(0.38, 0.72, progress);
+
+        // Soft distant haze mist along the far embankment
+        const mistGrad = ctx.createLinearGradient(0, horizonY - 46, 0, horizonY + 4);
+        mistGrad.addColorStop(0, 'rgba(255, 200, 130, 0)');
+        mistGrad.addColorStop(1, rgbStr(
+          progress < 0.44 ? [248, 202, 132] : mixRGB([232, 136, 92], [32, 56, 94], smoothstep(0.44, 0.88, progress)),
+          0.26
+        ));
+        ctx.fillStyle = mistGrad;
+        ctx.fillRect(0, horizonY - 46, W, 50);
+
+        // Far bank architectural skyline
+        ctx.fillStyle = rgbStr(farCol);
+        for (let i = 0; i < skylineBuildings.length; i++) {
+          const b = skylineBuildings[i];
+          const topY = horizonY - b.h;
+
+          // Main building block
+          ctx.fillStyle = rgbStr(farCol);
+          ctx.fillRect(b.x, topY, b.w, b.h + 2);
+
+          // Islamic Dome for mosque landmarks
+          if (b.isMosque) {
+            const cx = b.x + b.w * 0.5;
+            const dr = b.w * 0.34;
+            ctx.beginPath();
+            ctx.moveTo(cx - dr, topY + 2);
+            ctx.quadraticCurveTo(cx - dr, topY - dr * 1.15, cx, topY - dr * 1.38);
+            ctx.quadraticCurveTo(cx + dr, topY - dr * 1.15, cx + dr, topY + 2);
+            ctx.closePath();
+            ctx.fill();
+
+            // Delicate crescent spire
+            ctx.strokeStyle = rgbStr(farCol);
+            ctx.lineWidth = 1.2;
+            ctx.beginPath();
+            ctx.moveTo(cx, topY - dr * 1.36);
+            ctx.lineTo(cx, topY - dr * 1.72);
+            ctx.stroke();
+
+            // Soft golden dome outline accent at night
+            if (cityLightsAlpha > 0.05) {
+              ctx.strokeStyle = `rgba(253, 214, 118, ${(0.34 * cityLightsAlpha).toFixed(3)})`;
+              ctx.lineWidth = 1;
+              ctx.beginPath();
+              ctx.moveTo(cx - dr * 0.9, topY);
+              ctx.quadraticCurveTo(cx, topY - dr * 1.32, cx + dr * 0.9, topY);
+              ctx.stroke();
+            }
+          }
+
+          // Slender Baghdad Minaret with balcony
+          if (b.hasMinaret) {
+            const mx = b.minaretSide > 0 ? b.x + b.w * 0.85 : b.x + b.w * 0.15;
+            const mTop = horizonY - b.h * 0.45 - b.minaretH;
+            ctx.fillStyle = rgbStr(farCol);
+            ctx.fillRect(mx - 2.6, mTop + 8, 5.2, horizonY - mTop - 6);
+            // Balcony ring
+            ctx.fillRect(mx - 4.8, mTop + 18, 9.6, 2.4);
+            // Pointed minaret cap
+            ctx.beginPath();
+            ctx.moveTo(mx - 3, mTop + 9);
+            ctx.quadraticCurveTo(mx, mTop - 2, mx + 3, mTop + 9);
+            ctx.fill();
+            // Warm night lantern ring on minaret balcony
+            if (cityLightsAlpha > 0.08) {
+              ctx.fillStyle = `rgba(255, 224, 130, ${(0.85 * cityLightsAlpha).toFixed(3)})`;
+              ctx.fillRect(mx - 4.2, mTop + 17.5, 8.4, 1.5);
+            }
+          }
+
+          // Warm Evening Apartment & Café Windows
+          if (cityLightsAlpha > 0.02) {
+            for (let k = 0; k < b.windows.length; k++) {
+              const win = b.windows[k];
+              const wa = smoothstep(win.threshold, win.threshold + 0.2, progress);
+              if (wa <= 0.02) continue;
+              const wx = b.x + win.rx * b.w - 1.2;
+              const wy = topY + win.ry * b.h;
+              ctx.fillStyle = win.warmth > 0.3
+                ? `rgba(255, 214, 118, ${(0.78 * wa).toFixed(3)})`
+                : `rgba(255, 242, 200, ${(0.65 * wa).toFixed(3)})`;
+              ctx.fillRect(wx, wy, 2.4, b.hasArches ? 3.8 : 2.6);
+            }
+          }
+        }
+
+        // Groves of Swaying Iraqi Date Palms (نخيل بغداد) along far river edge
+        const palmCol = mixRGB([52, 64, 86], [7, 17, 34], smoothstep(0.1, 0.85, progress));
+        ctx.strokeStyle = rgbStr(palmCol);
+        ctx.fillStyle = rgbStr(palmCol);
+        for (let i = 0; i < farPalms.length; i++) {
+          const pm = farPalms[i];
+          const sway = Math.sin(time * 0.9 + pm.phase) * 3.2;
+          const topX = pm.x + pm.curve + sway;
+          const topY = horizonY - pm.h;
+
+          // Curved slender trunk
+          ctx.lineWidth = 2.1;
+          ctx.beginPath();
+          ctx.moveTo(pm.x, horizonY + 2);
+          ctx.quadraticCurveTo(pm.x + pm.curve * 0.45, horizonY - pm.h * 0.55, topX, topY);
+          ctx.stroke();
+
+          // Arching date palm fronds
+          ctx.lineWidth = 1.25;
+          for (let f = 0; f < pm.fronds; f++) {
+            const ang = -Math.PI + (f / (pm.fronds - 1)) * Math.PI * 1.15 - 0.1 + sway * 0.015;
+            const len = 11 + (f % 2) * 4;
+            const fx = topX + Math.cos(ang) * len;
+            const fy = topY + Math.sin(ang) * len * 0.72 + 4.5;
+            ctx.beginPath();
+            ctx.moveTo(topX, topY);
+            ctx.quadraticCurveTo(topX + Math.cos(ang) * len * 0.55, topY + Math.sin(ang) * len * 0.4 - 4, fx, fy);
+            ctx.stroke();
+          }
+        }
+
+        // Far-Bank Riverside Café String Lights (Abu Nuwas atmosphere at dusk/night)
+        if (cityLightsAlpha > 0.02) {
+          for (let lx = 14; lx < W; lx += 16) {
+            const twinkle = 0.72 + 0.28 * Math.sin(time * 2.2 + lx * 0.2);
+            const a = cityLightsAlpha * twinkle;
+            ctx.fillStyle = `rgba(255, 214, 110, ${(0.88 * a).toFixed(3)})`;
+            ctx.beginPath();
+            ctx.arc(lx, horizonY - 2, 1.35, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+      }
+
+      // =======================================================================
+      // LIVING TIGRIS RIVER, BAGHDAD RIVER BRIDGE & GLIDING WOODEN BOAT
+      // =======================================================================
+      function drawTigrisAndBridge(progress, dt, horizonY, bridgeY, cornicheY, cel) {
+        const riverH = Math.max(40, cornicheY - horizonY + 34);
+
+        // Sky-reflected Tigris water gradient
+        const wTop = progress < 0.44
+          ? mixRGB([92, 142, 188], [156, 94, 96], smoothstep(0, 0.44, progress))
+          : mixRGB([156, 94, 96], [14, 34, 68], smoothstep(0.44, 0.9, progress));
+        const wMid = progress < 0.44
+          ? mixRGB([42, 88, 138], [62, 54, 92], smoothstep(0, 0.44, progress))
+          : mixRGB([62, 54, 92], [10, 25, 52], smoothstep(0.44, 0.9, progress));
+        const wBot = progress < 0.44
+          ? mixRGB([22, 54, 94], [24, 28, 56], smoothstep(0, 0.44, progress))
+          : mixRGB([24, 28, 56], [6, 15, 32], smoothstep(0.44, 0.9, progress));
+
+        const rGrad = ctx.createLinearGradient(0, horizonY, 0, cornicheY + 30);
+        rGrad.addColorStop(0, rgbStr(wTop));
+        rGrad.addColorStop(0.45, rgbStr(wMid));
+        rGrad.addColorStop(1, rgbStr(wBot));
+        ctx.fillStyle = rGrad;
+        ctx.fillRect(0, horizonY, W, riverH);
+
+        // Far-bank warm city reflection shimmer pillars in the upper Tigris
+        const cityGlow = smoothstep(0.38, 0.74, progress);
+        if (cityGlow > 0.02) {
+          for (let lx = 18; lx < W; lx += 22) {
+            const len = 14 + (lx % 5) * 6;
+            const sway = Math.sin(time * 2.4 + lx * 0.15) * 2.5;
+            const pg = ctx.createLinearGradient(0, horizonY, 0, horizonY + len);
+            pg.addColorStop(0, `rgba(255, 206, 108, ${(0.28 * cityGlow).toFixed(3)})`);
+            pg.addColorStop(1, 'rgba(255, 206, 108, 0)');
+            ctx.fillStyle = pg;
+            ctx.fillRect(lx + sway - 1.5, horizonY + 1, 3, len);
+          }
+        }
+
+        // Sun-path / Moon-path dancing golden reflection bars across the Tigris
+        const drawWaterPath = (cx, strength, warmTint) => {
+          if (strength <= 0.01) return;
+          const strips = 26;
+          for (let i = 0; i < strips; i++) {
+            const t = i / (strips - 1);
+            const ry = horizonY + 4 + t * (cornicheY - horizonY - 12);
+            const spread = lerp(18, 86, t);
+            const sway = Math.sin(time * (2.0 + (i % 3) * 0.45) + i * 0.9) * (4 + t * 14);
+            const bw = spread * (0.42 + 0.58 * Math.abs(Math.sin(time * 1.35 + i * 1.2)));
+            const bh = 1.4 + t * 2.4;
+            const alpha = strength * (0.52 * (1 - t * 0.55));
+            const lg = ctx.createLinearGradient(cx + sway - bw / 2, ry, cx + sway + bw / 2, ry);
+            lg.addColorStop(0, rgbStr(warmTint, 0));
+            lg.addColorStop(0.5, rgbStr(warmTint, alpha));
+            lg.addColorStop(1, rgbStr(warmTint, 0));
+            ctx.fillStyle = lg;
+            ctx.fillRect(cx + sway - bw / 2, ry, bw, bh);
+          }
+        };
+
+        if (cel.sunVis > 0.02) {
+          const sunWaterCol = mixRGB([255, 238, 174], [255, 174, 88], smoothstep(0.15, 0.45, progress));
+          drawWaterPath(cel.sunX, cel.sunVis * 0.95, sunWaterCol);
+        }
+        if (cel.moonT > 0.02) {
+          drawWaterPath(cel.moonX, cel.moonT * 0.9, [255, 232, 150]);
+        }
+
+        // ICONIC BAGHDAD RIVER BRIDGE spanning across the Tigris
+        const bridgeCol = progress < 0.44
+          ? mixRGB([62, 74, 102], [40, 34, 62], smoothstep(0, 0.44, progress))
+          : mixRGB([40, 34, 62], [8, 18, 36], smoothstep(0.44, 0.88, progress));
+
+        const spanCount = Math.max(4, Math.round(W / 95));
+        const spanW = W / spanCount;
+        const deckH = 5.5;
+        const pierBottom = bridgeY + 18;
+
+        ctx.fillStyle = rgbStr(bridgeCol);
+        ctx.strokeStyle = rgbStr(bridgeCol);
+
+        // Bridge arches & masonry piers standing in the Tigris
+        for (let s = 0; s < spanCount; s++) {
+          const x0 = s * spanW;
+          const x1 = x0 + spanW;
+          const xm = (x0 + x1) * 0.5;
+
+          // Pier column
+          ctx.fillRect(x0 - 3.5, bridgeY, 7, pierBottom - bridgeY);
+
+          // Graceful river arch under deck
+          ctx.beginPath();
+          ctx.moveTo(x0 + 2, bridgeY + 15);
+          ctx.quadraticCurveTo(xm, bridgeY - 2, x1 - 2, bridgeY + 15);
+          ctx.lineTo(x1 - 2, bridgeY + deckH);
+          ctx.lineTo(x0 + 2, bridgeY + deckH);
+          ctx.closePath();
+          ctx.fill();
+
+          // Subtle upper suspension/arch truss accent
+          ctx.lineWidth = 1.2;
+          ctx.beginPath();
+          ctx.moveTo(x0, bridgeY);
+          ctx.quadraticCurveTo(xm, bridgeY - 12, x1, bridgeY);
+          ctx.stroke();
+        }
+
+        // Main horizontal bridge roadway deck & delicate railing
+        ctx.fillRect(0, bridgeY - 1, W, deckH);
+        ctx.lineWidth = 0.8;
+        ctx.strokeStyle = rgbStr(bridgeCol, 0.8);
+        ctx.beginPath();
+        ctx.moveTo(0, bridgeY - 4);
+        ctx.lineTo(W, bridgeY - 4);
+        ctx.stroke();
+
+        // Warm rhythmic bridge streetlamps + vertical reflections in the Tigris
+        const bridgeLampOn = smoothstep(0.36, 0.64, progress);
+        const lampStep = Math.max(38, spanW * 0.5);
+        for (let lx = lampStep * 0.5; lx < W; lx += lampStep) {
+          // Lamp pole
+          ctx.strokeStyle = rgbStr(bridgeCol);
+          ctx.lineWidth = 1.1;
+          ctx.beginPath();
+          ctx.moveTo(lx, bridgeY - 1);
+          ctx.lineTo(lx, bridgeY - 11);
+          ctx.stroke();
+
+          if (bridgeLampOn > 0.02) {
+            const pulse = 0.88 + 0.12 * Math.sin(time * 2.5 + lx * 0.08);
+            const g = ctx.createRadialGradient(lx, bridgeY - 11, 0.5, lx, bridgeY - 11, 11);
+            g.addColorStop(0, `rgba(255, 236, 168, ${(0.95 * bridgeLampOn * pulse).toFixed(3)})`);
+            g.addColorStop(0.4, `rgba(245, 185, 65, ${(0.35 * bridgeLampOn * pulse).toFixed(3)})`);
+            g.addColorStop(1, 'rgba(245, 185, 65, 0)');
+            ctx.fillStyle = g;
+            ctx.beginPath();
+            ctx.arc(lx, bridgeY - 11, 11, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Shimmering vertical reflection pillar in the river beneath each bridge lamp
+            for (let k = 0; k < 7; k++) {
+              const ry = pierBottom + 4 + k * 6.5;
+              const rx = lx + Math.sin(time * 2.8 + k * 1.1 + lx) * (1.8 + k * 0.45);
+              const alpha = (0.36 - k * 0.045) * bridgeLampOn * pulse;
+              ctx.fillStyle = `rgba(255, 214, 116, ${Math.max(0, alpha).toFixed(3)})`;
+              ctx.fillRect(rx - 2.6, ry, 5.2 - k * 0.4, 1.8);
+            }
+          }
+        }
+
+        // Tiny slow-moving evening car headlights/taillights crossing the Baghdad bridge
+        if (bridgeLampOn > 0.05) {
+          for (let i = 0; i < bridgeCars.length; i++) {
+            const car = bridgeCars[i];
+            car.x += car.dir * car.speed * dt;
+            if (car.x > W + 20) car.x = -20;
+            if (car.x < -20) car.x = W + 20;
+            const cy = bridgeY - 2.5;
+            ctx.fillStyle = car.dir > 0
+              ? `rgba(255, 248, 220, ${(0.88 * bridgeLampOn).toFixed(3)})`
+              : `rgba(248, 98, 92, ${(0.82 * bridgeLampOn).toFixed(3)})`;
+            ctx.beginPath();
+            ctx.arc(car.x, cy, 1.5, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+
+        // Horizontal gentle Tigris water shimmer waves
+        for (let w = 0; w < 6; w++) {
+          const wy = pierBottom + 10 + (w / 6) * (cornicheY - pierBottom - 16);
+          ctx.beginPath();
+          for (let x = 0; x <= W; x += 18) {
+            const y = wy + Math.sin(x * 0.015 + time * (0.8 + w * 0.18) + w) * (1.5 + w * 0.35);
+            if (x === 0) ctx.moveTo(x, y); else ctx.lineTo(x, y);
+          }
+          ctx.strokeStyle = progress < 0.44
+            ? 'rgba(255, 238, 195, 0.14)'
+            : 'rgba(130, 178, 238, 0.11)';
+          ctx.lineWidth = 1.1;
+          ctx.stroke();
+        }
+
+        // TRADITIONAL WOODEN BAGHDAD RIVER BOAT (بلم / مشحوف) gliding slowly across the Tigris
+        boat.x -= boat.speed * dt;
+        if (boat.x < -0.14) boat.x = 1.14;
+        const bx = boat.x * W;
+        const by = lerp(pierBottom + 20, cornicheY - 26, 0.42) + Math.sin(time * 1.8) * 1.4;
+        const boatCol = progress < 0.44
+          ? mixRGB([48, 36, 38], [26, 20, 34], smoothstep(0, 0.44, progress))
+          : [9, 17, 32];
+
+        ctx.save();
+        ctx.translate(bx, by);
+        ctx.rotate(Math.sin(time * 1.5) * 0.025);
+
+        // Soft trailing water wake behind the boat
+        ctx.strokeStyle = `rgba(255, 236, 185, ${lerp(0.24, 0.16, cel.nightT).toFixed(3)})`;
+        ctx.lineWidth = 1.1;
+        ctx.beginPath();
+        ctx.moveTo(22, 4);
+        ctx.quadraticCurveTo(46, 2 + Math.sin(time * 3) * 1.5, 74, 5);
+        ctx.moveTo(24, 6);
+        ctx.quadraticCurveTo(44, 8 - Math.sin(time * 3) * 1.2, 66, 9);
+        ctx.stroke();
+
+        // Upturned Mashoof/Balam crescent hull
+        ctx.fillStyle = rgbStr(boatCol);
+        ctx.beginPath();
+        ctx.moveTo(-28, -5); // upturned prow
+        ctx.quadraticCurveTo(-18, 7, 0, 7);
+        ctx.quadraticCurveTo(18, 7, 26, -4); // upturned stern
+        ctx.quadraticCurveTo(12, 2, 0, 2);
+        ctx.quadraticCurveTo(-14, 2, -28, -5);
+        ctx.closePath();
+        ctx.fill();
+
+        // Subtle seated boatman silhouette & gentle dipping oar
+        ctx.beginPath();
+        ctx.arc(6, -6, 2.5, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.moveTo(3, 2);
+        ctx.lineTo(5, -4);
+        ctx.lineTo(9, -3);
+        ctx.lineTo(10, 2);
+        ctx.fill();
+        const oarAngle = Math.sin(time * 1.9) * 0.28;
+        ctx.strokeStyle = rgbStr(boatCol);
+        ctx.lineWidth = 1.3;
+        ctx.beginPath();
+        ctx.moveTo(4, -2);
+        ctx.lineTo(4 + Math.sin(oarAngle) * 10, 11);
+        ctx.stroke();
+
+        // Warm bow lantern glowing on the boat at dusk & night
+        if (bridgeLampOn > 0.04) {
+          const lx = -22, ly = -4;
+          const bGlow = ctx.createRadialGradient(lx, ly, 0.5, lx, ly, 16);
+          bGlow.addColorStop(0, `rgba(255, 236, 160, ${(0.95 * bridgeLampOn).toFixed(3)})`);
+          bGlow.addColorStop(0.45, `rgba(245, 178, 56, ${(0.32 * bridgeLampOn).toFixed(3)})`);
+          bGlow.addColorStop(1, 'rgba(245, 178, 56, 0)');
+          ctx.fillStyle = bGlow;
+          ctx.beginPath();
+          ctx.arc(lx, ly, 16, 0, Math.PI * 2);
+          ctx.fill();
+
+          // Boat lantern reflection shimmering on the river below
+          for (let r = 0; r < 4; r++) {
+            const ry = 10 + r * 4.5;
+            const rx = lx + Math.sin(time * 3 + r) * 2.5;
+            ctx.fillStyle = `rgba(255, 214, 116, ${((0.38 - r * 0.08) * bridgeLampOn).toFixed(3)})`;
+            ctx.fillRect(rx - 3.5, ry, 7 - r, 1.5);
+          }
+        }
+        ctx.restore();
+
+        // Interactive & Petal-Triggered Elliptical Water Ripples
+        for (let i = waterRipples.length - 1; i >= 0; i--) {
+          const rp = waterRipples[i];
+          rp.r += 24 * dt;
+          rp.alpha -= 0.42 * dt;
+          if (rp.alpha <= 0 || rp.r > rp.maxR) {
+            waterRipples.splice(i, 1);
+            continue;
+          }
+          ctx.beginPath();
+          ctx.ellipse(rp.x, rp.y, rp.r, rp.r * 0.28, 0, 0, Math.PI * 2);
+          ctx.strokeStyle = `rgba(255, 232, 165, ${rp.alpha.toFixed(3)})`;
+          ctx.lineWidth = 1.1;
+          ctx.stroke();
+        }
+      }
+
+      // =======================================================================
+      // NEAR-BANK BAGHDAD CORNICHE, REEDS, VINTAGE LAMP, BENCH & POMEGRANATE TREE
+      // =======================================================================
+      function drawReeds(progress, cornicheY, layerIdx) {
+        const reedBase = progress < 0.44
+          ? mixRGB([36, 56, 46], [24, 28, 42], smoothstep(0, 0.44, progress))
+          : mixRGB([24, 28, 42], [7, 16, 28], smoothstep(0.44, 0.88, progress));
+
+        for (let i = 0; i < reeds.length; i++) {
+          const rd = reeds[i];
+          if (rd.layer !== layerIdx) continue;
+          const rx = rd.xNorm * W;
+          const ry = cornicheY + 8 + (layerIdx === 1 ? 14 : -2);
+          const wind = Math.sin(time * 1.45 + rd.phase + rx * 0.012) * 8 + Math.sin(time * 2.8 + rd.phase) * 2.5;
+          const tx = rx + rd.lean + wind;
+          const ty = ry - rd.h;
+
+          ctx.strokeStyle = rgbStr(reedBase, layerIdx === 0 ? 0.78 : 0.94);
+          ctx.lineWidth = rd.thick;
+          ctx.lineCap = 'round';
+          ctx.beginPath();
+          ctx.moveTo(rx, ry + 18);
+          ctx.quadraticCurveTo(rx + (rd.lean + wind) * 0.35, ry - rd.h * 0.5, tx, ty);
+          ctx.stroke();
+
+          if (rd.cattail) {
+            ctx.strokeStyle = rgbStr(mixRGB([72, 42, 30], [18, 18, 28], smoothstep(0.2, 0.85, progress)));
+            ctx.lineWidth = 4.2;
+            ctx.beginPath();
+            ctx.moveTo(tx - (rd.lean + wind) * 0.08, ty + 11);
+            ctx.lineTo(tx, ty + 2);
+            ctx.stroke();
+          }
+        }
+      }
+
+      function drawCornichePromenade(progress, cornicheY, lampX, lampOn) {
+        // Sandstone promenade color shifts smoothly from warm sunlit Baghdad stone to moonlit slate
+        const stoneTop = progress < 0.44
+          ? mixRGB([166, 134, 98], [94, 68, 74], smoothstep(0, 0.44, progress))
+          : mixRGB([94, 68, 74], [22, 34, 56], smoothstep(0.44, 0.88, progress));
+        const stoneWall = progress < 0.44
+          ? mixRGB([112, 88, 68], [58, 44, 58], smoothstep(0, 0.44, progress))
+          : mixRGB([58, 44, 58], [11, 20, 36], smoothstep(0.44, 0.88, progress));
+        const parapetCol = progress < 0.44
+          ? mixRGB([142, 112, 82], [74, 54, 66], smoothstep(0, 0.44, progress))
+          : mixRGB([74, 54, 66], [16, 28, 48], smoothstep(0.44, 0.88, progress));
+
+        // 1. Low stone corniche parapet / balustrade overlooking the Tigris
+        const railY = cornicheY - 16;
+        ctx.fillStyle = rgbStr(parapetCol);
+        ctx.fillRect(0, railY, W, 6); // top coping stone
+        // Warm sun/moon rim on top of parapet
+        ctx.fillStyle = progress < 0.45
+          ? 'rgba(255, 224, 146, 0.45)'
+          : 'rgba(253, 230, 138, 0.16)';
+        ctx.fillRect(0, railY, W, 1.5);
+
+        // Decorative stone pillars & wrought-iron balustrade rails along river edge
+        const pillarStep = 72;
+        for (let px = 18; px < W + 20; px += pillarStep) {
+          ctx.fillStyle = rgbStr(parapetCol);
+          ctx.fillRect(px - 5, railY - 2, 10, 22);
+          // Delicate iron bars between pillars
+          ctx.strokeStyle = rgbStr(stoneWall, 0.85);
+          ctx.lineWidth = 1.2;
+          for (let b = 12; b < pillarStep - 8; b += 12) {
+            ctx.beginPath();
+            ctx.moveTo(px + b, railY + 5);
+            ctx.lineTo(px + b, cornicheY + 2);
+            ctx.stroke();
+          }
+        }
+
+        // 2. Curved Baghdad Corniche Walkway Paving
+        const walkGrad = ctx.createLinearGradient(0, cornicheY, 0, H);
+        walkGrad.addColorStop(0, rgbStr(stoneTop));
+        walkGrad.addColorStop(0.28, rgbStr(stoneWall));
+        walkGrad.addColorStop(1, rgbStr(mixRGB(stoneWall, [5, 11, 22], 0.72)));
+        ctx.fillStyle = walkGrad;
+        ctx.beginPath();
+        ctx.moveTo(0, cornicheY + 2);
+        ctx.quadraticCurveTo(W * 0.5, cornicheY - 6, W, cornicheY + 4);
+        ctx.lineTo(W, H);
+        ctx.lineTo(0, H);
+        ctx.closePath();
+        ctx.fill();
+
+        // Subtle sandstone paving joints for scenic texture
+        ctx.strokeStyle = 'rgba(255, 232, 185, 0.08)';
+        ctx.lineWidth = 1;
+        for (let row = 1; row <= 4; row++) {
+          const ry = cornicheY + row * 22;
+          if (ry > H) break;
+          ctx.beginPath();
+          ctx.moveTo(0, ry);
+          ctx.quadraticCurveTo(W * 0.5, ry - 4, W, ry + 2);
+          ctx.stroke();
+        }
+
+        // 3. Soft warm golden pool of light cast onto the corniche stones when street lamp is lit
+        if (lampOn > 0.02) {
+          const pool = ctx.createRadialGradient(lampX + 26, cornicheY + 28, 6, lampX + 26, cornicheY + 28, 125);
+          pool.addColorStop(0, `rgba(255, 206, 98, ${(0.34 * lampOn).toFixed(3)})`);
+          pool.addColorStop(0.5, `rgba(245, 178, 58, ${(0.14 * lampOn).toFixed(3)})`);
+          pool.addColorStop(1, 'rgba(245, 178, 58, 0)');
+          ctx.fillStyle = pool;
+          ctx.beginPath();
+          ctx.ellipse(lampX + 26, cornicheY + 30, 130, 44, 0, 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      // Detailed Wooden & Wrought-Iron Baghdad Riverside Park Bench
+      function drawBaghdadBench(progress, benchX, cornicheY, lampOn) {
+        const y = cornicheY + 24;
+        const bw = clamp(W * 0.25, 92, 122);
+        const halfW = bw * 0.5;
+
+        const woodBase = progress < 0.44
+          ? mixRGB([128, 76, 44], [76, 44, 38], smoothstep(0, 0.44, progress))
+          : mixRGB([76, 44, 38], [46, 32, 34], smoothstep(0.44, 0.88, progress));
+        const woodLit = mixRGB(woodBase, [224, 162, 78], Math.max(1 - smoothstep(0.15, 0.46, progress), lampOn * 0.65) * 0.55);
+        const ironCol = progress < 0.44
+          ? mixRGB([34, 38, 48], [22, 24, 36], smoothstep(0, 0.44, progress))
+          : [10, 17, 30];
+
+        ctx.save();
+        ctx.translate(benchX, y);
+
+        // Soft perspective shadow under bench
+        ctx.fillStyle = 'rgba(4, 10, 22, 0.42)';
+        ctx.beginPath();
+        ctx.ellipse(2, 5, halfW + 10, 8, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Backrest wooden slats (3 warm cedar planks)
+        const slats = [-35, -27, -19];
+        for (let i = 0; i < slats.length; i++) {
+          ctx.fillStyle = rgbStr(woodBase);
+          ctx.fillRect(-halfW, slats[i], bw, 5.5);
+          // Golden sunlight or streetlamp rim on top edge of each plank
+          ctx.fillStyle = rgbStr(woodLit, 0.85);
+          ctx.fillRect(-halfW, slats[i], bw, 1.5);
+        }
+
+        // Seat wooden planks (2 wider planks with slight perspective overhang)
+        ctx.fillStyle = rgbStr(woodLit);
+        ctx.fillRect(-halfW - 3, -11, bw + 6, 4.2);
+        ctx.fillStyle = rgbStr(woodBase);
+        ctx.fillRect(-halfW - 4, -6.8, bw + 8, 4.5);
+
+        // Ornate Wrought-Iron Frame, Curved Armrests & Scrolled Legs (Left, Center support, Right)
+        const framePositions = [-halfW + 7, halfW - 7];
+        ctx.strokeStyle = rgbStr(ironCol);
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+
+        for (let i = 0; i < framePositions.length; i++) {
+          const fx = framePositions[i];
+          // Backrest upright + front/back legs
+          ctx.lineWidth = 3.2;
+          ctx.beginPath();
+          ctx.moveTo(fx - 3, -38);
+          ctx.quadraticCurveTo(fx - 1, -22, fx, -8);
+          ctx.lineTo(fx - 4, 5); // back leg
+          ctx.moveTo(fx + 5, -8);
+          ctx.lineTo(fx + 8, 6); // front leg
+          ctx.stroke();
+
+          // Graceful scrolled wrought-iron armrest
+          ctx.lineWidth = 2.6;
+          ctx.beginPath();
+          ctx.moveTo(fx - 2, -24);
+          ctx.quadraticCurveTo(fx + 10, -24, fx + 9, -14);
+          ctx.quadraticCurveTo(fx + 8, -9, fx + 4, -8);
+          ctx.stroke();
+
+          // Decorative iron curl beneath armrest
+          ctx.lineWidth = 1.6;
+          ctx.beginPath();
+          ctx.arc(fx + 3, -14, 3.2, 0, Math.PI * 1.6);
+          ctx.stroke();
+        }
+
+        // Center iron under-brace
+        ctx.lineWidth = 2.2;
+        ctx.beginPath();
+        ctx.moveTo(0, -35);
+        ctx.lineTo(0, -8);
+        ctx.lineTo(0, 3);
+        ctx.stroke();
+
+        // Warm subtle golden highlight catch on wrought-iron armrests when lamp glows
+        if (lampOn > 0.08) {
+          ctx.strokeStyle = `rgba(255, 224, 138, ${(0.36 * lampOn).toFixed(3)})`;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(-halfW + 5, -24);
+          ctx.quadraticCurveTo(-halfW + 17, -24, -halfW + 16, -15);
+          ctx.stroke();
+        }
+
+        ctx.restore();
+      }
+
+      // Ornate Vintage Baghdad Corniche Street Lamp (Ignites smoothly at Dusk)
+      function drawVintageLamp(progress, lampX, cornicheY, lampOn) {
+        const baseY = cornicheY + 26;
+        const lampH = clamp(H * 0.24, 138, 195);
+        const topY = baseY - lampH;
+        const lanternX = lampX + 18;
+        const lanternY = topY + 12;
+
+        const ironCol = progress < 0.44
+          ? mixRGB([34, 40, 52], [20, 24, 38], smoothstep(0, 0.44, progress))
+          : [9, 16, 28];
+
+        ctx.save();
+        ctx.fillStyle = rgbStr(ironCol);
+        ctx.strokeStyle = rgbStr(ironCol);
+
+        // Fluted pedestal base
+        ctx.beginPath();
+        ctx.moveTo(lampX - 10, baseY + 2);
+        ctx.lineTo(lampX - 6, baseY - 26);
+        ctx.lineTo(lampX + 6, baseY - 26);
+        ctx.lineTo(lampX + 10, baseY + 2);
+        ctx.closePath();
+        ctx.fill();
+
+        // Tapered wrought-iron column
+        ctx.lineWidth = 4.2;
+        ctx.beginPath();
+        ctx.moveTo(lampX, baseY - 24);
+        ctx.lineTo(lampX, topY + 12);
+        ctx.stroke();
+
+        // Ornamental collar rings
+        ctx.fillRect(lampX - 5, baseY - 28, 10, 3);
+        ctx.fillRect(lampX - 4, topY + 26, 8, 2.5);
+
+        // Curved swan-neck bracket holding the lantern over the bench
+        ctx.lineWidth = 3;
+        ctx.beginPath();
+        ctx.moveTo(lampX, topY + 16);
+        ctx.bezierCurveTo(lampX, topY - 8, lanternX, topY - 10, lanternX, topY + 3);
+        ctx.stroke();
+
+        // Scrollwork support curl
+        ctx.lineWidth = 1.6;
+        ctx.beginPath();
+        ctx.moveTo(lampX + 1, topY + 28);
+        ctx.quadraticCurveTo(lampX + 12, topY + 18, lanternX - 5, topY + 10);
+        ctx.stroke();
+
+        // Volumetric Warm Amber Light Cone & Radial Halo when Lamp Ignites
+        if (lampOn > 0.01) {
+          const pulse = 0.94 + 0.06 * Math.sin(time * 3.1);
+
+          // Soft downward warm illumination cone toward the bench
+          const coneGrad = ctx.createLinearGradient(lanternX, lanternY, lanternX + 18, baseY + 10);
+          coneGrad.addColorStop(0, `rgba(255, 218, 122, ${(0.24 * lampOn * pulse).toFixed(3)})`);
+          coneGrad.addColorStop(1, 'rgba(255, 200, 90, 0)');
+          ctx.fillStyle = coneGrad;
+          ctx.beginPath();
+          ctx.moveTo(lanternX - 8, lanternY + 6);
+          ctx.lineTo(lanternX + 8, lanternY + 6);
+          ctx.lineTo(lanternX + 110, baseY + 12);
+          ctx.lineTo(lanternX - 70, baseY + 12);
+          ctx.closePath();
+          ctx.fill();
+
+          // Volumetric radial lantern halo
+          const halo = ctx.createRadialGradient(lanternX, lanternY + 4, 2, lanternX, lanternY + 4, 72);
+          halo.addColorStop(0, `rgba(255, 245, 198, ${(0.88 * lampOn * pulse).toFixed(3)})`);
+          halo.addColorStop(0.28, `rgba(255, 204, 88, ${(0.42 * lampOn * pulse).toFixed(3)})`);
+          halo.addColorStop(0.65, `rgba(235, 152, 42, ${(0.12 * lampOn * pulse).toFixed(3)})`);
+          halo.addColorStop(1, 'rgba(235, 152, 42, 0)');
+          ctx.fillStyle = halo;
+          ctx.beginPath();
+          ctx.arc(lanternX, lanternY + 4, 72, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        // Hexagonal Vintage Lantern Glass Housing
+        ctx.fillStyle = lampOn > 0.02
+          ? `rgba(255, 236, 168, ${(0.35 + 0.65 * lampOn).toFixed(3)})`
+          : 'rgba(210, 224, 238, 0.35)';
+        ctx.beginPath();
+        ctx.moveTo(lanternX - 7, lanternY - 2);
+        ctx.lineTo(lanternX + 7, lanternY - 2);
+        ctx.lineTo(lanternX + 5, lanternY + 12);
+        ctx.lineTo(lanternX - 5, lanternY + 12);
+        ctx.closePath();
+        ctx.fill();
+
+        // Lantern metal cap, finial & ribs
+        ctx.fillStyle = rgbStr(ironCol);
+        ctx.strokeStyle = rgbStr(ironCol);
+        ctx.lineWidth = 1.4;
+        ctx.beginPath();
+        ctx.moveTo(lanternX - 9, lanternY - 2);
+        ctx.lineTo(lanternX, lanternY - 10);
+        ctx.lineTo(lanternX + 9, lanternY - 2);
+        ctx.closePath();
+        ctx.fill();
+        ctx.strokeRect(lanternX - 6, lanternY - 2, 12, 13);
+        ctx.beginPath();
+        ctx.moveTo(lanternX, lanternY - 2);
+        ctx.lineTo(lanternX, lanternY + 11);
+        ctx.stroke();
+
+        // Tiny glowing fireflies / moths orbiting the warm lantern at night
+        if (lampOn > 0.15) {
+          for (let i = 0; i < lampMoths.length; i++) {
+            const m = lampMoths[i];
+            const ang = m.angle + time * m.speed;
+            const mx = lanternX + Math.cos(ang) * m.radius;
+            const my = lanternY + 4 + Math.sin(ang * m.yFreq + m.phase) * (m.radius * 0.55);
+            ctx.fillStyle = `rgba(255, 242, 186, ${(0.82 * lampOn).toFixed(3)})`;
+            ctx.beginPath();
+            ctx.arc(mx, my, 1.35, 0, Math.PI * 2);
+            ctx.fill();
+          }
+        }
+
+        ctx.restore();
+      }
+
+      // Helper to draw a glossy crowned ruby pomegranate fruit
+      function drawPomegranateFruit(x, y, r, progress, lampGlow) {
+        const baseCol = progress < 0.44
+          ? [164, 34, 52]
+          : mixRGB([164, 34, 52], [116, 26, 44], smoothstep(0.44, 0.9, progress));
+        ctx.save();
+        ctx.translate(x, y);
+        ctx.fillStyle = rgbStr(baseCol);
+        ctx.beginPath();
+        ctx.arc(0, 0, r, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Warm golden highlight catch
+        ctx.strokeStyle = `rgba(255, 224, 146, ${(0.58 + lampGlow * 0.25).toFixed(2)})`;
+        ctx.lineWidth = Math.max(1, r * 0.16);
+        ctx.lineCap = 'round';
+        ctx.beginPath();
+        ctx.arc(0, 0, r * 0.72, -Math.PI * 0.85, -Math.PI * 0.35);
+        ctx.stroke();
+
+        // Pomegranate crown
+        ctx.fillStyle = rgbStr(baseCol);
+        ctx.beginPath();
+        ctx.moveTo(-r * 0.35, r * 0.85);
+        ctx.lineTo(-r * 0.45, r * 1.28);
+        ctx.lineTo(0, r * 1.05);
+        ctx.lineTo(r * 0.45, r * 1.28);
+        ctx.lineTo(r * 0.35, r * 0.85);
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+      }
+
+      // Procedural Gnarled Pomegranate Tree Arching Beside the Corniche Bench
+      function drawBankPomegranateTree(progress, treeX, cornicheY, lampOn) {
+        const baseY = cornicheY + 34;
+        const sway = Math.sin(time * 0.95) * 4;
+        const barkCol = progress < 0.44
+          ? mixRGB([46, 36, 36], [28, 22, 34], smoothstep(0, 0.44, progress))
+          : [9, 16, 28];
+        const leafCol = progress < 0.44
+          ? mixRGB([34, 64, 48], [22, 34, 44], smoothstep(0, 0.44, progress))
+          : [10, 26, 38];
+
+        ctx.save();
+        // Gnarled curved trunk
+        ctx.strokeStyle = rgbStr(barkCol);
+        ctx.lineCap = 'round';
+        ctx.lineWidth = 12;
+        ctx.beginPath();
+        ctx.moveTo(treeX - 10, baseY + 12);
+        ctx.bezierCurveTo(treeX + 8, baseY - 45, treeX - 6, baseY - 98, treeX + 24 + sway * 0.4, baseY - 148);
+        ctx.stroke();
+
+        // Arching boughs extending gracefully toward the bench
+        ctx.lineWidth = 6.5;
+        ctx.beginPath();
+        ctx.moveTo(treeX + 8, baseY - 98);
+        ctx.quadraticCurveTo(treeX + 46, baseY - 134, treeX + 94 + sway, baseY - 122 + sway * 0.3);
+        ctx.stroke();
+
+        ctx.lineWidth = 5;
+        ctx.beginPath();
+        ctx.moveTo(treeX + 12, baseY - 122);
+        ctx.quadraticCurveTo(treeX - 14, baseY - 156, treeX - 28 + sway * 0.7, baseY - 166);
+        ctx.stroke();
+
+        // Layered botanical foliage clusters
+        const clusters = [
+          { x: treeX + 22 + sway * 0.6, y: baseY - 158, rx: 46, ry: 28 },
+          { x: treeX + 68 + sway * 0.9, y: baseY - 138, rx: 38, ry: 22 },
+          { x: treeX - 12 + sway * 0.5, y: baseY - 144, rx: 34, ry: 24 },
+          { x: treeX + 96 + sway, y: baseY - 122, rx: 28, ry: 17 }
+        ];
+        ctx.fillStyle = rgbStr(leafCol);
+        for (let i = 0; i < clusters.length; i++) {
+          const cl = clusters[i];
+          ctx.beginPath();
+          ctx.ellipse(cl.x, cl.y, cl.rx, cl.ry, -0.1, 0, Math.PI * 2);
+          ctx.fill();
+          // Soft top rim light
+          ctx.strokeStyle = `rgba(255, 224, 146, ${(0.22 + lampOn * 0.14).toFixed(2)})`;
+          ctx.lineWidth = 1.2;
+          ctx.beginPath();
+          ctx.ellipse(cl.x, cl.y - 2, cl.rx * 0.85, cl.ry * 0.8, -0.1, Math.PI * 1.1, Math.PI * 1.88);
+          ctx.stroke();
+        }
+
+        // Glowing ruby pomegranates nestled in the branches
+        drawPomegranateFruit(treeX + 42 + sway * 0.75, baseY - 144, 5.5, progress, lampOn);
+        drawPomegranateFruit(treeX + 84 + sway * 0.95, baseY - 124, 5.0, progress, lampOn);
+        drawPomegranateFruit(treeX + 8 + sway * 0.55, baseY - 152, 4.8, progress, lampOn);
+        drawPomegranateFruit(treeX + 104 + sway, baseY - 115, 4.2, progress, lampOn);
+
+        ctx.restore();
+      }
+
+      // Overhanging Upper-Right Pomegranate Branch (Where the Night Owl Perches & Launches)
+      function drawUpperPomegranateBranch(progress, dt) {
+        // Spring recoil physics when owl takes off
+        const k = 42, damp = 5.2;
+        const accel = -k * branchSpringPos - damp * branchSpringVel;
+        branchSpringVel += accel * dt;
+        branchSpringPos += branchSpringVel * dt;
+
+        const windRot = Math.sin(time * 1.15) * 0.022 + branchSpringPos * 0.04;
+        const barkCol = progress < 0.44
+          ? mixRGB([36, 28, 32], [20, 18, 30], smoothstep(0, 0.44, progress))
+          : [8, 15, 28];
+        const leafCol = progress < 0.44
+          ? mixRGB([26, 52, 42], [18, 30, 42], smoothstep(0, 0.44, progress))
+          : [10, 26, 40];
+
+        const anchorX = W + 8;
+        const anchorY = 18;
+        const scale = clamp(W / 420, 0.85, 1.3);
+
+        ctx.save();
+        ctx.translate(anchorX, anchorY);
+        ctx.rotate(windRot);
+        ctx.scale(scale, scale);
+
+        // Main woody branch curving inward from upper right
+        ctx.strokeStyle = rgbStr(barkCol);
+        ctx.lineCap = 'round';
+        ctx.lineWidth = 7;
+        ctx.beginPath();
+        ctx.moveTo(0, 0);
+        ctx.bezierCurveTo(-56, 22, -108, 48, -172, 62);
+        ctx.stroke();
+
+        // Secondary twigs
+        ctx.lineWidth = 4;
+        ctx.beginPath();
+        ctx.moveTo(-64, 28);
+        ctx.quadraticCurveTo(-92, 58, -118, 80);
+        ctx.moveTo(-114, 48);
+        ctx.quadraticCurveTo(-136, 30, -158, 22);
+        ctx.stroke();
+
+        // Delicate moonlight/sunlight rim along branch top
+        ctx.strokeStyle = 'rgba(255, 232, 165, 0.22)';
+        ctx.lineWidth = 1.2;
+        ctx.beginPath();
+        ctx.moveTo(-4, -2);
+        ctx.bezierCurveTo(-56, 20, -108, 46, -168, 60);
+        ctx.stroke();
+
+        // Botanical silhouette leaves
+        const leaves = [
+          [-38, 18, -0.4], [-72, 26, 0.25], [-92, 54, 0.6], [-128, 42, -0.35],
+          [-152, 56, 0.2], [-146, 28, -0.5], [-108, 72, 0.4], [-60, 40, 0.5]
+        ];
+        ctx.fillStyle = rgbStr(leafCol);
+        for (let i = 0; i < leaves.length; i++) {
+          const lf = leaves[i];
+          ctx.save();
+          ctx.translate(lf[0], lf[1]);
+          ctx.rotate(lf[2]);
+          ctx.beginPath();
+          ctx.ellipse(0, 0, 15, 5.2, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+
+        // Hanging crowned ruby pomegranates
+        drawPomegranateFruit(-92, 74, 8.2, progress, 0.4);
+        drawPomegranateFruit(-146, 70, 6.8, progress, 0.4);
+        drawPomegranateFruit(-48, 38, 6.0, progress, 0.3);
+
+        ctx.restore();
+
+        // Compute exact world-space owl perch position on the branch
+        const localPerchX = -104 * scale;
+        const localPerchY = 39 * scale;
+        const cosR = Math.cos(windRot), sinR = Math.sin(windRot);
+        return {
+          x: anchorX + localPerchX * cosR - localPerchY * sinR,
+          y: anchorY + localPerchX * sinR + localPerchY * cosR,
+          rot: windRot
+        };
+      }
+
+      // =======================================================================
+      // ARTICULATED RED FOX (Afternoon -> Dusk, Scroll 0.00 -> 0.54)
+      // 3-Phase Choreography: Trot along corniche -> Sit near bench -> Trot off
+      // =======================================================================
+      function drawArticulatedFox(progress, dt, benchX, cornicheY) {
+        const foxAlpha = 1 - smoothstep(0.47, 0.56, progress);
+        if (foxAlpha <= 0.01) return;
+
+        const startX = W + 45;
+        const seatX = benchX + clamp(W * 0.20, 74, 108);
+        const endX = -60;
+        const groundY = cornicheY + 26;
+
+        let fx, phaseMode, sitBlend = 0;
+        if (progress < 0.24) {
+          // Phase 1: Trot from right along sunlit corniche toward bench
+          const t = smoothstep(0.0, 0.24, progress);
+          fx = lerp(startX, seatX, t);
+          phaseMode = 'walk';
+          sitBlend = smoothstep(0.20, 0.24, progress);
+        } else if (progress < 0.40) {
+          // Phase 2: Seated poised beside bench beneath pomegranate tree gazing at sunset
+          fx = seatX;
+          phaseMode = 'sit';
+          sitBlend = 1;
+        } else {
+          // Phase 3: Stand and trot quietly left into twilight reeds
+          const t = smoothstep(0.40, 0.55, progress);
+          fx = lerp(seatX, endX, t);
+          phaseMode = 'walk';
+          sitBlend = 1 - smoothstep(0.40, 0.44, progress);
+        }
+
+        // Track actual distance traveled for zero-sliding skeletal trot kinematics
+        if (foxState.lastX === null) foxState.lastX = fx;
+        const moved = Math.abs(fx - foxState.lastX);
+        foxState.distWalked += moved;
+        foxState.lastX = fx;
+
+        // Occasional natural ear twitch while seated
+        foxState.nextTwitch -= dt;
+        if (foxState.nextTwitch <= 0) {
+          foxState.earTwitch = 1;
+          foxState.nextTwitch = 2.6 + Math.random() * 2.8;
+        }
+        foxState.earTwitch = Math.max(0, foxState.earTwitch - dt * 4.5);
+
+        const stride = foxState.distWalked * 0.14;
+        const isMoving = moved > 0.15 && sitBlend < 0.6;
+        const bounce = isMoving ? Math.abs(Math.sin(stride)) * -3.0 : Math.sin(time * 2.2) * 0.7;
+
+        // Multi-segment physics tail wave
+        for (let s = 0; s < 6; s++) {
+          const targetAng = sitBlend > 0.5
+            ? Math.sin(time * 1.9 - s * 0.45) * 0.08 - 0.12
+            : Math.sin(time * 3.1 - s * 0.55) * 0.14 + (isMoving ? -0.05 : 0);
+          foxState.tailAngles[s] = lerp(foxState.tailAngles[s], targetAng, clamp(dt * 8, 0, 1));
+        }
+
+        // Coat palette deepens smoothly into warm dusk russet
+        const duskMix = smoothstep(0.25, 0.52, progress);
+        const furMain = mixRGB([212, 102, 42], [116, 54, 42], duskMix);
+        const furDark = mixRGB([164, 68, 26], [78, 34, 32], duskMix);
+        const cream = mixRGB([250, 236, 208], [186, 162, 146], duskMix);
+        const sock = mixRGB([44, 28, 24], [18, 16, 26], duskMix);
+
+        ctx.save();
+        ctx.globalAlpha = foxAlpha;
+        ctx.translate(fx, groundY + bounce);
+
+        // Soft ground shadow
+        ctx.fillStyle = 'rgba(8, 12, 24, 0.35)';
+        ctx.beginPath();
+        ctx.ellipse(2, 2 - bounce, 22, 4.5, 0, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Helper for 2-joint articulated fox leg (thigh/upper + lower + dark paw)
+        const drawLeg = (hx, hy, ang1, ang2, len1, len2, color) => {
+          const kx = hx + Math.sin(ang1) * len1;
+          const ky = hy + Math.cos(ang1) * len1;
+          const px = kx + Math.sin(ang1 + ang2) * len2;
+          const py = ky + Math.cos(ang1 + ang2) * len2;
+          ctx.lineCap = 'round';
+          ctx.strokeStyle = rgbStr(color);
+          ctx.lineWidth = 3.6;
+          ctx.beginPath();
+          ctx.moveTo(hx, hy);
+          ctx.lineTo(kx, ky);
+          ctx.stroke();
+
+          ctx.strokeStyle = rgbStr(sock);
+          ctx.lineWidth = 2.7;
+          ctx.beginPath();
+          ctx.moveTo(kx, ky);
+          ctx.lineTo(px, py);
+          ctx.stroke();
+        };
+
+        const gaitA = Math.sin(stride) * 0.45 * (1 - sitBlend);
+        const gaitB = Math.sin(stride + Math.PI) * 0.45 * (1 - sitBlend);
+        const kneeA = Math.max(0, -Math.cos(stride)) * 0.5 * (1 - sitBlend);
+        const kneeB = Math.max(0, Math.cos(stride)) * 0.5 * (1 - sitBlend);
+
+        // Body posture interpolates smoothly between trotting horizontal and poised seated slant
+        const hipY = lerp(-17, -9, sitBlend);
+        const shoulderY = lerp(-19, -22, sitBlend);
+
+        // Far-side legs (behind body)
+        if (sitBlend < 0.85) {
+          drawLeg(11, hipY, gaitB, kneeB, 9, 9, furDark);
+          drawLeg(-11, shoulderY + 2, gaitA, kneeA, 9, 10, furDark);
+        }
+
+        // 6-Segment Physics-Driven Bushy White-Tipped Tail
+        ctx.save();
+        ctx.translate(15, hipY + 1);
+        let tx = 0, ty = 0, cumAng = lerp(-0.22, 0.35, sitBlend);
+        const pts = [{ x: 0, y: 0 }];
+        for (let s = 0; s < 6; s++) {
+          cumAng += foxState.tailAngles[s];
+          tx += Math.cos(cumAng) * 5.2;
+          ty += Math.sin(cumAng) * 5.2;
+          pts.push({ x: tx, y: ty });
+        }
+        // Tapered bushy tail ribbon
+        for (let s = 0; s < 6; s++) {
+          const widthSeg = [5, 7.5, 9, 8.5, 6.5, 3.8][s];
+          ctx.strokeStyle = s >= 4 ? rgbStr(cream) : rgbStr(furMain);
+          ctx.lineWidth = widthSeg;
+          ctx.lineCap = 'round';
+          ctx.beginPath();
+          ctx.moveTo(pts[s].x, pts[s].y);
+          ctx.lineTo(pts[s + 1].x, pts[s + 1].y);
+          ctx.stroke();
+        }
+        ctx.restore();
+
+        // Sleek Fox Torso (connects shoulder to hip smoothly)
+        ctx.fillStyle = rgbStr(furMain);
+        ctx.beginPath();
+        ctx.moveTo(-14, shoulderY - 3);
+        ctx.quadraticCurveTo(2, lerp(-25, -20, sitBlend), 16, hipY - 2);
+        ctx.quadraticCurveTo(19, hipY + 6, 10, hipY + 8);
+        ctx.quadraticCurveTo(-2, lerp(-11, -7, sitBlend), -14, shoulderY + 6);
+        ctx.closePath();
+        ctx.fill();
+
+        // Warm cream chest ruff
+        ctx.fillStyle = rgbStr(cream);
+        ctx.beginPath();
+        ctx.ellipse(-13, shoulderY + 2, 5.5, 6.5, 0.3, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Near-side legs
+        if (sitBlend > 0.7) {
+          // Seated tucked hind haunch + planted straight foreleg
+          ctx.fillStyle = rgbStr(furMain);
+          ctx.beginPath();
+          ctx.ellipse(9, -6, 9, 7, 0.2, 0, Math.PI * 2);
+          ctx.fill();
+          drawLeg(-11, shoulderY + 3, -0.05, 0.05, 11, 12, furMain);
+          drawLeg(-8, shoulderY + 4, 0.04, 0.02, 11, 11, furDark);
+        } else {
+          drawLeg(12, hipY, gaitA, kneeA, 9, 9, furMain);
+          drawLeg(-10, shoulderY + 2, gaitB, kneeB, 9, 10, furMain);
+        }
+
+        // Articulated Head (Facing left toward bench/river; gently tilts up to gaze at sunset while seated)
+        const headPitch = sitBlend * (0.24 + Math.sin(time * 1.1) * 0.04);
+        ctx.save();
+        ctx.translate(-15, shoulderY - 5);
+        ctx.rotate(headPitch);
+
+        // Far pointed ear
+        ctx.fillStyle = rgbStr(furDark);
+        ctx.beginPath();
+        ctx.moveTo(-2, -6);
+        ctx.lineTo(-5, -18);
+        ctx.lineTo(3, -8);
+        ctx.closePath();
+        ctx.fill();
+
+        // Head cranium & sleek tapered snout
+        ctx.fillStyle = rgbStr(furMain);
+        ctx.beginPath();
+        ctx.moveTo(4, -7);
+        ctx.quadraticCurveTo(-4, -10, -10, -5);
+        ctx.lineTo(-18, -1.5); // snout tip
+        ctx.lineTo(-9, 3.5);
+        ctx.quadraticCurveTo(0, 4.5, 6, 0);
+        ctx.closePath();
+        ctx.fill();
+
+        // Cream cheek & lower jaw
+        ctx.fillStyle = rgbStr(cream);
+        ctx.beginPath();
+        ctx.moveTo(-15, -0.5);
+        ctx.lineTo(-9, 3.5);
+        ctx.lineTo(-2, 2.5);
+        ctx.closePath();
+        ctx.fill();
+
+        // Near pointed ear with dark tip & occasional twitch
+        ctx.save();
+        ctx.translate(1, -7);
+        ctx.rotate(foxState.earTwitch * 0.25);
+        ctx.fillStyle = rgbStr(furMain);
+        ctx.beginPath();
+        ctx.moveTo(-3, 1);
+        ctx.lineTo(0, -12);
+        ctx.lineTo(4, 1);
+        ctx.closePath();
+        ctx.fill();
+        ctx.fillStyle = rgbStr(sock);
+        ctx.beginPath();
+        ctx.moveTo(-1.2, -6);
+        ctx.lineTo(0, -12);
+        ctx.lineTo(1.8, -6);
+        ctx.closePath();
+        ctx.fill();
+        ctx.restore();
+
+        // Nose & warm golden-amber eye
+        ctx.fillStyle = '#0a0d16';
+        ctx.beginPath();
+        ctx.arc(-18, -1.5, 1.4, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.fillStyle = '#f5c542';
+        ctx.beginPath();
+        ctx.arc(-7.5, -3.5, 1.4, 0, Math.PI * 2);
+        ctx.fill();
+
+        ctx.restore();
+        ctx.restore();
+      }
+
+      // =======================================================================
+      // ARTICULATED NIGHT OWL (Dusk -> Starry Night, Scroll 0.44 -> 1.00)
+      // Perched on branch with eye blinks -> S-Curve Moonlit Glide across Tigris
+      // =======================================================================
+      function drawArticulatedOwl(progress, dt, perch, moonX, moonY) {
+        const appear = smoothstep(0.44, 0.53, progress);
+        if (appear <= 0.01) {
+          owlLaunched = false;
+          return;
+        }
+
+        const flightT = smoothstep(0.56, 0.99, progress);
+
+        // Trigger branch physical recoil & petal scatter the moment the owl launches
+        if (flightT > 0.02 && !owlLaunched) {
+          owlLaunched = true;
+          branchSpringVel = 3.2;
+          for (let i = 0; i < 5; i++) {
+            fallingPetals.push({
+              x: perch.x + (Math.random() - 0.5) * 28,
+              y: perch.y + (Math.random() - 0.5) * 14,
+              vx: -14 - Math.random() * 18,
+              vy: 18 + Math.random() * 14,
+              rot: Math.random() * Math.PI * 2,
+              vRot: (Math.random() - 0.5) * 3.5,
+              size: 3.0 + Math.random() * 2.0,
+              wobble: Math.random() * Math.PI * 2
+            });
+          }
+        } else if (flightT <= 0.01) {
+          owlLaunched = false;
+        }
+
+        // S-curve flight path soaring past the glowing moon across the Baghdad skyline
+        const p0 = { x: perch.x, y: perch.y - 16 };
+        const p1 = { x: W * 0.64, y: H * 0.28 };
+        const p2 = { x: moonX + 34, y: moonY + 28 };
+        const p3 = { x: W * 0.14, y: H * 0.24 };
+
+        const pos = cubicPoint(p0, p1, p2, p3, flightT);
+        const isFlying = flightT > 0.015;
+
+        // Alternating rhythmic wingbeats & silent glides
+        const beatCycle = (time * 1.1) % 3.2;
+        const isGliding = beatCycle > 2.15;
+        const rawBeat = isGliding ? Math.sin(time * 1.4) * 0.14 : Math.sin(time * 6.4);
+        const flap = isFlying ? rawBeat : 0;
+
+        const bobY = isFlying ? -flap * 4.5 : Math.sin(time * 1.8) * 1.2;
+        const bank = isFlying ? lerp(-0.18, 0.12, flightT) + Math.sin(time * 2.5) * 0.06 : perch.rot;
+        const scale = lerp(0.95, 1.08, smoothstep(0.56, 0.85, progress));
+
+        // Spawn delicate golden stardust trail behind soaring owl
+        if (isFlying && Math.random() < dt * 18) {
+          stardust.push({
+            x: pos.x + 10 + (Math.random() - 0.5) * 18,
+            y: pos.y + bobY + (Math.random() - 0.5) * 12,
+            vx: 8 + Math.random() * 14,
+            vy: 3 + Math.random() * 8,
+            r: 1.0 + Math.random() * 1.6,
+            life: 1
+          });
+        }
+
+        ctx.save();
+        ctx.globalAlpha = appear;
+        ctx.translate(pos.x, pos.y + bobY);
+        ctx.rotate(bank);
+        ctx.scale(scale, scale);
+
+        const bodyCol = '#11213d';
+        const wingCol = '#172b4d';
+        const rimCol = 'rgba(253, 230, 138, 0.55)';
+
+        // Helper for multi-segment articulated owl wing (inner + outer + 6 splayed primary feathers)
+        const drawWing = (side) => {
+          const spread = smoothstep(0.01, 0.12, flightT);
+          if (spread <= 0.02) return;
+          ctx.save();
+          ctx.scale(side, 1);
+          const innerAng = lerp(1.15, -0.22 + flap * 0.42, spread);
+          const outerAng = lerp(0.4, -0.1 + flap * 0.35, spread);
+
+          ctx.translate(7, -2);
+          ctx.rotate(innerAng);
+
+          // Inner wing (secondary coverts)
+          ctx.fillStyle = wingCol;
+          ctx.strokeStyle = rimCol;
+          ctx.lineWidth = 1;
+          ctx.beginPath();
+          ctx.moveTo(0, -4);
+          ctx.quadraticCurveTo(16, -12, 28, -4);
+          ctx.quadraticCurveTo(16, 10, 0, 8);
+          ctx.closePath();
+          ctx.fill();
+          ctx.stroke();
+
+          // Outer wing + 6 splayed primary flight feathers
+          ctx.translate(25, -4);
+          ctx.rotate(outerAng);
+          ctx.fillStyle = bodyCol;
+          ctx.beginPath();
+          ctx.moveTo(0, 0);
+          ctx.quadraticCurveTo(14, -7, 26, 2);
+          ctx.quadraticCurveTo(14, 11, 0, 9);
+          ctx.closePath();
+          ctx.fill();
+
+          ctx.strokeStyle = 'rgba(253, 230, 138, 0.42)';
+          ctx.lineWidth = 1.6;
+          ctx.lineCap = 'round';
+          for (let f = 0; f < 6; f++) {
+            const fang = -0.35 + f * 0.16;
+            const flen = 12 + (5 - f) * 1.8;
+            ctx.beginPath();
+            ctx.moveTo(16, 2 + f * 0.9);
+            ctx.lineTo(16 + Math.cos(fang) * flen, 2 + f * 0.9 + Math.sin(fang) * flen);
+            ctx.stroke();
+          }
+          ctx.restore();
+        };
+
+        // Articulated wings when soaring
+        drawWing(-1);
+        drawWing(1);
+
+        // Fan tail feathers
+        ctx.fillStyle = bodyCol;
+        ctx.beginPath();
+        ctx.moveTo(-6, 14);
+        ctx.lineTo(0, 26);
+        ctx.lineTo(6, 14);
+        ctx.closePath();
+        ctx.fill();
+
+        // Rounded Owl Body
+        ctx.fillStyle = bodyCol;
+        ctx.strokeStyle = rimCol;
+        ctx.lineWidth = 1.1;
+        ctx.beginPath();
+        ctx.ellipse(0, 2, 11.5, 16, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.stroke();
+
+        // Subtle feather chevrons on chest
+        ctx.strokeStyle = 'rgba(253, 230, 138, 0.25)';
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(-5, 3); ctx.quadraticCurveTo(0, 6, 5, 3);
+        ctx.moveTo(-4, 8); ctx.quadraticCurveTo(0, 11, 4, 8);
+        ctx.stroke();
+
+        // Cute Owl Head with subtle curious tilt when perched
+        const headTilt = isFlying ? 0 : Math.sin(time * 0.9) * 0.14;
+        ctx.save();
+        ctx.translate(0, -11);
+        ctx.rotate(headTilt);
+
+        // Ear tufts
+        ctx.fillStyle = wingCol;
+        ctx.beginPath();
+        ctx.moveTo(-8, -5); ctx.lineTo(-11, -14); ctx.lineTo(-3, -8);
+        ctx.moveTo(8, -5); ctx.lineTo(11, -14); ctx.lineTo(3, -8);
+        ctx.fill();
+
+        // Head sphere & pale heart facial disc
+        ctx.fillStyle = wingCol;
+        ctx.beginPath();
+        ctx.arc(0, 0, 10, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.strokeStyle = rimCol;
+        ctx.lineWidth = 0.9;
+        ctx.stroke();
+
+        ctx.fillStyle = 'rgba(253, 230, 138, 0.14)';
+        ctx.beginPath();
+        ctx.arc(-3.8, 0, 4.4, 0, Math.PI * 2);
+        ctx.arc(3.8, 0, 4.4, 0, Math.PI * 2);
+        ctx.fill();
+
+        // Warm Golden Eyes with natural slow blink
+        const blinkPhase = time % 4.6;
+        const blinking = blinkPhase > 4.42 && blinkPhase < 4.55;
+        if (blinking) {
+          ctx.strokeStyle = '#fde68a';
+          ctx.lineWidth = 1.4;
+          ctx.beginPath();
+          ctx.moveTo(-6.2, 0); ctx.lineTo(-1.8, 0);
+          ctx.moveTo(1.8, 0); ctx.lineTo(6.2, 0);
+          ctx.stroke();
+        } else {
+          ctx.fillStyle = '#fde68a';
+          ctx.beginPath();
+          ctx.arc(-4, -0.5, 3.1, 0, Math.PI * 2);
+          ctx.arc(4, -0.5, 3.1, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = '#071122';
+          ctx.beginPath();
+          ctx.arc(-4, -0.5, 1.45, 0, Math.PI * 2);
+          ctx.arc(4, -0.5, 1.45, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.fillStyle = '#ffffff';
+          ctx.beginPath();
+          ctx.arc(-3.3, -1.2, 0.6, 0, Math.PI * 2);
+          ctx.arc(4.7, -1.2, 0.6, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        // Small golden beak
+        ctx.fillStyle = '#f5c542';
+        ctx.beginPath();
+        ctx.moveTo(0, 1.5);
+        ctx.lineTo(-2.1, 4.8);
+        ctx.lineTo(2.1, 4.8);
+        ctx.closePath();
+        ctx.fill();
+
+        ctx.restore();
+        ctx.restore();
+      }
+
+      // =======================================================================
+      // FLOATING PETALS, BOKEH FIREFLIES, STARDUST & INTERACTIVE BURSTS
+      // =======================================================================
+      function drawAtmosphereParticles(progress, dt, horizonY, cornicheY) {
+        // 1. Tumbling Crimson Pomegranate Petals -> Create Water Ripples on Contact!
+        for (let i = fallingPetals.length - 1; i >= 0; i--) {
+          const pt = fallingPetals[i];
+          pt.x += (pt.vx + Math.sin(time * 2 + pt.wobble) * 10) * dt;
+          pt.y += pt.vy * dt;
+          pt.rot += pt.vRot * dt;
+
+          // If petal lands on the Tigris River surface, spawn an elliptical ripple & recycle
+          if (pt.y > horizonY + 24 && pt.y < cornicheY - 4 && Math.random() < dt * 1.2) {
+            waterRipples.push({ x: pt.x, y: pt.y, r: 2, maxR: 26 + Math.random() * 14, alpha: 0.48 });
+            if (fallingPetals.length > 10) {
+              fallingPetals.splice(i, 1);
+              continue;
+            }
+            pt.y = -12;
+            pt.x = W * (0.2 + Math.random() * 0.85);
+          } else if (pt.y > H + 15 || pt.x < -25) {
+            if (fallingPetals.length > 10) {
+              fallingPetals.splice(i, 1);
+              continue;
+            }
+            pt.y = -12;
+            pt.x = W * (0.15 + Math.random() * 0.9);
+          }
+
+          ctx.save();
+          ctx.translate(pt.x, pt.y);
+          ctx.rotate(pt.rot);
+          ctx.fillStyle = progress < 0.45 ? 'rgba(196, 48, 66, 0.78)' : 'rgba(182, 52, 72, 0.65)';
+          ctx.beginPath();
+          ctx.ellipse(0, 0, pt.size, pt.size * 0.56, 0, 0, Math.PI * 2);
+          ctx.fill();
+          ctx.restore();
+        }
+
+        // 2. Golden Afternoon Pollen -> Bokeh Night Fireflies
+        const flyGlow = 0.28 + smoothstep(0.4, 0.85, progress) * 0.72;
+        for (let i = 0; i < fireflies.length; i++) {
+          const f = fireflies[i];
+          f.y -= f.vy * dt;
+          f.x += Math.sin(time * f.freq + f.phase) * 11 * dt;
+          if (f.y < H * 0.1) {
+            f.y = H * 0.95;
+            f.x = Math.random() * W;
+          }
+          const pulse = 0.35 + 0.65 * (0.5 + 0.5 * Math.sin(time * 2.4 + f.phase));
+          const a = flyGlow * pulse;
+          ctx.fillStyle = `rgba(245, 197, 66, ${(a * 0.22).toFixed(3)})`;
+          ctx.beginPath();
+          ctx.arc(f.x, f.y, f.r * 2.8, 0, Math.PI * 2);
+          ctx.fill();
+
+          ctx.fillStyle = `rgba(255, 240, 180, ${(a * 0.85).toFixed(3)})`;
+          ctx.beginPath();
+          ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        // 3. Owl golden stardust wake
+        for (let i = stardust.length - 1; i >= 0; i--) {
+          const sd = stardust[i];
+          sd.x += sd.vx * dt;
+          sd.y += sd.vy * dt;
+          sd.life -= dt * 0.85;
+          if (sd.life <= 0) { stardust.splice(i, 1); continue; }
+          ctx.fillStyle = `rgba(255, 232, 152, ${(sd.life * 0.75).toFixed(3)})`;
+          ctx.beginPath();
+          ctx.arc(sd.x, sd.y, sd.r * sd.life, 0, Math.PI * 2);
+          ctx.fill();
+        }
+
+        // 4. Interactive Tap / RSVP Celebration Golden Fireflies
+        for (let i = sparkleBursts.length - 1; i >= 0; i--) {
+          const sp = sparkleBursts[i];
+          sp.x += sp.vx * dt;
+          sp.y += sp.vy * dt;
+          sp.vy += 20 * dt;
+          sp.vx *= 0.985;
+          sp.life -= sp.decay * dt;
+          if (sp.life <= 0) { sparkleBursts.splice(i, 1); continue; }
+          ctx.fillStyle = rgbStr(sp.color, clamp(sp.life, 0, 1));
+          ctx.beginPath();
+          ctx.arc(sp.x, sp.y, sp.r * (0.4 + 0.6 * sp.life), 0, Math.PI * 2);
+          ctx.fill();
+        }
+      }
+
+      // Interactive Touch / Click Response (River -> Ripples, Sky -> Swirling Fireflies & Petals)
+      function handleTap(x, y) {
+        const { horizonY, cornicheY } = getMetrics(p);
+        if (y >= horizonY && y <= cornicheY) {
+          // Concentric elliptical water ripples on the Tigris
+          waterRipples.push({ x, y, r: 3, maxR: 48, alpha: 0.7 });
+          waterRipples.push({ x, y, r: 1, maxR: 32, alpha: 0.55 });
+        }
+        for (let i = 0; i < 10; i++) {
+          const ang = (Math.PI * 2 * i) / 10 + (Math.random() - 0.5) * 0.4;
+          const spd = 24 + Math.random() * 52;
+          sparkleBursts.push({
+            x, y,
+            vx: Math.cos(ang) * spd,
+            vy: Math.sin(ang) * spd - 14,
+            r: 1.5 + Math.random() * 2,
+            life: 1,
+            decay: 0.85 + Math.random() * 0.45,
+            color: i % 4 === 0 ? [204, 64, 78] : [255, 232, 146]
+          });
+        }
+      }
+
+      // Celebratory Golden Firefly Shower upon RSVP Submission
+      function triggerCelebration() {
+        for (let i = 0; i < 65; i++) {
+          const ang = Math.random() * Math.PI * 2;
+          const spd = 35 + Math.random() * 140;
+          sparkleBursts.push({
+            x: W * 0.5 + (Math.random() - 0.5) * W * 0.55,
+            y: H * 0.48 + (Math.random() - 0.5) * H * 0.25,
+            vx: Math.cos(ang) * spd * 0.65,
+            vy: Math.sin(ang) * spd * 0.65 - 55,
+            r: 1.6 + Math.random() * 2.8,
+            life: 1,
+            decay: 0.34 + Math.random() * 0.32,
+            color: i % 5 === 0 ? [210, 68, 82] : [255, 228, 132]
+          });
+        }
+      }
+
+      // Master 60fps Animation Loop
+      let lastTs = performance.now();
+      function frame(ts) {
+        const dt = Math.min((ts - lastTs) / 1000, 0.05);
+        lastTs = ts;
+        time += dt;
+
+        // Smooth damped scroll interpolation
+        p += (targetP - p) * 0.095;
+        updateTimePill(p);
+
+        const { horizonY, bridgeY, cornicheY, benchX, lampX, treeX } = getMetrics(p);
+        const lampOn = smoothstep(0.42, 0.64, p);
+
+        // Render Back-to-Front Painterly Layers
+        const cel = drawSky(p, dt, horizonY);
+        drawBaghdadSkyline(p, horizonY, cel.nightT);
+        drawTigrisAndBridge(p, dt, horizonY, bridgeY, cornicheY, cel);
+        drawReeds(p, cornicheY, 0);
+        drawCornichePromenade(p, cornicheY, lampX, lampOn);
+        drawBankPomegranateTree(p, treeX, cornicheY, lampOn);
+        drawVintageLamp(p, lampX, cornicheY, lampOn);
+        drawBaghdadBench(p, benchX, cornicheY, lampOn);
+        drawArticulatedFox(p, dt, benchX, cornicheY);
+        drawReeds(p, cornicheY, 1);
+
+        const perch = drawUpperPomegranateBranch(p, dt);
+        drawArticulatedOwl(p, dt, perch, cel.moonX, cel.moonY);
+        drawAtmosphereParticles(p, dt, horizonY, cornicheY);
+
+        requestAnimationFrame(frame);
+      }
+
+      function init() {
+        resize();
+        window.addEventListener('resize', resize, { passive: true });
+        window.addEventListener('scroll', updateScrollTarget, { passive: true });
+        document.addEventListener('pointerdown', (e) => {
+          if (e.target && e.target.closest('button, a, input, label, form')) return;
+          handleTap(e.clientX, e.clientY);
+        }, { passive: true });
+        requestAnimationFrame(frame);
+      }
+
+      return { init, triggerCelebration };
+    })();
+
+    // =========================================================================
+    // 5. DUAL-MODE RSVP SUBMISSION (Google Apps Script + External Fetch Fallback)
+    // =========================================================================
+    function initRSVP() {
+      const form = document.getElementById('rsvp-form');
+      const nameInput = document.getElementById('guest-name');
+      const submitBtn = document.getElementById('submit-btn');
+      const statusMsg = document.getElementById('status-msg');
+
+      function setStatus(type, text) {
+        statusMsg.classList.remove('hidden', 'bg-emerald-500/20', 'border-emerald-300/45', 'text-emerald-100', 'bg-rose-500/20', 'border-rose-300/45', 'text-rose-100', 'border');
+        statusMsg.classList.add('border');
+        if (type === 'success') {
+          statusMsg.classList.add('bg-emerald-500/20', 'border-emerald-300/45', 'text-emerald-100');
+        } else {
+          statusMsg.classList.add('bg-rose-500/20', 'border-rose-300/45', 'text-rose-100');
+        }
+        statusMsg.textContent = text;
+      }
+
+      if (safeGetStorage('fm_rsvp_submitted')) {
+        setStatus('success', 'تم تسجيل ردك مسبقاً بنجاح، شكراً لك 🤍');
+      }
+
+      function handleSuccess() {
+        safeSetStorage('fm_rsvp_submitted', '1');
+        setStatus('success', 'تم استلام ردك بنجاح! يسعدنا تواصلك ومشاركتك لنا هذه الفرحة ✨');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'تم الإرسال ✓';
+        form.reset();
+        BaghdadScene.triggerCelebration();
+      }
+
+      function handleError() {
+        setStatus('error', 'حدث خطأ أثناء الإرسال، يرجى المحاولة مرة أخرى.');
+        submitBtn.disabled = false;
+        submitBtn.textContent = 'إرسال الرد';
+      }
+
+      form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const name = nameInput.value.trim();
+        const attEl = form.querySelector('input[name="attendance"]:checked');
+        const sideEl = form.querySelector('input[name="side"]:checked');
+
+        if (!name || !attEl || !sideEl) {
+          setStatus('error', 'يرجى كتابة الاسم الكامل واختيار حالة الحضور والجهة قبل الإرسال.');
+          return;
+        }
+
+        const payload = {
+          name: name,
+          attendance: attEl.value,
+          side: sideEl.value
+        };
+
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'جاري الإرسال...';
+        statusMsg.classList.add('hidden');
+
+        // Mode A: Running directly inside Google Apps Script Web App
+        if (typeof google !== 'undefined' && google.script && google.script.run) {
+          google.script.run
+            .withSuccessHandler((res) => (res && res.status === 'success') ? handleSuccess() : handleError())
+            .withFailureHandler(handleError)
+            .saveRSVP(payload);
+          return;
+        }
+
+        // Mode B: Hosted externally (GitHub Pages / Netlify / Browser)
+        fetch(WEB_APP_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+          body: JSON.stringify(payload)
+        })
+          .then(handleSuccess)
+          .catch(handleError);
+      });
+    }
+
+    // Boot application on load
+    window.addEventListener('DOMContentLoaded', () => {
+      BaghdadScene.init();
+      initRSVP();
+    });
+  </script>
+</body>
+</html>
